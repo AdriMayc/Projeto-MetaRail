@@ -1,4 +1,4 @@
-import lupa from "../../../public/lupa.png";
+import lupa from "../../../public/Lupa.png";
 import logoMarca from "../../../public/MetaRail-Logo.png";
 import profile from "../../../public/profile.png"
 import React, { useState } from 'react';
@@ -8,6 +8,7 @@ export default function NavbarHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoOff, setLogoOff] = useState(false);
+
 
   return (
     /* Order:   
@@ -114,7 +115,7 @@ export default function NavbarHeader() {
 
               <button
                 id="dropdownDefaultButton"
-                data-dropdown-toggle="dropdown2"
+                data-dropdown-toggle="dropdown-2"
                 className={`
                   w-full px-4 py-2 ml-3 text-center inline-flex justify-center items-center order-6 
                   active:text-[#5F5AA2] ${isOpen ? "text-[#5F5AA2]" : "text-white"}`}
@@ -141,7 +142,7 @@ export default function NavbarHeader() {
               {/* ---Dropdown Inside--- */}
               {isOpen && (
                 <ul
-                  id="dropdown2"
+                  id="dropdown-2"
                   className="w-full item-center !relative !transform-none order-7"
                   aria-labelledby="dropdownDefaultButton"
                 >
