@@ -11,7 +11,8 @@ export default function NavbarHeader() {
 
 
   return (
-    <nav className="w-full md:h-24 h-12 bg-[#4A589A] font-sans">
+    <nav className="w-full md:h-24 h-12 bg-[#5F5AA2] font-sans">
+      {/* Navbar Top */}
       <div id="navbarMain" className="w-full h-full md:h-[65%] bg-[#3d4658] flex justify-between items-center">
         <div className="md:hidden" data-dropdown-toggle="dropdown">
           <svg onClick={() => setMenuOpen(!menuOpen)}
@@ -23,39 +24,40 @@ export default function NavbarHeader() {
         </div>
 
         <a className="md:w-1/6 md:ml-16" href="#">
-          <img className={`${logoOff ? "hidden" : "block"} h-11 mt-[3px] relative duration-500 md:h-16 md:mt-[2px`}
+          <img className={`${logoOff ? "hidden" : "block"} h-11  mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
             src={logoMarca} alt="" />
         </a>
 
-        <div className="md:px-8 md:pr-0">
+        <div className="md:w-full  md:pr-0  md:flex md:justify-center">
           <input
+            id=""
             placeholder="Pesquise Aqui..."
-            className={`w-40 h-10 z-10 pt-2.5 absolute left-[29.5%] -translate-y-10 duration-700 ${logoOff ? "top-11" : "top-[-8%]"}
-            md:w-80 md:h-8 md:pl-5 md:pt-2.5 md:bg-[#ffffff] rounded-full placeholder-[#4a579a] border-none
-            font-semibold text-lg text-[#4A589A] md:block focus:outline-none focus:ring-[#4A589A] focus:ring-4 md:focus:ring-[#4A589A]`}
+            className={`w-40 h-10 z-10 pt-2.5 absolute md:relative -translate-y-10 md:-translate-y-0 duration-700 ${logoOff ? "top-11" : "top-[-8%]"}
+            md:w-1/3 md:h-10 md:z-0 searchBar md:left-0 md:pt-2.5 md:bg-[#ffffff] rounded-full placeholder-[#5F5AA2] border-none
+            font-semibold text-xl text-[#5F5AA2]  focus:outline-none focus:ring-[#5F5AA2] focus:ring-4 md:focus:ring-[#5F5AA2]`}
             type="text"
           />
-          <button type="submit">
-            <img className="w-7 flex mt-2 mr-3 md:w-8 md:mt-0 md:ml-2"
+          <button type="submit" className="md:hidden">
+            <img className="w-7 flex mt-2 mr-3 md:w-8 md:mt-0 md:ml-2 "
               src={lupa} alt="lupa"
               onClick={() => setLogoOff(!logoOff)}
             />
           </button>
         </div>
 
-        <div className="md:w-1/6 md:mr-14 tracking-wider md:text-[#ffffff] font-semibold md:text-sm md:flex hidden md:justify-between items-center">
-          <a href="#">DONATE</a>
-          <a className="md:borde border-[3px] border-[#4A589A] md:rounded-full md:py-2 md:px-3" href="#">LOGIN</a>
+        <div className="w-96  md:mr-14 tracking-wider md:text-[#ffffff] font-semibold  md:flex hidden md:justify-between items-center">
+          <a className="underline-animation  inline-block" href="#">DONATE</a>
+          <a className="border md:border-4  border-[#5F5AA2] md:rounded-full md:py-2 md:px-3 hover:text-[#5d5991]" href="#">LOGIN</a>
           <a href="#">
-            <img className="md:w-14" src={profile} alt="profile" />
+            <img className="md:w-14" src={profile} alt="profile"/>
           </a>
         </div>
 
-        {/* Menu Content */}
+        {/* Menu Content Mobile */}
         <div
           id="dropdown"
           className={`w-full bg-[#3d4658] absolute top-[24px] mt-[24px] flex-col border-t-2 border-t-[#4A589A]
-          md:mr-16 items-center transition-all duration-500 ease-in-out ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+          md:mr-16  items-center md:hidden transition-all duration-500 ease-in-out  ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
         >
           <ul className="w-full h-full flex flex-col items-center justify-around text-white">
             <div className="md:w-full md:block flex flex-col">
@@ -72,15 +74,15 @@ export default function NavbarHeader() {
               </a>
             </div>
 
-            <div className="flex flex-col items-center">
-              <a href="#" className="px-4 py-2 order-4 active:text-[#5F5AA2]">Tier List</a>
-              <a href="#" className="px-4 py-2 order-5 active:text-[#5F5AA2]">Equipes</a>
+            <div className="flex flex-col items-center  md:text-black md:border md:border-black">
+              <a href="#" className="px-4 py-2 order-4 active:text-[#5F5AA2] ">Equipes</a>
+              <a href="#" className="px-4 py-2 order-5 active:text-[#5F5AA2]">Tier List</a>
 
               <button
                 id="dropdownDefaultButton"
                 data-dropdown-toggle="dropdown2"
                 className={`w-full px-4 py-2 ml-3 text-center inline-flex justify-center items-center order-6 
-                active:text-[#5F5AA2] ${isOpen ? "text-[#5F5AA2]" : "text-white"}`}
+                active:text-[#5F5AA2] ${!menuOpen ? "text-white" : "text-[#5F5AA2]"} ${isOpen ? "text-[#5F5AA2]" : "text-white"} `}
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
               >
@@ -105,23 +107,35 @@ export default function NavbarHeader() {
               {/* Dropdown Inside */}
               <ul
                 id="dropdown2"
-                className={`w-full item-center order-7 transition-all duration-500 ease-in-out ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+                className={`w-full item-center order-7 transition-all duration-500 ease-in-out 
+                ${isOpen ? "max-h-40  opacity-100" : "max-h-0 opacity-0"}`}
                 aria-labelledby="dropdownDefaultButton"
               >
                 <li className="flex justify-center">
-                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Relíquias</a>
+                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Cones de Luz</a>
                 </li>
                 <li className="flex justify-center">
                   <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Ornamentos</a>
                 </li>
                 <li className="flex justify-center">
-                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Cones de Luz</a>
+                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Relíquias</a>
                 </li>
               </ul>
             </div>
           </ul>
         </div>
       </div>
+      {/* Navbar Bottom */}
+      <div className="md:w-full md:h-[35%] md:flex md:justify-center">
+      <ul className="hidden md:w-5/6 md:border-[3px] md:border-[#5F5AA2] md:flex md:justify-evenly md:text-white md:font-semibold md:text-2xl">
+          <li className="underline-animation inline-block"><a href="#">Cones de Luz</a></li>
+          <li className="underline-animation inline-block"><a href="#">Equipes</a></li>
+          <li className="underline-animation inline-block"><a href="#">Ornamentos</a></li>
+          <li className="underline-animation inline-block"><a href="#">Relíquias</a></li>
+          <li className="underline-animation inline-block"><a href="#">Tier List</a></li>
+        </ul>
+      </div>
     </nav>
   );
 }
+

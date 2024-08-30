@@ -8,7 +8,30 @@
     z-index: -3;
 }
 
+.searchBar {
+    left: calc(50% - 5rem);
+} 
+
 #dropdown {
     z-index: -1;
     transition-duration: 1000ms ;
 }
+  
+.underline-animation {
+    position: relative;
+  }
+  
+  .underline-animation::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s;
+  }
+
+  .underline-animation:hover::after {
+    width: 100%;
+  }
