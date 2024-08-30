@@ -1,4 +1,4 @@
-import lupa from "../../../public/lupa.png";
+import lupa from "../../../public/Lupa.png";
 import logoMarca from "../../../public/MetaRail-Logo.png";
 import profile from "../../../public/profile.png"
 import React, { useState } from 'react';
