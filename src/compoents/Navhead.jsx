@@ -1,7 +1,6 @@
-import lupa from "../../../public/Lupa.png";
-import logoMarca from "../../../public/MetaRail-Logo.png";
-import profile from "../../../public/profile.png"
-import React, { useState } from 'react';
+import { Lupa, profile, MetaRailLogo } from '../../public';
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function NavbarHeader() {
 
@@ -11,7 +10,7 @@ export default function NavbarHeader() {
 
 
   return (
-    <nav className="w-full md:h-24 h-12 bg-[#5F5AA2] font-sans">
+    <nav className="w-full md:h-24 h-12 bg-[#5F5AA2] font-sans z-50">
       {/* Navbar Top */}
       <div id="navbarMain" className="w-full h-full md:h-[65%] bg-[#3d4658] flex justify-between items-center">
         <div className="md:hidden" data-dropdown-toggle="dropdown">
@@ -23,10 +22,12 @@ export default function NavbarHeader() {
           </svg>
         </div>
 
-        <a className="md:w-1/6 md:ml-16" href="#">
-          <img className={`${logoOff ? "hidden" : "block"} h-11  mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
-            src={logoMarca} alt="" />
-        </a>
+        <Link className="md:w-1/6 md:ml-16" to="#">
+          <Link to="/">
+            <img className={`${logoOff ? "hidden" : "block"} h-11  mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
+              src={MetaRailLogo} alt="" />
+          </Link>
+        </Link>
 
         <div className="md:w-full  md:pr-0  md:flex md:justify-center">
           <input
@@ -39,18 +40,18 @@ export default function NavbarHeader() {
           />
           <button type="submit" className="md:hidden">
             <img className="w-7 flex mt-2 mr-3 md:w-8 md:mt-0 md:ml-2 "
-              src={lupa} alt="lupa"
+              src={Lupa} alt="lupa"
               onClick={() => setLogoOff(!logoOff)}
             />
           </button>
         </div>
 
         <div className="w-96  md:mr-14 tracking-wider md:text-[#ffffff] font-semibold  md:flex hidden md:justify-between items-center">
-          <a className="underline-animation  inline-block" href="#">DONATE</a>
-          <a className="border md:border-4  border-[#5F5AA2] md:rounded-full md:py-2 md:px-3 hover:text-[#5d5991]" href="#">LOGIN</a>
-          <a href="#">
+          <Link className="underline-animation  inline-block" to="#">DONATE</Link>
+          <Link className="border md:border-4  border-[#5F5AA2] md:rounded-full md:py-2 md:px-3 hover:text-[#5d5991]" to="#">LOGIN</Link>
+          <Link to="#">
             <img className="md:w-14" src={profile} alt="profile"/>
-          </a>
+          </Link>
         </div>
 
         {/* Menu Content Mobile */}
@@ -61,27 +62,27 @@ export default function NavbarHeader() {
         >
           <ul className="w-full h-full flex flex-col items-center justify-around text-white">
             <div className="md:w-full md:block flex flex-col">
-              <a href="#" className="px-4 py-2 order-3 md:px-4 md:py-1 md:uppercase md:flex md:font-semibold active:text-[#5F5AA2]">Donate</a>
+              <Link to="#" className="px-4 py-2 order-3 md:px-4 md:py-1 md:uppercase md:flex md:font-semibold active:text-[#5F5AA2]">Donate</Link>
               <button
                 type="text"
-                className="h-auto px-4 py-2 border-none bg-transparent focus:ring-0 order-2 
+                className="h-auto px-4 py-2 border-none bg-transparent focus:ring-0 order-2
                 md:border-2 md:border-[#5F5AA2] md:uppercase md:flex md:rounded-full md:font-semibold active:text-[#5F5AA2]"
               >
                 <u>Login</u>
               </button>
-              <a href="#" className="w-14 ml-3.5">
+              <Link to="#" className="w-14 ml-3.5">
                 <img src={profile} alt="profile" />
-              </a>
+              </Link>
             </div>
 
             <div className="flex flex-col items-center  md:text-black md:border md:border-black">
-              <a href="#" className="px-4 py-2 order-4 active:text-[#5F5AA2] ">Equipes</a>
-              <a href="#" className="px-4 py-2 order-5 active:text-[#5F5AA2]">Tier List</a>
+              <Link to="#" className="px-4 py-2 order-4 active:text-[#5F5AA2] ">Equipes</Link>
+              <Link to="#" className="px-4 py-2 order-5 active:text-[#5F5AA2]">Tier List</Link>
 
               <button
                 id="dropdownDefaultButton"
                 data-dropdown-toggle="dropdown2"
-                className={`w-full px-4 py-2 ml-3 text-center inline-flex justify-center items-center order-6 
+                className={`w-full px-4 py-2 ml-3 text-center inline-flex justify-center items-center order-6
                 active:text-[#5F5AA2] ${!menuOpen ? "text-white" : "text-[#5F5AA2]"} ${isOpen ? "text-[#5F5AA2]" : "text-white"} `}
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
@@ -107,18 +108,18 @@ export default function NavbarHeader() {
               {/* Dropdown Inside */}
               <ul
                 id="dropdown2"
-                className={`w-full item-center order-7 transition-all duration-500 ease-in-out 
+                className={`w-full item-center order-7 transition-all duration-500 ease-in-out
                 ${isOpen ? "max-h-40  opacity-100" : "max-h-0 opacity-0"}`}
                 aria-labelledby="dropdownDefaultButton"
               >
                 <li className="flex justify-center">
-                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Cones de Luz</a>
+                  <Link to="#" className="block px-4 py-2 active:text-[#5F5AA2]">Cones de Luz</Link>
                 </li>
                 <li className="flex justify-center">
-                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Ornamentos</a>
+                  <Link to="#" className="block px-4 py-2 active:text-[#5F5AA2]">Ornamentos</Link>
                 </li>
                 <li className="flex justify-center">
-                  <a href="#" className="block px-4 py-2 active:text-[#5F5AA2]">Relíquias</a>
+                  <Link to="#" className="block px-4 py-2 active:text-[#5F5AA2]">Relíquias</Link>
                 </li>
               </ul>
             </div>
@@ -128,11 +129,12 @@ export default function NavbarHeader() {
       {/* Navbar Bottom */}
       <div className="md:w-full md:h-[35%] md:flex md:justify-center">
       <ul className="hidden md:w-5/6 md:border-[3px] md:border-[#5F5AA2] md:flex md:justify-evenly md:text-white md:font-semibold md:text-2xl">
-          <li className="underline-animation inline-block"><a href="#">Cones de Luz</a></li>
-          <li className="underline-animation inline-block"><a href="#">Equipes</a></li>
-          <li className="underline-animation inline-block"><a href="#">Ornamentos</a></li>
-          <li className="underline-animation inline-block"><a href="#">Relíquias</a></li>
-          <li className="underline-animation inline-block"><a href="#">Tier List</a></li>
+          <li className="underline-animation inline-block"><Link to="/">Home</Link></li>
+          <li className="underline-animation inline-block"><Link to="/cones">Cones de Luz</Link></li>
+          <li className="underline-animation inline-block"><Link to="/equipes">Equipes</Link></li>
+          <li className="underline-animation inline-block"><Link to="/ornamentos">Ornamentos</Link></li>
+          <li className="underline-animation inline-block"><Link to="/reliquias">Relíquias</Link></li>
+          <li className="underline-animation inline-block"><Link to="/tierlist">Tier List</Link></li>
         </ul>
       </div>
     </nav>

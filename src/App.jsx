@@ -1,14 +1,15 @@
-import { useState } from 'react'
 import './App.css'
-import NavbarHeader from './pages/header/navhead'
+import Routes from "./routes";
+import { queryClient } from './queryClient';
+import { QueryClientProvider } from 'react-query';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <NavbarHeader></NavbarHeader>
-      
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+      </QueryClientProvider>
     </>
   )
 }
