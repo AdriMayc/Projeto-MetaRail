@@ -21,14 +21,14 @@ function Footer() {
         <div className="w-full min-h-[200px] bg-[#3d4658] flex flex-col items-center text-white">
           {/* Logo do Site */}
           <a href="#">
-            <img className="h-20 mt-2" src={MetaRailLogo} alt="Logo" />
+            <img className="h-14 mt-2" src={MetaRailLogo} alt="Logo" />
           </a>
           {/* Informações de copyright */}
           <ul>
-            <li className='text-xs' >© 2024 MetaRail.</li>
+            <li className='text-[11px]' >© 2024 MetaRail.</li>
           </ul>
           {/* Links de navegação */}
-          <ul className="space-y-4 mt-4 mb-2 flex flex-col items-center text-lg">
+          <ul className="space-y-4 mt-2 mb-2 flex flex-col items-center text-lg">
             <li className='active:text-[#5F5AA2]'><a href="#">Contato</a></li>
             <li className='active:text-[#5F5AA2]'><a href="#">Feedbacks</a></li>
             <li className='active:text-[#5F5AA2]'><a href="#">Direitos Autorais</a></li>
@@ -37,7 +37,7 @@ function Footer() {
         </div>
         {/* Seção de Atualização */}
         <div className="w-full max-h-[40px] bg-[#000000] text-white flex items-center relative">
-          <div className="relative">
+          <div className="relative ">
             <button
               type='button'
               onClick={toggleDropdown}
