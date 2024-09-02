@@ -4,7 +4,7 @@ const page = () => {
 
     return (
         <>
-            <div>Home page</div>
+            <div className="h-screen" >Home page</div>
             <CharList />
         </>
     )

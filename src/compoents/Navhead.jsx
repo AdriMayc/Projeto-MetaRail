@@ -10,7 +10,7 @@ export default function NavbarHeader() {
 
 
   return (
-    <nav className="w-full md:h-24 h-12 bg-[#5F5AA2] font-sans z-50">
+    <nav className="w-full md:h-24 h-12 bg-[#5F5AA2] font-sans z-50 fixed">
       {/* Navbar Top */}
       <div id="navbarMain" className="w-full h-full md:h-[65%] bg-[#3d4658] flex justify-between items-center">
         <div className="md:hidden" data-dropdown-toggle="dropdown">
