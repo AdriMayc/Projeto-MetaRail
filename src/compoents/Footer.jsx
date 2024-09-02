@@ -28,7 +28,7 @@ function Footer() {
             <li className='text-[11px]' >© 2024 MetaRail.</li>
           </ul>
           {/* Links de navegação */}
-          <ul className="space-y-4 mt-2 mb-2 flex flex-col items-center text-lg">
+          <ul className="space-y-2 mt-2 mb-2 flex flex-col items-center text-lg">
             <li className='active:text-[#5F5AA2]'><a href="#">Contato</a></li>
             <li className='active:text-[#5F5AA2]'><a href="#">Feedbacks</a></li>
             <li className='active:text-[#5F5AA2]'><a href="#">Direitos Autorais</a></li>
