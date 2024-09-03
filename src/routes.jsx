@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavbarHeader from "./compoents/Navhead";
-import Footer from "./compoents/Footer";
+import NavbarHeader from "./components/nav/Navhead";
+import Footer from "./components/footer/Footer";
 import HomePage from "./pages/home";
 import ConesPage from "./pages/cones";
 import ReliquiasPage from "./pages/reliquias";

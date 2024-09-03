@@ -1,6 +1,6 @@
 import { FreeMode, Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
-import breakpoints from '../swiperBreakpoints';
+import breakpoints from '../../swiperBreakpoints';
 import { useRef } from 'react';
 
 

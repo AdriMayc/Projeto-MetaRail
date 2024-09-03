@@ -1,4 +1,4 @@
-import CharList from "../../compoents/CharList";
+import CharList from "../../components/charlist/CharList";
 
 const page = () => {
 

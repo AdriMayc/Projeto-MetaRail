@@ -1,4 +1,4 @@
-import { MetaRailLogo } from '../../public';
+import { MetaRailLogo } from '../../../public';
 import React, { useState } from 'react';
 
 function Footer() {
@@ -40,16 +40,16 @@ function Footer() {
           md:w-2/3 md:flex-row md:flex-wrap 
           ">
             <li className='md:w-1/2  md:order-1 active:text-[#5F5AA2]'>
-              <a href="#" className='underline-animation'>Contato</a>
+              <a href="#" className='md:underline-animation'>Contato</a>
             </li>
             <li className='md:w-1/2  md:order-3 active:text-[#5F5AA2]'>
-              <a href="#" className='underline-animation'>Feedbacks</a>
+              <a href="#" className='md:underline-animation'>Feedbacks</a>
             </li>
             <li className='md:w-1/2  md:order-2 active:text-[#5F5AA2]'>
-              <a href="#" className='underline-animation'>Direitos Autorais</a>
+              <a href="#" className='md:underline-animation'>Direitos Autorais</a>
             </li>
             <li className='md:w-1/2  md:order-4 active:text-[#5F5AA2]'>
-              <a href="#" className='underline-animation'>Políticas de Privacidade</a>
+              <a href="#" className='md:underline-animation'>Políticas de Privacidade</a>
             </li>
           </ul>
         </div>
