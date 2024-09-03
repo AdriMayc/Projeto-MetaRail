@@ -1,4 +1,4 @@
-import { MetaRailLogo } from '../../public';
+import { MetaRailLogo } from '../../../public';
 import React, { useState } from 'react';
 
 function Footer() {
