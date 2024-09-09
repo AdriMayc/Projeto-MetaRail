@@ -16,7 +16,7 @@ function Footer() {
 
   return (
     <>
-      <footer className="font-sans -tracking-tight">
+      <footer className="font-sans -tracking-tight ">
         {/* Seção principal do footer */}
         <div className="
         w-full min-h-[200px] md:min-h-[160px] bg-[#3d4658] flex flex-col items-center text-white

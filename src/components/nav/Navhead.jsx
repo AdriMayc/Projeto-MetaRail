@@ -8,7 +8,7 @@ export default function NavbarHeader() {
   const [logoOff, setLogoOff] = useState(false);
 
   return (
-    <nav className="w-full md:h-24 h-12 bg-[#5F5AA2] font-sans z-50 fixed">
+    <nav className="w-full z-20 md:h-24 h-12 bg-[#5F5AA2] font-sans  fixed">
       {/* Navbar Top */}
       <div
         id="navbarMain"
@@ -17,9 +17,8 @@ export default function NavbarHeader() {
         <div className="md:hidden" data-dropdown-toggle="dropdown">
           <svg
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`w-7 h-7 ml-3 text-[#ffffff] duration-500 ${
-              menuOpen ? "rotate-90 !text-[#4A589A] " : "rotate-0"
-            }`}
+            className={`w-7 h-7 ml-3 text-[#ffffff] duration-500 ${menuOpen ? "rotate-90 !text-[#4A589A] " : "rotate-0"
+              }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -38,9 +37,8 @@ export default function NavbarHeader() {
         <Link className="md:w-1/6 md:ml-16" to="#">
           <Link to="/">
             <img
-              className={`${
-                logoOff ? "hidden" : "block"
-              } h-11  mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
+              className={`${logoOff ? "hidden" : "block"
+                } h-11  mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
               src={MetaRailLogo}
               alt=""
             />
@@ -51,9 +49,8 @@ export default function NavbarHeader() {
           <input
             id=""
             placeholder="Pesquise Aqui..."
-            className={`w-40 h-10 z-10 pt-2.5 absolute md:relative -translate-y-10 md:-translate-y-0 duration-700 ${
-              logoOff ? "top-11" : "top-[-8%]"
-            }
+            className={`w-40 h-10 z-10 pt-2.5 absolute md:relative -translate-y-10 md:-translate-y-0 duration-700 ${logoOff ? "top-11" : "top-[-8%]"
+              }
             md:w-1/3 md:h-10 md:z-0 searchBar md:left-0 md:pt-2.5 md:bg-[#ffffff] rounded-full placeholder-[#5F5AA2] border-none
             font-semibold text-xl text-[#5F5AA2]  focus:outline-none focus:ring-[#5F5AA2] focus:ring-4 md:focus:ring-[#5F5AA2]`}
             type="text"
@@ -86,10 +83,10 @@ export default function NavbarHeader() {
         {/* Menu Content Mobile */}
         <div
           id="dropdown"
-          className={`w-full bg-[#3d4658] absolute top-[24px] mt-[24px] flex-col border-t-2 border-t-[#4A589A]
-          md:mr-16  items-center md:hidden transition-all duration-500 ease-in-out  ${
-            menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`w-full  bg-[#3d4658] absolute top-[24px] mt-[24px] flex-col border-t-2 border-t-[#4A589A]
+          md:mr-16  items-center md:hidden transition-all duration-500 ease-in-out  
+          ${menuOpen ? "max-h-96 opacity-100 " : "max-h-0 opacity-0"
+            }`}
         >
           <ul className="w-full h-full flex flex-col items-center justify-around text-white">
             <div className="md:w-full md:block flex flex-col">
@@ -123,9 +120,8 @@ export default function NavbarHeader() {
                 id="dropdownDefaultButton"
                 data-dropdown-toggle="dropdown2"
                 className={`w-full px-4 py-2 ml-3 text-center inline-flex justify-center items-center order-6
-                active:text-[#5F5AA2] ${
-                  !menuOpen ? "text-white" : "text-[#5F5AA2]"
-                } ${isOpen ? "text-[#5F5AA2]" : "text-white"} `}
+                active:text-[#5F5AA2] ${!menuOpen ? "text-white" : "text-[#5F5AA2]"
+                  } ${isOpen ? "text-[#5F5AA2]" : "text-white"} `}
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
               >
