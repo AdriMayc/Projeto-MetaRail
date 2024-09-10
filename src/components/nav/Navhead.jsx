@@ -85,8 +85,7 @@ export default function NavbarHeader() {
           id="dropdown"
           className={`w-full  bg-[#3d4658] absolute top-[24px] mt-[24px] flex-col border-t-2 border-t-[#4A589A]
           md:mr-16  items-center md:hidden transition-all duration-500 ease-in-out  
-          ${menuOpen ? "max-h-96 opacity-100 " : "max-h-0 opacity-0"
-            }`}
+          ${menuOpen ? "max-h-96  opacity-100  visible" : "max-h-0  opacity-0  invisible"}`}
         >
           <ul className="w-full h-full flex flex-col items-center justify-around text-white">
             <div className="md:w-full md:block flex flex-col">
