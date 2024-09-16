@@ -3,6 +3,11 @@ import { hearthIcon, shieldIcon, atkIcon, spdIcon } from "../../../public"
 
 
 const profileCharacter = () => {
+    // Max Vote Value
+    const voteValue = 10000;
+    const voted = 2852
+    const totalVotes = (voted / voteValue) * 100
+
     // Valores Máximos
     const life = 1500;
     const def = 800;
@@ -36,18 +41,122 @@ const profileCharacter = () => {
     // Variavel para Clique
     const [isClicked, setIsClicked] = useState(false); // Botão de Level
 
+    const [isVoted, setIsVoted] = useState({
+        div1: false,
+        div2: false,
+        div3: false,
+        div4: false,
+        div5: false,
+    }); // Botão de Votar
+
+    const thisVote = (div) => {
+        setIsVoted(prevState => ({
+            ...prevState,
+            [div]: !prevState[div], // Altera apenas o div clicado
+        }));
+    };
+
     return (
-        <body className="pt-12  bg-[#2C252B]  overflow-y-hidden text-white">
+        <body className="pt-12  bg-[#2C252B]  overflow-y-hidden text-white ">
 
             <div className=" h-full w-auto m-6  bg-[#413F54]  flex flex-col  items-center  rounded-[1.7rem]"> {/* Background Content */}
+                {/* Char Introdution */}
                 <div className="pt-3  flex  flex-col  items-center">
                     <img className="w-48   bg-black  rounded-[1.7rem] " src="https://rerollcdn.com/STARRAIL/Characters/Full/3017.png" alt="" />
                     <h2 className="text-2xl font-semibold underline ">Acheron</h2>
                     <h3 className="text-zinc-500">Inexistência</h3>
                     <img className="w-10" src="https://rerollcdn.com/STARRAIL/Elements/lightning.png" alt="Raio" />
+                    <h2 className="mt-2 font-semibold ">Tier List</h2>
                 </div>
+                {/* Tier List */}
+                <table className="w-[90%]  my-2 text-sm border-2 flex flex-col ">
+                    <thead className=" border-b-2 ">
+                        <tr className="w-full flex justify-evenly text-zinc-400">
+                            <th className="w-1/3 font-light">Geral </th>
+                            <th className="w-1/3 font-light">Alvo Único</th>
+                            <th className="w-1/3 font-light">Dano em Área</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="w-full flex justify-around">
+                            <td className="font-mono text-lg ">SS</td>
+                            <td className="font-mono text-lg ">SS</td>
+                            <td className="font-mono text-lg ">SS</td>
+                        </tr>
+                    </tbody>
+                </table>
                 
-                <hr className="w-full" />
+                <h2 className="mt-2 font-semibold ">Tier List da Comunidade</h2>
+
+                <div className="w-full h-20 mt-2 mb-5 flex justify-center gap-2 ">
+                    {/* SS */}
+                    <div
+                        id="div1"
+                        onClick={() => thisVote('div1')}
+                        className={`
+                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
+                    >
+                        <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
+                            style={{ width: `${isVoted.div1 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
+                        <span className="absolute inset-0 flex items-center justify-center">SS</span>
+                        <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
+
+                    </div>
+                    {/* S */}
+                    <div
+                        id="div1"
+                        onClick={() => thisVote('div2')}
+                        className={`
+                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
+                    >
+                        <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
+                            style={{ width: `${isVoted.div2 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
+                        <span className="absolute inset-0 flex items-center justify-center">S</span>
+                        <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
+
+                    </div>
+                    {/* A */}
+                    <div
+                        
+                        onClick={() => thisVote('div3')}
+                        className={`
+                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
+                    >
+                        <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
+                            style={{ width: `${isVoted.div3 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
+                        <span className="absolute inset-0 flex items-center justify-center">A</span>
+                        <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
+
+                    </div>
+                    {/* B */}
+                    <div
+                        id="div1"
+                        onClick={() => thisVote('div4')}
+                        className={`
+                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
+                    >
+                        <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
+                            style={{ width: `${isVoted.div4 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
+                        <span className="absolute inset-0 flex items-center justify-center">B</span>
+                        <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
+
+                    </div>
+                    {/* C */}
+                    <div
+                        id="div1"
+                        onClick={() => thisVote('div5')}
+                        className={`
+                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
+                    >
+                        <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
+                            style={{ width: `${isVoted.div5 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
+                        <span className="absolute inset-0 flex items-center justify-center">C</span>
+                        <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
+
+                    </div>
+                </div>
+
+                <hr className="w-full " />
 
                 <section className="w-full h-96 mt-2 mb-5 flex flex-wrap"> {/*Section Status*/}
                     <h2 className="w-full flex justify-center font-semibold text-lg">Status</h2>

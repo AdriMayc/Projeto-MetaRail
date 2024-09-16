@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Roboto', 'sans-serif']
+        sans: ['Roboto', 'sans-serif'],
+        mono: ['Protest Guerrilla', 'sans'],
       },
     },
   },
