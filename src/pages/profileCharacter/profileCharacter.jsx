@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { hearthIcon, shieldIcon, atkIcon, spdIcon } from "../../../public"
+import AccordionItem from '../../components/Accordion/accordion'
 
 
 const profileCharacter = () => {
@@ -85,9 +86,10 @@ const profileCharacter = () => {
                         </tr>
                     </tbody>
                 </table>
-                
+
                 <h2 className="mt-2 font-semibold ">Tier List da Comunidade</h2>
 
+                {/*TierList*/}
                 <div className="w-full h-20 mt-2 mb-5 flex justify-center gap-2 ">
                     {/* SS */}
                     <div
@@ -117,7 +119,7 @@ const profileCharacter = () => {
                     </div>
                     {/* A */}
                     <div
-                        
+
                         onClick={() => thisVote('div3')}
                         className={`
                     w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
@@ -158,7 +160,8 @@ const profileCharacter = () => {
 
                 <hr className="w-full " />
 
-                <section className="w-full h-96 mt-2 mb-5 flex flex-wrap"> {/*Section Status*/}
+                {/*Section Status*/}
+                <section className="w-full h-96 mt-2 mb-5 flex flex-wrap">
                     <h2 className="w-full flex justify-center font-semibold text-lg">Status</h2>
 
                     <div className="w-full  flex justify-center ">
@@ -229,11 +232,12 @@ const profileCharacter = () => {
                             <li className="w-[47%]  p-3   bg-[#5F5AA2]  rounded-lg  text-white">Velocidade: 101-135 +</li>
                         </ul>
                     </div>{/* End Build Recomendada */}
-                </section>{/* End Section Status */}
-
+                </section>
+                {/* End Section Status */}
                 <hr className="w-full" />
 
-                <section className="w-full"> {/* Material de Upgrade */}
+                {/* Material de Upgrade */}
+                <section className="w-full">
                     <div className="w-full mt-2 mb-6 flex flex-col justify-center items-center font-semibold ">
                         <h2>Material de Ascensão</h2>
                         <h3 className="font-thin text-sm mt-3 text-slate-400">Ascensão de Personagem</h3>
@@ -384,17 +388,58 @@ const profileCharacter = () => {
 
                         </ul> {/* End Ascensão de Rastros */}
                     </div>
-                </section>{/* End Material de Upgrade */}
+                </section>
+                {/* End Material de Upgrade */}
 
                 <hr className="w-full" />
 
-                <section>
-                    <div>Melhores Relíquias</div>
+                <section className="w-full flex flex-col justify-center items-center">
+                    <h2 className="mt-2 font-semibold ">Equipamentos</h2>
+
+                    <div className="w-[95%] flex flex-col gap-2 ">
+                        <h3 className="font-thin text-sm mt-2 text-slate-400 flex justify-center ">
+                            Melhores Relíquias
+                        </h3>
+                        <AccordionItem
+                            isOpenDefault={true}
+                            title="Mergulhadora Pioneira de Águas Mortas" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/pioneer-diver-of-dead-waters-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta em 12% o Dano causado a inimigos com penalidades.",
+                                "(4) Aumenta a Chance de CRIT em 4%. O usuário causa 8%/12% de Dano CRIT aumentado em inimigos com pelo menos 2/3 penalidades. Após o usuário infligir uma penalidade nos inimigos-alvo, os efeitos mencionados anteriormente aumentam em 100%, durando por 1 rodada(s)."
+                            ]} // Descrição Geral
+                            rating={5} // Rank de Estrelas
+                        />
+                        <AccordionItem
+                            isOpenDefault={false} // começa fechado
+                            title="	Banda Trovão Crepitante"   // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/band-of-sizzling-thunder-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta o Dano de Raio em 10%.",
+                                "(4) Quando o usuário usa a Perícia, aumenta o ATQ em 20% por 1 rodada(s)."
+                            ]}
+                            rating={4}
+                        />
+                        <AccordionItem
+                            isOpenDefault={false}
+                            title="Mergulhadora Pioneira de Águas Mortas" // Define o titulo
+                            title2="Mosqueteira do Trigo Selvagem" // Define o titulo 2
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/pioneer-diver-of-dead-waters-relic_set_icon.webp?x34722"
+                            secondImageUrl="https://starrail.honeyhunterworld.com/img/relic_set/musketeer-of-wild-wheat-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta em 12% o Dano causado a inimigos com penalidades.",
+                                "(2) Aumenta em 12% o ATQ."
+                            ]} // Descrição Geral
+                            rating={3} // Rank de Estrelas
+                        />
+                    </div>
                     <div>Melhores Ornamentos</div>
                     <div>Melhores Cones Luz</div>
                     <div>Substatus Recomendados</div>
                 </section>
+
                 <hr className="w-full" />
+
                 <section>
                     <div>Rastro1</div>
                     <div>Rastro2</div>
