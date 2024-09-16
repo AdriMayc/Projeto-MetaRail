@@ -11,6 +11,7 @@ import TierlistPage from "./pages/tierlist";
 import EquipesPage from "./pages/equipes";
 import ProfileCharacter from "./pages/profileCharacter/profileCharacter";
 
+
 function routesApp () {
     return (
         <BrowserRouter>
