@@ -25,7 +25,7 @@ function routesApp () {
                 <Route path="/ornamentos" element={<OrnamentosPage />}></Route>
                 <Route path="/tierlist" element={<TierlistPage />}></Route>
                 <Route path="/equipes" element={<EquipesPage />}></Route>
-                <Route path="/characterPage" element={<CharacterPage />}></Route>
+                <Route path="/profile" element={<CharacterPage />}></Route>
             </Routes>
             <Footer />
         </BrowserRouter>
