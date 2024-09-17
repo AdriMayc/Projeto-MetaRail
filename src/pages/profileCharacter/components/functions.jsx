@@ -552,10 +552,10 @@ export const Equipments = () => {
                     <div className="w-full flex flex-col justify-center items-center font-semibold leading-relaxed">
 
                         <ul className="w-full  mt-2  text-xs  text-gray-200  flex  flex-wrap  gap-2 justify-center">
-                            <li className="w-[47%]  p-3 flex gap-4 items-center border  rounded-lg  text-white">Corpo:<span className="w-full text-zinc-300 font-thin">Taxa Crítica<br />Dano Crítico</span></li>
-                            <li className="w-[47%]  p-3 flex gap-4 items-center border  rounded-lg  text-white">Pés:<span className="w-full text-zinc-300 font-thin">Ataque<br />Velocidade</span></li>
-                            <li className="w-[47%]  p-3 flex gap-2 items-center border   rounded-lg  text-white">Esfera Plana:<span className="w-full text-zinc-300 font-thin">Ataque<br />Dano de Raio</span></li>
-                            <li className="w-[47%]  p-3 flex gap-2 items-center border   rounded-lg  text-white">Corda:<span className="w-full text-zinc-300 font-thin">Ataque</span></li>
+                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-4 items-center   rounded-lg  text-white">Corpo:<span className="w-full text-zinc-300 font-thin">Taxa Crítica<br />Dano Crítico</span></li>
+                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-4 items-center   rounded-lg  text-white">Pés:<span className="w-full text-zinc-300 font-thin">Ataque<br />Velocidade</span></li>
+                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-2 items-center   rounded-lg  text-white">Esfera Plana:<span className="w-full text-zinc-300 font-thin">Ataque<br />Dano de Raio</span></li>
+                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-2 items-center   rounded-lg  text-white">Corda:<span className="w-full text-zinc-300 font-thin">Ataque</span></li>
                         </ul>
                         <h2 className="font-light text-base mt-2 ">Subatributo</h2>
                         <ul className="w-full  mt-2 mb-4  text-xs  text-gray-200  flex  gap-2 justify-center">
@@ -572,7 +572,7 @@ export const Equipments = () => {
                     </div>
 
                 </div>
-                
+
             </section>
         </>
     )
