@@ -1,20 +1,20 @@
 import { Introdution, TierList, Status, Materials, Equipments } from "./components/functions";
-
 const profileCharacter = () => {
 
     return (
-        <body className="pt-12  bg-[#2C252B]  overflow-y-hidden text-white ">
-            <div className=" h-full w-auto m-6  bg-[#413F54]  flex flex-col  items-center  rounded-[1.7rem]"> 
+        <body className="pt-12  bg-[#111213]  overflow-y-hidden text-white ">
+            <div className=" h-full w-auto my-5 mx-5  bg-[#111213] border border-[#26292B] flex flex-col  items-center  rounded-[1.7rem]"> 
 
                 <Introdution />
+                <hr className="w-[95%] border-[#26292B] " />
                 <TierList />
-                <hr className="w-full" />
+                <hr className="w-[95%] border-[#26292B] " />
                 <Status />
-                <hr className="w-full" />
+                <hr className="w-[95%] border-[#26292B] " />
                 <Materials />
-                <hr className="w-full" />
+                <hr className="w-[95%] border-[#26292B] " />
                 <Equipments />
-                <hr className="w-full" />
+                <hr className="w-[95%] border-[#26292B] " />
 
                 <section>
                     <div>Rastro1</div>

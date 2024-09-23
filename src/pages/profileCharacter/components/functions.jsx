@@ -1,145 +1,154 @@
 import { useState } from "react";
-import { hearthIcon, shieldIcon, atkIcon, spdIcon } from "../../../../public"
+import { hearthIcon, shieldIcon, atkIcon, spdIcon, SS, S, A, B, C } from "../../../../public"
 import AccordionItem from './accordion'
+
 
 // Introdução
 export const Introdution = () => {
     return (
         <>
-            <div className="pt-3  flex  flex-col  items-center">
-                <img className="w-48   bg-black  rounded-[1.7rem] " src="https://rerollcdn.com/STARRAIL/Characters/Full/3017.png" alt="" />
-                <h2 className="text-2xl font-semibold underline ">Acheron</h2>
+            <div className=" w-full h-[14.5rem]  justify-between flex  items-center  ">
+                {/* Foto do Personagem */}
+                <div className="w-[50%]  flex justify-center relative border-r-2 border-[#26292B]">
+                    <img
+                        className="w-[150px] rounded-[10px] border-[1px] border-[#CCAD00]"
+                        src="https://rerollcdn.com/STARRAIL/Characters/Full/3017.png" alt="Nome do Personagem" />
+                </div>
+                {/* Descrição do Personagem */}
+                <div className="w-[50%] h-full flex flex-col items-start justify-center">
+                    <ul className="w-full ml-4">
+                        <li className="opacity-30 text-sm">Nome</li>
+                        <li className="font-semibold text-xl">Acheron</li>
+                        <li className="opacity-30 text-sm">Caminho</li>
+                        <li className="font-semibold text-">Inexistência</li>
+                        <li className="opacity-30 text-sm mb-1">Rank</li>
+                    </ul>
+                    {/* Rank Table */}
+                    <table className="w-[9rem]  ml-4">
+                        {/* Dano em Alvo Único */}
+                        <tr className="border-b border-dashed border-[#f5f5f581]">
+                            <td className=""><img className="w-6 " src={SS} alt="Single Target" /></td>
+                            <td className="text-xs font-medium">Dano em Alvo Único</td>
+                        </tr>
+                        {/* Dano em Área  */}
+                        <tr className="border-b border-dashed border-[#f5f5f581]">
+                            <td className=""><img className="w-6 mr-1" src={SS} alt="Area Dmg" /></td>
+                            <td className="text-xs font-medium">Dano em Área</td>
+                        </tr>
+                        {/* Geral */}
+                        <tr className="border-b border-dashed border-[#f5f5f581]">
+                            <td className=""><img className="w-6" src={SS} alt="Geral" /></td>
+                            <td className="text-xs font-medium">Geral</td>
+                        </tr>
+                        {/* Suporte */}
+                        <tr className="border-b border-dashed border-[#f5f5f581]">
+                            <td className=""><img className="w-6" src={C} alt="Suport" /></td>
+                            <td className="text-xs font-medium">Suporte</td>
+                        </tr>
+                    </table>
 
-
-                <h3 className="text-zinc-500">Inexistência</h3>
-                <img className="w-10" src="https://rerollcdn.com/STARRAIL/Elements/lightning.png" alt="Raio" />
-                <h2 className="mt-2 font-semibold ">Tier List</h2>
+                </div>
             </div>
 
-            <table className="w-[90%]  my-2 text-sm border-2 flex flex-col ">
-                <thead className=" border-b-2 ">
-                    <tr className="w-full flex justify-evenly text-zinc-400">
-                        <th className="w-1/3 font-light">Geral </th>
-                        <th className="w-1/3 font-light">Alvo Único</th>
-                        <th className="w-1/3 font-light">Dano em Área</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr className="w-full flex justify-around">
-                        <td className="font-mono text-lg ">SS</td>
-                        <td className="font-mono text-lg ">SS</td>
-                        <td className="font-mono text-lg ">SS</td>
-                    </tr>
-                </tbody>
-            </table>
         </>
     )
 }
 
 // TierList da Comunidade
 export const TierList = () => {
-    // Max Vote Value
     const voteValue = 10000;
-    const voted = 2852
-    const totalVotes = (voted / voteValue) * 100
+    const [voted, setVoted] = useState({
+        div1: 1000,
+        div2: 100,
+        div3: 50,
+        div4: 3,
+        div5: 1,
+    });
+    const totalVotes = (value) => (value / voteValue) * 100;
 
-    // Variavel para Clique
-    const [isVoted, setIsVoted] = useState({
-        div1: false,
-        div2: false,
-        div3: false,
-        div4: false,
-        div5: false,
-    }); // Botão de Votar
+    const [userVotes, setUserVotes] = useState({}); // Estado para controlar os votos do usuário
+    const [votedItem, setVotedItem] = useState(null);
 
     const thisVote = (div) => {
-        setIsVoted(prevState => ({
-            ...prevState,
-            [div]: !prevState[div], // Altera apenas o div clicado
-        }));
+        if (userVotes[div]) { // Se já tiver votado neste card, remove o voto
+            setVoted((prevVotes) => ({
+                ...prevVotes,
+                [div]: prevVotes[div] - 1, // Diminui o valor em 1
+            }));
+
+            setUserVotes((prev) => ({
+                ...prev,
+                [div]: false, // Marca que o usuário não votou mais neste card
+            }));
+
+            if (votedItem === div) {
+                setVotedItem(null); // Reseta o item votado
+            }
+        } else { // Se não tiver votado, registra o voto
+            setVoted((prevVotes) => ({
+                ...prevVotes,
+                [div]: prevVotes[div] + 1, // Aumenta o valor em 1
+            }));
+
+            setUserVotes((prev) => ({
+                ...prev,
+                [div]: true, // Marca que o usuário votou neste card
+            }));
+
+            setVotedItem(div); // Define o novo voto
+        }
     };
 
+    const options = [
+        { id: 'div1', imgSrc: SS, label: 'SS' },
+        { id: 'div2', imgSrc: S, label: 'S' },
+        { id: 'div3', imgSrc: A, label: 'A' },
+        { id: 'div4', imgSrc: B, label: 'B' },
+        { id: 'div5', imgSrc: C, label: 'C' },
+    ];
 
     return (
         <>
-            <h2 className="mt-2 font-semibold ">Tier List da Comunidade</h2>
-            <h3 className="font-thin text-sm  text-slate-300 flex justify-center ">
-                Clique para Votar
-            </h3>
+            <h2 className="mt-2 font-semibold">Avaliação de Personagem</h2>
+            <h3 className="opacity-40 text-xs">Vote aqui</h3>
 
+            <div className="w-full h-16 mt-2 mb-5 flex justify-center gap-2">
+                {options.map((option) => {
+                    const isDisabled = votedItem && votedItem !== option.id;
 
-            <div className="w-full h-20 mt-2 mb-5 flex justify-center gap-2 ">
-                {/* SS */}
-                <div
-                    id="div1"
-                    onClick={() => thisVote('div1')}
-                    className={`
-                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
-                >
-                    <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
-                        style={{ width: `${isVoted.div1 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
-                    <span className="absolute inset-0 flex items-center justify-center">SS</span>
-                    <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
-
-                </div>
-                {/* S */}
-                <div
-                    id="div1"
-                    onClick={() => thisVote('div2')}
-                    className={`
-                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
-                >
-                    <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
-                        style={{ width: `${isVoted.div2 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
-                    <span className="absolute inset-0 flex items-center justify-center">S</span>
-                    <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
-
-                </div>
-                {/* A */}
-                <div
-
-                    onClick={() => thisVote('div3')}
-                    className={`
-                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
-                >
-                    <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
-                        style={{ width: `${isVoted.div3 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
-                    <span className="absolute inset-0 flex items-center justify-center">A</span>
-                    <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
-
-                </div>
-                {/* B */}
-                <div
-                    id="div1"
-                    onClick={() => thisVote('div4')}
-                    className={`
-                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
-                >
-                    <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
-                        style={{ width: `${isVoted.div4 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
-                    <span className="absolute inset-0 flex items-center justify-center">B</span>
-                    <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
-
-                </div>
-                {/* C */}
-                <div
-                    id="div1"
-                    onClick={() => thisVote('div5')}
-                    className={`
-                    w-1/6  border-2  bg-transparent font-mono text-2xl flex flex-wrap items-center justify-center relative rounded-md cursor-pointer`}
-                >
-                    <div className=" bg-[#5F5AA2] h-full absolute  left-0 transition-all duration-1000 rounded-s-md  opacity-80 "
-                        style={{ width: `${isVoted.div5 ? totalVotes : 0}%`, opacity: `${isVoted ? 100 : 0}` }}></div>
-                    <span className="absolute inset-0 flex items-center justify-center">C</span>
-                    <span className=" absolute inset-x-0 bottom-0 text-xs text-center">{voted}</span>
-
-                </div>
+                    return (
+                        <div
+                            key={option.id}
+                            id={option.id}
+                            onClick={() => !isDisabled && thisVote(option.id)}
+                            className={`
+                                w-1/6 border border-[#26292B] bg-transparent font-mono text-2xl flex flex-wrap 
+                                items-center justify-center relative rounded-md cursor-pointer 
+                                transition-opacity duration-300 ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
+                        >
+                            <div
+                                className="bg-[#DC1867] w-full absolute bottom-0 transition-all duration-1000 rounded-b-md opacity-80"
+                                style={{
+                                    height: `${votedItem === option.id ? totalVotes(voted[option.id]) : 0}%`,
+                                    opacity: `${votedItem === option.id ? 1 : 0}`,
+                                }}
+                            ></div>
+                            <span className="absolute inset-0 flex items-center justify-center">
+                                <img className="w-8" src={option.imgSrc} alt="Tier" />
+                            </span>
+                            <span className="absolute inset-x-0 bottom-0 text-xs text-center">
+                                {voted[option.id]} {/* Exibe o número de votos */}
+                            </span>
+                        </div>
+                    );
+                })}
             </div>
-
-
         </>
-    )
-}
+    );
+};
+
+
+
 
 // Seção de Status
 export const Status = () => {

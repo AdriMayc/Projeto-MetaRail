@@ -11,8 +11,6 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImage
 
     //Light Cone Description
     
-    
-
     return (
         <div className="accordion-container border rounded-lg overflow-hidden">
             <button
