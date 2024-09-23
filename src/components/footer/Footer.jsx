@@ -7,7 +7,7 @@ function Footer() {
 
   return (
     <>
-      <footer className="font-sans -tracking-tight bg-[#000000] ">
+      <footer className="font-sans -tracking-tight bg-[#000000] border-t border-[#DC1867] ">
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div className="w-full flex flex-col ">
             <ul className="flex justify-center  items-center mb-1.5 text-sm font-medium text-gray-50">
