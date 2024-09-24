@@ -17,8 +17,13 @@ import feet from "../public/gameIcons/feet.png"
 import rope from "../public/gameIcons/rope.png"
 import sphere from "../public/gameIcons/sphere.png"
 import copyIcon from "../public/copyIcon.svg"
+import updateGirl from "../public/update-girl.svg"
+import refresh from "../public/refresh-icon.svg"
+import star from "../public/icon-star-outline.svg"
+import starGold from "../public/icon-star-outline-gold.svg"
+import welcome from "../public/welcome.jpg"
 
 export { 
     Lupa, MetaRailLogo, profile , hearthIcon, shieldIcon, atkIcon, spdIcon, Br, En, SS, S, A, B, C,
-    body, feet, rope, sphere, copyIcon
+    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh
  }

@@ -1,6 +1,6 @@
 import SlideCharacter from "../slide-character/slide-character.jsx";
 import { useState } from "react";
-import Star from '../../../../public/iconStarOutline.svg'
+import { refresh, star, starGold, updateGirl } from "../../../../public/index.js";
 
 const paths = [
 	{ id: 1, title: "Abundancia", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsPirest.png" },
@@ -48,7 +48,7 @@ export default function personagens() {;
 					<div className="w-64 flex justify-center items-center">
 						<img 
 							className="w-32 h-32"
-							src="../../../../public/iconGirl.svg" 
+							src={updateGirl} 
 							alt=""
 						/>
 					</div>
@@ -101,17 +101,17 @@ export default function personagens() {;
 					<div className="w-auto flex justify-center bg-[#26292B] gap-0.5 p-0.5"> 
 						<div className="w-12 h-7 flex justify-center items-center bg-[#111213] text-purple-500">
 							4 
-							<img className="w-5 px-0.5" src="../../../../public/iconStarOutline.svg" alt="" />
+							<img className="w-5 px-0.5" src={star} alt="" />
 						</div>
 						<div
 							className="w-12 h-7 flex justify-center items-center bg-[#111213] text-yellow-500 "
 						>
-							5 <img className="w-5 px-0.5" src="../../../../public/iconStarOutlineGold.svg" alt="" />
+							5 <img className="w-5 px-0.5" src={starGold} alt="" />
 						</div>
 						<div
 							className="w-12 h-7 flex justify-center items-center bg-[#111213]"
 						>
-							<img className="w-6 h-6 " src="../../../../public/refreshIcon.svg" alt="" />
+							<img className="w-6 h-6 " src={refresh} alt="" />
 						</div>
 					</div>
 					

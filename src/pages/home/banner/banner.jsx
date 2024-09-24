@@ -2,7 +2,7 @@ export default function Banner() {
 	return (
 		<div 
             className="
-                w-full h-40 bg-[url('./public/Welcome.jpg')] bg-cover border-b-2 border-[#DC1867]
+                w-full h-40 bg-[url('./public/welcome.jpg')] bg-cover border-b-2 border-[#DC1867]
                 md:w-full md:h-[30rem] 
             ">
 			<div 
