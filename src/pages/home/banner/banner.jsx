@@ -4,7 +4,7 @@ export default function Banner() {
 	return (
 		<div 
             className={`
-                w-full h-60 mt-[25px] bg-cover border-b-2 border-[#DC1867]
+                w-full h-60 mt-[25px] bg-[url('./public/welcome.jpg')] bg-cover border-b-2 border-[#DC1867]
                 md:w-full md:h-[30rem] 
             `}
             // style={{backgroundImage:`url(${welcome})`}}
