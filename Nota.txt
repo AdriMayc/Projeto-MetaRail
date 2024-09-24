@@ -1,0 +1,6 @@
+Preto = #000000
+Night = #111213
+Jet = #26292B
+Claret = #810E3C
+Magenta = #DC1867
+White = #F5F5F5

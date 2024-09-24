@@ -8,7 +8,6 @@ const page = () => {
     return (
         <>
             <div className="" >Home page</div>
-            {/* <CharList /> */}
             <Banner />
             <SlideCodes />
             <Characters />

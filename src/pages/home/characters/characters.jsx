@@ -1,123 +1,124 @@
-import SlideCharacter from '../slide-character/slide-character.jsx'
-import abundancePath from '../../../../public/paths/AbundancePath.png'
-import destructionPath from '../../../../public/paths/DestructionPath.png'
-import eruditionPath from '../../../../public/paths/EruditionPath.png'
-import harmonyPath from '../../../../public/paths/HuntPath.png'
-import huntPath from '../../../../public/paths/NihilityPath.png'
-import nihilityPath from '../../../../public/paths/SlothPath.png'
-import slothPath from '../../../../public/paths/VerityPath.png'
-
-import nivel1 from '../../../../public/nivel1.svg'
-import nivel80 from '../../../../public/nivel80.svg'
-import filterIMG from '../../../../public/filterIcon.svg'
-import { useState } from 'react'
-
+import SlideCharacter from "../slide-character/slide-character.jsx";
+import { useState } from "react";
+import Star from '../../../../public/iconStarOutline.svg'
 
 const paths = [
-    { id: 1, title: "Abundancia", image: abundancePath},
-    { id: 2, title: "Caça", image: huntPath, validade: '00/00/0000' },
-    { id: 3, title: "Destruição", image: destructionPath, validade: '00/00/0000' },
-    { id: 4, title: "Erudição", image: eruditionPath, validade: '00/00/0000' },
-    { id: 5, title: "Harmonia", image: harmonyPath },
-    { id: 6, title: "Inexistência", image: nihilityPath, validade: '00/00/0000' },
-    { id: 7, title: "Preservação", image: slothPath, validade: '00/00/0000' },
+	{ id: 1, title: "Abundancia", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsPirest.png" },
+	{ id: 2, title: "Caça", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsRogue.png", },
+	{ id: 3, title: "Destruição", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsWarrior.png", },
+	{ id: 4, title: "Erudição", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsnMage.png", },
+	{ id: 5, title: "Harmonia", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsShaman.png", },
+	{ id: 6, title: "Inexistência", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsWarlock.png", },
+	{ id: 7, title: "Preservação", image: "https://raw.githubusercontent.com/FortOfFans/HSR/main/spriteoutput/avatarprofessiontattoo/profession/BgPathsKnight.png", },
 ];
 
-export default function personagens() {
-   
-    const[nvl, setNvl] = useState(false)
-    const[filtro, setFiltro] = useState(true)
-    
-    return (
-        <div className="w-full h-auto px-2 pt-1 pb-4 bg-[#2C252B] flex justify-center text-white">
-            {/* Div do slides de personagens */}
-            <div className="w-6/6 min-h-full py-1 px-2 bg-[#413f54] rounded-[30px] overflow-x-hidden">
-                {/* Filtro por nivel e maior stats */}
-                <div className='
-                    flex right-0 mx-6 my-2 absolute items-center
-                    lg:right-[19rem]
-                    '>
-                    <img 
-                        className={`
-                            mr-2 w-12 h-9 ${nvl ? "hidden" : "visible"}
-                            md:w-20 h-20
-                        `} 
-                        src={nivel1}
-                        onClick={() => setNvl(!nvl)}
-                    >
-                    </img>
-                    <img 
-                        className={`
-                            mr-2 w-12 h-9 ${nvl ? "visible" : "hidden"}
-                            md:w-20 h-20
-                        `} 
-                        src={nivel80}
-                        onClick={() => setNvl(!nvl)}>
-                    </img>
-                    <img 
-                        className="ml-2 w-10 h-10" 
-                        src={filterIMG}
-                        onClick={() => setFiltro(!filtro)}
-                    >
-                    </img>
-                    
-                </div>
-                {/* Menu do filtro */}
-                <div className={`${filtro ? "opacity-0 invisible" : "opacity-100"}
-                        w-full left-0 top-[22rem] px-1 absolute rounded-2xl z-10  flex justify-center
-                        md:w-4/6 md:absolute md:top-[47rem] md:left-64 md:mx-2 md:px-2
-                        transition-all duration-200
-                    `}>
-                    <ul className="
-                        w-full mx-1 py-1 rounded-2xl text-2xl bg-[#2C252B]
-                        md:m-0 md:p-1 md:border-2 border-[#413F54]
-                    ">
-                        <li className="
-                            py-1 px-5 border-b-2 border-[#413F54] rounded-t-xl hover:bg-[#413F54]
-                            " onClick={() => setFiltro(!filtro)}> 
-                            ATK 
-                        </li>
-                        <li className="
-                            py-1 px-5 border-b-2 border-[#413F54] hover:bg-[#413F54]
-                            " onClick={() => setFiltro(!filtro)}>
-                             DEF 
-                        </li>
-                        <li className="
-                            py-1 px-5 border-b-2 border-[#413F54] hover:bg-[#413F54]
-                            " onClick={() => setFiltro(!filtro)}>
-                             ATKSPEED 
-                        </li>
-                        <li className="
-                            py-1 px-5 rounded-b-xl hover:bg-[#413F54]
-                            " onClick={() => setFiltro(!filtro)}>
-                             LIFE 
-                        </li>
-                    </ul>
-                </div>
-                {/* Gerando os caminhos(path) */}
-                {paths.map((path)  => (
-                    <div
-                        key={path.id}
-                        className='min-w-full h-1/8 overflow-x-hidden'
-                    >
-                        {/* DIV DO CAMINHO*/}
-                        <div className="w-full h-auto my-5 mx-0 text-left text-xl font-semibold flex flex-shrink-0 items-center">
-                            <div className='w-full h-full  flex justify-between items-center'>
-                                <div className='w-auto md:min-w-80 md:px-5 flex items-center'>
-                                    <img className="w-14 md:w-20 opacity-50" src={path.image} alt="" />
-                                    <span className='mx-1 text-xl md:ml-4 md:text-4xl font-sans font-semibold'> 
-                                        {path.title}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Carregando o slide de personagens */}
-                        <SlideCharacter/>
-                    </div>
-                ))}
+const elements = [
+	{id: 1, title: 'Fisico', image:"https://api.yatta.top/hsr/assets/UI/attribute/IconAttributePhysical.png" },
+	{id: 2, title: 'Fogo', image:"https://api.yatta.top/hsr/assets/UI/attribute/IconAttributeFire.png" },
+	{id: 3, title: 'Gelo', image:"https://api.yatta.top/hsr/assets/UI/attribute/IconAttributeIce.png", },
+	{id: 4, title: 'Imaginario', image:"https://api.yatta.top/hsr/assets/UI/attribute/IconAttributeImaginary.png" },
+	{id: 5, title: 'Quantico', image:"https://api.yatta.top/hsr/assets/UI/attribute/IconAttributeQuantum.png" },
+	{id: 6, title: 'Raio', image: "https://api.yatta.top/hsr/assets/UI/attribute/IconAttributeThunder.png"},
+	{id: 7, title: 'Vento', image:"https://api.yatta.top/hsr/assets/UI/attribute/IconAttributeWind.png" },
+]
 
-            </div>
 
-        </div>
-    )
+
+export default function personagens() {;
+	const [filtro, setFiltro] = useState(true);
+	const [isClicked, setIsClicked] = useState(true);
+    const [selectedPath, setSelectedPath] = useState()
+
+
+	return (
+		<div className="w-full h-auto px-2 pt-4 pb-4 bg-[#111213] flex justify-center text-white font-sans">
+			{/* Div do slides de personagens */}
+			<div className="
+				w-full min-h-72 py-1 px-2 flex flex-col items-center
+				rounded-xl overflow-x-hidden border border-[#26292B]
+				md:w-4/6
+			">
+				{/* Title e Data de Atualização*/}
+				<div
+					className="
+                    w-11/12 h-48 my-2 flex items-center border-b border-[#26292B]
+                    md-w-full md:h-[10rem] md:flex md:my-2 md:items-center
+                ">
+				<div className="w-full h-full flex">
+					<div className="w-64 flex justify-center items-center">
+						<img 
+							className="w-32 h-32"
+							src="../../../../public/iconGirl.svg" 
+							alt=""
+						/>
+					</div>
+					<div className=" w-full flex flex-col justify-center items-start">
+						<span className="w-full text-[20px] font-semibold font-sans">Honkai: Star Rail</span>
+						<span className="w-full flex">Atualizado: <i className="mx-1 text-[#DC1867]">00/00/2024</i></span>
+					</div>
+				</div>
+				</div>
+				{/* Filtros */}
+				<div
+				
+					className="
+                    w-full h-32 mt-2 mb-5 py-3 px-6 flex flex-col justify-center items-center gap-1
+                    md-w-full md:h-[10rem] md:flex md:my-2 md:items-center
+                ">
+					<span className="text-[#F5F5F5] opacity-70 font-light">Filtro</span>
+					<div 
+						id="caminhos"
+						className="w-5/6 flex bg-[#26292B] gap-0.5 p-0.5"
+					> 
+						{paths.map((path) => (
+							<div
+								key={path}
+								className="w-12 h-7 flex justify-center items-center bg-[#111213]"
+							>
+							<img 
+								className="w-8 h-7" 
+								src={path.image} alt="" />
+							</div>
+						))}
+					</div>
+					
+					<div 
+						id="elementos"
+						className="w-5/6 flex bg-[#26292B] gap-0.5 p-0.5"
+					> 
+						{elements.map((elem) => (
+							<div
+								key={elem}
+								className="w-12 h-7 flex justify-center items-center bg-[#111213]"
+							>
+							<img 
+								className="w-8 h-7" 
+								src={elem.image} alt="" />
+							</div>
+						))}
+					</div>
+					{/* Estrelas e reload */}
+					<div className="w-auto flex justify-center bg-[#26292B] gap-0.5 p-0.5"> 
+						<div className="w-12 h-7 flex justify-center items-center bg-[#111213] text-purple-500">
+							4 
+							<img className="w-5 px-0.5" src="../../../../public/iconStarOutline.svg" alt="" />
+						</div>
+						<div
+							className="w-12 h-7 flex justify-center items-center bg-[#111213] text-yellow-500 "
+						>
+							5 <img className="w-5 px-0.5" src="../../../../public/iconStarOutlineGold.svg" alt="" />
+						</div>
+						<div
+							className="w-12 h-7 flex justify-center items-center bg-[#111213]"
+						>
+							<img className="w-6 h-6 " src="../../../../public/refreshIcon.svg" alt="" />
+						</div>
+					</div>
+					
+				</div>
+				{/* Gerando personagens */}
+				<SlideCharacter/>
+			</div>
+		</div>
+	);
 }

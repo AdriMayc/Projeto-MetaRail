@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../../../index.css';
+import {copyIcon} from "../../../../public"
 
 
 const cards = [
@@ -8,103 +9,87 @@ const cards = [
   { id: 3, title: "I9J1K0L1", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
   { id: 4, title: "1M12N1O3", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
   { id: 5, title: "1P4Q1R5S", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
-  { id: 6, title: "1T6U1V7W", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
+  { id: 6, title: "1P1O1T1W", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
+  { id: 7, title: "A1B2C3D4", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
+  { id: 8, title: "E5F6G7H8", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
+  { id: 9, title: "I9J1K0L1", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
+  { id: 10, title: "1M12N1O3", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
+  { id: 12, title: "1P4Q1R5S", image: "100L de Café + Moedor de grão", validade: '00/00/0000' },
 ];
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const sliderRef = useRef(null);
-  
-  var cardsToShowDesktop = 0
 
-  if( window.innerWidth < 768){
+  const copyToClipboard = (text) => {
+    // Verifica se a API de Clipboard está disponível
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          alert(`Texto copiado: ${text}`);
+        })
+        .catch(err => {
+          console.error("Erro ao copiar texto: ", err);
+        });
+    } else {
+      // Fallback para navegadores que não suportam a API de Clipboard
+      // Cria um elemento textarea
+      const textarea = document.createElement("textarea");
+      textarea.value = text; // Define o valor como o texto que queremos copiar
+      textarea.style.position = "fixed"; // Previne que o textarea apareça visivelmente na tela
+      textarea.style.opacity = 0; // Garante que o elemento não seja visível
 
-    var cardsToShowDesktop = 1;
+      document.body.appendChild(textarea); // Adiciona o textarea temporariamente ao DOM
+      textarea.focus(); // Garante que o textarea receba foco
+      textarea.select(); // Seleciona o conteúdo do textarea
 
-  }else{
+      try {
+        // Usa o comando 'copy' para copiar o texto selecionado
+        const successful = document.execCommand('copy');
+        if (successful) {
+          alert(`Texto copiado: ${text}`);
+        } else {
+          alert("Não foi possível copiar o texto.");
+        }
+      } catch (err) {
+        console.error("Erro ao copiar texto: ", err);
+      }
 
-    var cardsToShowDesktop = 3;
-  }
-
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : cards.length - cardsToShowDesktop));
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex < cards.length - cardsToShowDesktop ? prevIndex + 1 : 0));
-  };
-
-  const handleTouchStart = (e) => {
-    const touchStartX = e.touches[0].clientX;
-    sliderRef.current.setAttribute('data-touch-start', touchStartX);
-  };
-
-  const handleTouchEnd = (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchStartX = parseFloat(sliderRef.current.getAttribute('data-touch-start'));
-
-    if (touchStartX - touchEndX > 50) {
-      handleNextClick();
-    } else if (touchStartX - touchEndX < -50) {
-      handlePrevClick();
+      // Remove o textarea temporário
+      document.body.removeChild(textarea);
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-28 bg-[#2C252B] overflow-y-auto font-sans">
-      <div className="relative w-full max-w-5xl overflow-hidden">
-        <div
-          ref={sliderRef}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className="flex transition-transform duration-500"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / cardsToShowDesktop)}%)`,
-          }}
-        >
-          {cards.map((card) => (
+    <div className=" w-full min-h-20 px-2 pt-4 pb-1 bg-[#111213] font-sans">
+      <div
+        className="w-full h-auto py-1 px-0 rounded-xl flex flex-wrap justify-around items-center shrink-0 bg-[#111213] border border-[#26292B]"
+      >
+        <div className='w-5/6 h-auto flex justify-center items-center font-bold text-white'>
+          Códigos
+        </div>
+        <hr className='w-10/12 py-0.5 opacity-70'/>
+        <div className='w-5/6 h-auto mt-0.5 mb-3 flex flex-wrap'> 
+          {cards.map((card, index) => (
             <div
               key={card.id}
-              className="w-full md:w-1/3  flex-shrink-0 flex justify-center items-center p-4"
+              className={`w-1/3 h-4 flex items-center py-2.5  ${
+                index % 3 === 1 ? 'border-x border-white' : ''
+              }`}
             >
-              <div className="w-4/5 h-20 bg-[#413F54] shadow-md rounded-lg overflow-x-hidden">
-                {/* Div com informações */}
-                <div className="p-0 flex flex-col justify-between items-center">
-                  <h2 className="text-lg font-semibold text-white">{card.title}</h2>
-                  <h2 className="text-sm font-semibold text-white">{card.image}</h2>
-                  <h2 className="text-sm font-semibold text-white">{card.validade}</h2>
-
-                </div>
-              </div>
+                <h2 className="
+                  w-3/4 h-4 ml-2 flex items-center text-sm text-[#f5f5f5] opacity-70 border-b border-white
+                ">
+                  {card.title}
+                </h2>
+                <img 
+                  className='w-1/4 h-4 flex cursor-pointer' 
+                  src={copyIcon} 
+                  alt="Copiar Título" 
+                  onClick={() => copyToClipboard(card.title)}
+                  onTouchStart={() => copyToClipboard(card.title)}
+                  />
             </div>
           ))}
         </div>
-
-        {/* Navegação de setas para Desktop */}
-        <button
-          className="md:block h-full absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-[#2C252B] from-50% text-white p-2 rounded-md focus:outline-none"
-          onClick={handlePrevClick}
-        >
-          {/* &#10094; */}
-          {/* <img src={arrowLeft} alt="" /> */}
-          <div class="w-0 h-0 
-            border-t-[1rem] border-t-transparent
-            border-r-[1.5rem] border-r-[#413F54]
-            border-b-[1rem] border-b-transparent">
-          </div>
-        </button>
-        <button
-          className="md:block h-full absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-l from-[#2C252B] from-50% text-white p-2 rounded-md focus:outline-none"
-          onClick={handleNextClick}
-        >
-          {/* &#10095; */}
-          {/* <img src={arrowRight} alt="" /> */}
-          <div class="w-0 h-0 
-            border-t-[1rem] border-t-transparent
-            border-l-[1.5rem] border-l-[#413F54]
-            border-b-[1rem] border-b-transparent">
-          </div>
-        </button>
       </div>
     </div>
   );
