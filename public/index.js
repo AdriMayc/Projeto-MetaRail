@@ -12,6 +12,12 @@ import S from "../public/TierListIcons/S.svg"
 import A from "../public/TierListIcons/A.svg"
 import B from "../public/TierListIcons/B.svg"
 import C from "../public/TierListIcons/C.svg"
+import body from "../public/gameIcons/body.png"
+import feet from "../public/gameIcons/feet.png"
+import rope from "../public/gameIcons/rope.png"
+import sphere from "../public/gameIcons/sphere.png"
 
-
-export { Lupa, MetaRailLogo, profile , hearthIcon, shieldIcon, atkIcon, spdIcon, Br, En, SS, S, A, B, C }
+export { 
+    Lupa, MetaRailLogo, profile , hearthIcon, shieldIcon, atkIcon, spdIcon, Br, En, SS, S, A, B, C,
+    body, feet, rope, sphere
+ }

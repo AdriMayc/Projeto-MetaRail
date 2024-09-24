@@ -21,11 +21,11 @@ export const StarRating = ({ rating }) => {
 export const StarRatingMore = ({ rating }) => {
   return (
     <div className="flex">
-      {[1, 2, 3, 4, 5, 6].map((star) => (
+      {[1, 2, 3, 4, 5].map((star) => (
         <StarIcon
           key={star}
           className={`w-4 h-4 ${
-            rating >= star ? 'text-yellow-400' : 'text-gray-300'
+            rating >= star ? 'text-[#DC1867]' : 'text-gray-300'
           }`}
         />
       ))}

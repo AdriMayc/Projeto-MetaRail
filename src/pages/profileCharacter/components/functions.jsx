@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { hearthIcon, shieldIcon, atkIcon, spdIcon, SS, S, A, B, C } from "../../../../public"
+import { hearthIcon, shieldIcon, atkIcon, spdIcon, SS, S, A, B, C, body, feet, rope, sphere } from "../../../../public"
 import AccordionItem from './accordion'
 
 
@@ -7,7 +7,7 @@ import AccordionItem from './accordion'
 export const Introdution = () => {
     return (
         <>
-            <div className=" w-full h-[14.5rem]  justify-between flex  items-center  ">
+            <div className=" w-full h-[14.5rem] my-6 justify-between flex  items-center  ">
                 {/* Foto do Personagem */}
                 <div className="w-[50%]  flex justify-center relative border-r-2 border-[#26292B]">
                     <img
@@ -109,10 +109,11 @@ export const TierList = () => {
 
     return (
         <>
-            <h2 className="mt-2 font-semibold">Avaliação de Personagem</h2>
-            <h3 className="opacity-40 text-xs">Vote aqui</h3>
 
-            <div className="w-full h-16 mt-2 mb-5 flex justify-center gap-2">
+            <h2 className="mt-6 font-semibold ">Avaliação de Personagem</h2>
+            <h3 className="opacity-40 mt-2 text-xs">Vote aqui</h3>
+
+            <div className="w-full h-16 my-6 flex justify-center gap-2">
                 {options.map((option) => {
                     const isDisabled = votedItem && votedItem !== option.id;
 
@@ -146,9 +147,6 @@ export const TierList = () => {
         </>
     );
 };
-
-
-
 
 // Seção de Status
 export const Status = () => {
@@ -186,20 +184,20 @@ export const Status = () => {
 
     return (
         <>
-            <section className="w-full h-96 mt-2 mb-5 flex flex-wrap">
+            <section className="w-full h-96 my-6 flex flex-wrap">
                 <h2 className="w-full flex justify-center font-semibold text-lg">Status</h2>
 
                 {/* Start Toggle */}
                 <div className="w-full  flex justify-center ">
-                    <label class="inline-flex items-center cursor-pointer ">
-                        <span class="mr-4">Lvl. 1</span>
-                        <input type="checkbox" value="" class="sr-only peer" onClick={() => setIsClicked(!isClicked)} />
-                        <div class="relative w-32 h-1 bg-gray-200 peer-focus:outline-none 
+                    <label className="inline-flex items-center cursor-pointer ">
+                        <span className={`mr-4 ${!isClicked ? "text-[#DC1867]" : "text-[#F5F5F5]"}`}>Lvl. 1</span>
+                        <input type="checkbox" value="" className="sr-only peer" onClick={() => setIsClicked(!isClicked)} />
+                        <div className="relative w-32 h-1 bg-gray-200 peer-focus:outline-none 
                                  rounded-full  peer-checked:after:translate-x-[7.2rem] 
                                  after:content-['']  after:absolute after:top-[-8px]  after:start-[-3px]  after:bg-white  
                                  after:rounded-full  after:h-5  after:w-5  after:transition-all
-                                 peer-checked:bg-[#5F5AA2] peer-checked:after:bg-[#5F5AA2]" ></div>
-                        <span class="ml-4">Lvl. 80</span>
+                                 peer-checked:bg-gradient-to-r from-[#760D37] to-[#DC1867] peer-checked:after:bg-[#DC1867]" ></div>
+                        <span className={`ml-4 ${!isClicked ? "text-[#F5F5F5]" : "text-[#DC1867]"}`}>Lvl. 80</span>
                     </label>
                 </div>
 
@@ -211,7 +209,7 @@ export const Status = () => {
                             <img src={hearthIcon} alt="Vida" className="w-7  my-2 " />
                         </span>
                         <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className=" h-2.5 bg-[#5F5AA2]  rounded-full  duration-500" style={{ width: `${isClicked ? lifeReturnMax : lifeValue}%` }} ></div>
+                            <div className=" h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? lifeReturnMax : lifeValue}%` }} ></div>
                         </div>
                         <span className={`w-1/5  flex  justify-center`}>
                             {isClicked ? lifeVApiMaxLevel : lifeVApi}
@@ -224,7 +222,7 @@ export const Status = () => {
                             <img src={shieldIcon} alt="Escudo" className="w-7 my-1" />
                         </span>
                         <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className=" h-2.5  bg-[#5F5AA2]  rounded-full  duration-500" style={{ width: `${isClicked ? defReturnMax : defValue}%` }} ></div>
+                            <div className=" h-2.5  bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? defReturnMax : defValue}%` }} ></div>
                         </div>
                         <span className={`w-1/5  flex  justify-center`}>
                             {isClicked ? defVApiMaxLevel : defVApi}
@@ -237,7 +235,7 @@ export const Status = () => {
                             <img src={atkIcon} alt="Ataque" className="w-7 my-1" />
                         </span>
                         <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className=" h-2.5 bg-[#5F5AA2]  rounded-full  duration-500" style={{ width: `${isClicked ? atkReturnMax : atkValue}%` }} ></div>
+                            <div className=" h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? atkReturnMax : atkValue}%` }} ></div>
                         </div>
                         <span className={`w-1/5  flex  justify-center`}>
                             {isClicked ? atkVApiMaxLevel : atkVApi}
@@ -250,7 +248,7 @@ export const Status = () => {
                             <img src={spdIcon} alt="Velocidade" className="w-7 my-1" />
                         </span>
                         <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className="h-2.5 bg-[#5F5AA2]  rounded-full  duration-500" style={{ width: `${isClicked ? speedReturnMax : speedValue}%` }} ></div>
+                            <div className="h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? speedReturnMax : speedValue}%` }} ></div>
                         </div>
                         <span className={`w-1/5  flex  justify-center`} >
                             {isClicked ? spdVApiMaxLevel : spdVApi}
@@ -261,14 +259,26 @@ export const Status = () => {
                 </ul>{/* End Animated Bar Status */}
 
                 {/* Build Recomendada */}
-                <div className="w-full flex flex-col justify-center items-center font-semibold leading-relaxed">
-                    <h2>Build Recomendada</h2>
-                    <ul className="w-full  mt-2  text-xs  text-gray-200  flex  flex-wrap  gap-2 justify-center">
-                        <li className="w-[47%]  p-3   bg-[#5F5AA2]  rounded-lg  text-white">Ataque: 2900 +</li>
-                        <li className="w-[47%]  p-3   bg-[#5F5AA2]  rounded-lg  text-white">Taxa de Crítico: 70% +</li>
-                        <li className="w-[47%]  p-3   bg-[#5F5AA2]  rounded-lg  text-white">Dano Crítico: 160% +</li>
-                        <li className="w-[47%]  p-3   bg-[#5F5AA2]  rounded-lg  text-white">Velocidade: 101 +</li>
-                    </ul>
+                <div className="w-full flex flex-col justify-center items-center">
+                    <h2 className="font-semibold">Build Recomendada</h2>
+                    <table className="w-[90%] mt-4">
+                        <thead className="">
+                            <tr className="border-b border-[#DC1867]" >
+                                <th className="font-thin text-sm opacity-50">Ataque</th>
+                                <th className="font-thin text-sm opacity-50">Velocidade</th>
+                                <th className="font-thin text-sm opacity-50">Taxa Crítica</th>
+                                <th className="font-thin text-sm opacity-50">Dano Crítico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-[#DC1867]">
+                                <th className="font-light text-sm py-1">3000+</th>
+                                <th className="font-light text-sm">101+</th>
+                                <th className="font-light text-sm">70+</th>
+                                <th className="font-light text-sm ">160+</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 {/* End Build Recomendada */}
             </section>
@@ -280,18 +290,18 @@ export const Status = () => {
 export const Materials = () => {
     return (
         <>
-            <section className="w-full">
-                <div className="w-full mt-2 mb-6 flex flex-col justify-center items-center font-semibold ">
+            <section className="w-full my-6">
+                <div className="w-full  flex flex-col justify-center items-center font-semibold ">
 
                     <h2>Material de Ascensão</h2>
                     <h3 className="font-thin text-sm mt-3 text-slate-300">Ascensão de Personagem</h3>
 
                     {/* Ascensão de Personagem */}
                     <ul className="w-auto  mt-2  text-sm  text-gray-200  flex flex-wrap gap-2 justify-center">
-                        <li className="p-3   bg-[#5F5AA2]  flex  flex-col justify-center items-center  rounded-lg   text-white">
+                        <li className="p-3 shadow-sm shadow-[#DC1867]  flex  flex-col justify-center items-center  rounded-lg   text-white">
 
                             <img
-                                className="w-12 bg-[#413F54] rounded-xl"
+                                className="w-12 bg-[#26292b5b] rounded-xl"
                                 src="https://www.prydwen.gg/static/870e43dfc2678aeafa118048ba88e372/6766a/104.webp"
                                 alt="Material-1"
                             />
@@ -300,10 +310,10 @@ export const Materials = () => {
                             </span>
                         </li>
                         <li
-                            className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white"
+                            className="p-3 shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white"
                             title="algo">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl"
+                                className="w-12  bg-[#26292b5b] rounded-xl"
                                 src="https://www.prydwen.gg/static/6e1eb8f979512dd9023035621bd0bf4e/6766a/103.webp"
                                 alt="Material-2"
                             />
@@ -311,27 +321,27 @@ export const Materials = () => {
                                 15x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl"
+                                className="w-12  bg-[#26292b5b] rounded-xl"
                                 src="https://www.prydwen.gg/static/335658bcc7714ffc927f658d68f06e3d/6766a/112.webp"
                                 alt="Material-3" />
                             <span className="pt-1">
                                 15x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://www.prydwen.gg/static/374abdd1e080926aaf2a659e095fa9cb/6766a/41.webp"
                                 alt="Material-4" />
                             <span className="pt-1">
                                 65x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3 shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://www.prydwen.gg/static/5bcaa809090c0284f8d93094f21bdd95/6766a/11.webp"
                                 alt="Créditos" />
                             <span className="pt-1">
@@ -341,14 +351,14 @@ export const Materials = () => {
                     </ul>
                     {/* End Ascensão de Personagem */}
 
-                    <h3 className="font-thin text-sm mt-3 text-slate-300">Ascensão de Rastros</h3>
+                    <h3 className="font-thin text-sm mt-5 text-slate-300">Ascensão de Rastros</h3>
 
                     {/* Ascensão/Rastros */}
                     <ul className="w-full   mt-2  gap-2  text-sm  text-gray-200  flex flex-wrap justify-center ">
-                        <li className="p-3   bg-[#5F5AA2]  flex  flex-col justify-center items-center  rounded-lg   text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867]  flex  flex-col justify-center items-center  rounded-lg   text-white">
 
                             <img
-                                className="w-12 bg-[#413F54] rounded-xl"
+                                className="w-12 bg-[#26292b5b] rounded-xl"
                                 src="https://starrail.honeyhunterworld.com/img/item/fiery-spirit-item_icon_35.webp?x34722"
                                 alt="Material-1"
                             />
@@ -356,10 +366,10 @@ export const Materials = () => {
                                 18x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white"
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white"
                         >
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl"
+                                className="w-12  bg-[#26292b5b] rounded-xl"
                                 src="https://starrail.honeyhunterworld.com/img/item/starfire-essence-item_icon.webp?x34722"
                                 alt="Material-2"
                             />
@@ -367,63 +377,63 @@ export const Materials = () => {
                                 69x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl"
+                                className="w-12  bg-[#26292b5b] rounded-xl"
                                 src="https://starrail.honeyhunterworld.com/img/item/heaven-incinerator-item_icon.webp?x34722"
                                 alt="Material-3" />
                             <span className="pt-1">
                                 139x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://starrail.honeyhunterworld.com/img/item/past-evils-of-the-borehole-planet-disaster-item_icon.webp?x34722"
                                 alt="Material de Chefe" />
                             <span className="pt-1">
                                 12x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3   shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://starrail.honeyhunterworld.com/img/item/tracks-of-destiny-item_icon.webp?x34722"
                                 alt="Rastro do Destino" />
                             <span className="pt-1">
                                 8x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://starrail.honeyhunterworld.com/img/item/dream-collection-component-item_icon.webp?x34722"
                                 alt="Material1" />
                             <span className="pt-1">
                                 41x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3   shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://starrail.honeyhunterworld.com/img/item/dream-flow-valve-item_icon.webp?x34722"
                                 alt="Material2" />
                             <span className="pt-1">
                                 56x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3   shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://starrail.honeyhunterworld.com/img/item/dream-making-engine-item_icon.webp?x34722"
                                 alt="Material3" />
                             <span className="pt-1">
                                 58x
                             </span>
                         </li>
-                        <li className="p-3   bg-[#5F5AA2] flex  flex-col justify-center items-center  rounded-lg  text-white">
+                        <li className="p-3  shadow-sm shadow-[#DC1867] flex  flex-col justify-center items-center  rounded-lg  text-white">
                             <img
-                                className="w-12  bg-[#413F54] rounded-xl "
+                                className="w-12  bg-[#26292b5b] rounded-xl "
                                 src="https://www.prydwen.gg/static/5bcaa809090c0284f8d93094f21bdd95/6766a/11.webp"
                                 alt="Créditos" />
                             <span className="pt-1">
@@ -446,7 +456,7 @@ export const Equipments = () => {
 
     return (
         <>
-            <section className="w-full flex flex-col justify-center items-center">
+            <section className="w-full my-6 flex flex-col justify-center items-center">
 
                 <h2 className="mt-2 font-semibold ">Equipamentos</h2>
 
@@ -539,7 +549,7 @@ export const Equipments = () => {
                         description={[
                             "Aumenta o Dano CRIT do usuário em 36%. Quando o usuário atinge um inimigo-alvo, inflige Miragem Fracassada ao inimigo, durando por 1 rodada. Cada vez que o usuário ataca, este efeito pode ser acionado 1 vez contra cada alvo. O usuário causa 24% a mais de Dano aos alvos afligidos por Miragem Fracassada, e o Dano causado pela Perícia Suprema é aumentado adicionalmente em 24%."
                         ]} // Descrição Geral
-                        rating={6} // Rank de Estrelas
+                        rating={5} // Rank de Estrelas
                     />
                     {/* 2 */}
                     <AccordionItem
@@ -554,34 +564,57 @@ export const Equipments = () => {
                 </div>
 
                 {/* Substatus recomendados */}
-                <div className="w-full flex flex-col justify-center items-center font-semibold leading-relaxed">
-
+                <div className="w-full flex flex-col justify-center items-center mt-4">
                     <h2 className="mt-2 font-semibold ">Status Recomendados</h2>
+                    <table className="w-[90%] mt-4">
+                        <thead className="">
+                            <tr className="border-b border-[#DC1867] " >
+                                <th className="font-thin text-sm opacity-80 py-">
+                                    <img className="w-8  mx-auto" src={body} alt="corpo" />
+                                </th>
+                                <th className="font-thin text-sm opacity-80">
+                                    <img className="w-8  mx-auto" src={feet} alt="pés" />
+                                </th>
+                                <th className="font-thin text-sm opacity-80">
+                                    <img className="w-7  mx-auto" src={sphere} alt="esfera" />
+                                </th>
+                                <th className="font-thin text-sm opacity-80">
+                                    <img className="w-7 mx-auto" src={rope} alt="linha" />
+                                </th>
 
-                    <div className="w-full flex flex-col justify-center items-center font-semibold leading-relaxed">
-
-                        <ul className="w-full  mt-2  text-xs  text-gray-200  flex  flex-wrap  gap-2 justify-center">
-                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-4 items-center   rounded-lg  text-white">Corpo:<span className="w-full text-zinc-300 font-thin">Taxa Crítica<br />Dano Crítico</span></li>
-                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-4 items-center   rounded-lg  text-white">Pés:<span className="w-full text-zinc-300 font-thin">Ataque<br />Velocidade</span></li>
-                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-2 items-center   rounded-lg  text-white">Esfera Plana:<span className="w-full text-zinc-300 font-thin">Ataque<br />Dano de Raio</span></li>
-                            <li className="w-[47%] bg-[#5F5AA2] p-3 flex gap-2 items-center   rounded-lg  text-white">Corda:<span className="w-full text-zinc-300 font-thin">Ataque</span></li>
-                        </ul>
-                        <h2 className="font-light text-base mt-2 ">Subatributo</h2>
-                        <ul className="w-full  mt-2 mb-4  text-xs  text-gray-200  flex  gap-2 justify-center">
-                            <li className="w-[30%] p-3 flex gap-4 items-center border  rounded-lg  text-white">
-                                <span className="w-full text-zinc-300 font-thin flex justify-center">Taxa Crítica</span>
-                            </li>
-                            <li className="w-[30%]  p-3 flex gap-4 items-center border  rounded-lg  text-white">
-                                <span className="w-full text-zinc-300 font-thin flex justify-center">Dano Crítico</span>
-                            </li>
-                            <li className="w-[30%]  p-3 flex gap-2 items-center border   rounded-lg  text-white">
-                                <span className="w-full text-zinc-300 font-thin flex justify-center">Ataque (%)</span>
-                            </li>
-                        </ul>
-                    </div>
-
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-[#DC1867] ">
+                                <th className="font-extralight text-sm py-1">Dano Crítico</th>
+                                <th className="font-extralight text-sm">Velocidade</th>
+                                <th className="font-extralight text-sm">Dano de Raio</th>
+                                <th className="font-extralight text-sm">Ataque</th>
+                            </tr>
+                            <tr className="border-b border-[#DC1867]">
+                                <th className="font-extralight text-sm py-1">Taxa Crítica</th>
+                                <th className="font-extralight text-sm">Ataque</th>
+                                <th className="font-extralight text-sm">Ataque</th>
+                                <th className="font-extralight text-sm"></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2 className="mt-4 mb-2 font-medium ">Substatus</h2>
+                    <table className="w-[90%]">
+                        <thead className="">
+                            <tr className="border-y border-[#DC1867] " >
+                                <th className="font-light text-[13px] py-1">Taxa Crítica</th>
+                                <th className="text-[#DC1867]">{'>'}</th>
+                                <th className="font-light text-[13px]">Dano Crítico</th>
+                                <th className="text-[#DC1867]">{'>'}</th>
+                                <th className="font-light text-[13px]">Velocidade</th>
+                                <th className="text-[#DC1867]">{'>'}</th>
+                                <th className="font-light text-[13px]">Ataque</th>
+                               
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
-
             </section>
         </>
     )
