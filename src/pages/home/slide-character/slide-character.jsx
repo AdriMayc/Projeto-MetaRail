@@ -36,14 +36,14 @@ const CharList = () => {
           {/* Elemento com nome do personagem */}
           <span 
             className='
-              w-full h-auto absolute bottom-0 flex justify-center text-xl bg-black opacity-50
+              w-full h-auto absolute bottom-0 flex justify-center text-sm bg-black opacity-50
               md:h-1/2 md:text-2xl
             '>
               <span className='invisible'> . </span>
           </span>
           <span 
             className='
-              w-full h-auto absolute bottom-0 flex justify-center text-xl text-white font-semibold font-sans bg-transparent opacity-100
+              w-full h-auto absolute bottom-0 flex justify-center text-sm text-white font-semibold font-sans bg-transparent opacity-100
               md:h-1/2 md:text-2xl
             '>
               <span className='text-white opacity-100'>{char.nameEnglish}</span>
