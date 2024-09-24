@@ -9,7 +9,7 @@ import DonatePage from "./pages/donate";
 import OrnamentosPage from "./pages/ornamentos";
 import TierlistPage from "./pages/tierlist";
 import EquipesPage from "./pages/equipes";
-import ProfileCharacter from "./pages/profileCharacter/profileCharacter";
+import CharacterPage from "./pages/profileCharacter/profileCharacter";
 
 
 function routesApp () {
@@ -25,7 +25,7 @@ function routesApp () {
                 <Route path="/ornamentos" element={<OrnamentosPage />}></Route>
                 <Route path="/tierlist" element={<TierlistPage />}></Route>
                 <Route path="/equipes" element={<EquipesPage />}></Route>
-                <Route path="/profileCharacter" element={<ProfileCharacter />}></Route>
+                <Route path="/profile" element={<CharacterPage />}></Route>
             </Routes>
             <Footer />
         </BrowserRouter>

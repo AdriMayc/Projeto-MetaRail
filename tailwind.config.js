@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Roboto', 'sans-serif'],
-        mono: ['Protest Guerrilla', 'sans'],
+        mono: ['Rozha-one-regular ', 'sans'],
       },
     },
   },

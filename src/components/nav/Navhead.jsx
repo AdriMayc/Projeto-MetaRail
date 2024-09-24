@@ -1,23 +1,26 @@
-import { Lupa, profile, MetaRailLogo } from "../../../public";
+import { profile } from "../../../public";
+import Logo from "../../../public/Logo.svg"
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Language } from "./components/Language"
 
 export default function NavbarHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoOff, setLogoOff] = useState(false);
 
+
   return (
-    <nav className="w-full z-20 md:h-24 h-12 bg-[#5F5AA2] font-sans  fixed">
+    <nav className="w-full z-20 md:h-24 h-[50px] font-sans  fixed">
       {/* Navbar Top */}
       <div
         id="navbarMain"
-        className="w-full h-full md:h-[65%] bg-[#3d4658] flex justify-between items-center"
+        className="w-full h-full md:h-[65%] bg-[#000000] flex justify-between items-center border-b-2 border-b-[#DC1867]"
       >
         <div className="md:hidden" data-dropdown-toggle="dropdown">
           <svg
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`w-7 h-7 ml-3 text-[#ffffff] duration-500 ${menuOpen ? "rotate-90 !text-[#4A589A] " : "rotate-0"
+            className={`w-7 h-7 ml-5 text-[#ffffff] duration-500 ${menuOpen ? "rotate-90 !text-[#DC1867] " : "rotate-0"
               }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +31,7 @@ export default function NavbarHeader() {
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth="3"
               d="M1 1h15M1 7h15M1 13h15"
             />
           </svg>
@@ -38,9 +41,9 @@ export default function NavbarHeader() {
           <Link to="/">
             <img
               className={`${logoOff ? "hidden" : "block"
-                } h-11  mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
-              src={MetaRailLogo}
-              alt=""
+                } mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
+              src={Logo}
+              alt="Logo"
             />
           </Link>
         </Link>
@@ -49,19 +52,23 @@ export default function NavbarHeader() {
           <input
             id=""
             placeholder="Pesquise Aqui..."
-            className={`w-40 h-10 z-10 pt-2.5 absolute md:relative -translate-y-10 md:-translate-y-0 duration-700 ${logoOff ? "top-11" : "top-[-8%]"
+            className={`w-40 h-10 z-10 pt-2.5 absolute md:relative -translate-y-10 md:-translate-y-0 duration-700 ${logoOff ? "top-[2.85rem]" : "top-[-8%]"
               }
-            md:w-1/3 md:h-10 md:z-0 searchBar md:left-0 md:pt-2.5 md:bg-[#ffffff] rounded-full placeholder-[#5F5AA2] border-none
-            font-semibold text-xl text-[#5F5AA2]  focus:outline-none focus:ring-[#5F5AA2] focus:ring-4 md:focus:ring-[#5F5AA2]`}
+            md:w-1/3 md:h-10 md:z-0 searchBar md:left-0 md:pt-2.5 md:bg-[#ffffff] rounded-full  placeholder-[#810E3C] focus:placeholder-[#DC1867] border-none
+            font-semibold text-xl text-[#810E3C]  focus:outline-none focus:ring-[#DC1867] focus:ring-4 md:focus:ring-[#DC1867]`}
             type="text"
           />
           <button type="submit" className="md:hidden">
-            <img
-              className="w-7 flex mt-2 mr-3 md:w-8 md:mt-0 md:ml-2 "
-              src={Lupa}
-              alt="lupa"
+
+            <svg
+              className="w-7 flex mt-2 mr-5 md:w-8 md:mt-0 md:ml-2"
+              width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"
               onClick={() => setLogoOff(!logoOff)}
-            />
+            >
+              <path d="M24.66 21.6178L19.7915 16.7493C19.5717 16.5295 19.2739 16.4074 18.9613 16.4074H18.1654C19.5131 14.6837 20.314 12.5156 20.314 10.157C20.314 4.54623 15.7678 0 10.157 0C4.54623 0 0 4.54623 0 10.157C0 15.7678 4.54623 20.314 10.157 20.314C12.5156 20.314 14.6837 19.5131 16.4074 18.1654V18.9613C16.4074 19.2739 16.5295 19.5717 16.7493 19.7915L21.6178 24.66C22.0768 25.119 22.8191 25.119 23.2732 24.66L24.6551 23.2781C25.1141 22.8191 25.1141 22.0768 24.66 21.6178ZM10.157 16.4074C6.70459 16.4074 3.90654 13.6143 3.90654 10.157C3.90654 6.70459 6.69971 3.90654 10.157 3.90654C13.6094 3.90654 16.4074 6.69971 16.4074 10.157C16.4074 13.6094 13.6143 16.4074 10.157 16.4074Z"
+                fill={`${logoOff ? "#DC1867" : "#F5F5F5"}`} />
+            </svg>
+
           </button>
         </div>
 
@@ -83,44 +90,40 @@ export default function NavbarHeader() {
         {/* Menu Content Mobile */}
         <div
           id="dropdown"
-          className={`w-full  bg-[#3d4658] absolute top-[24px] mt-[24px] flex-col border-t-2 border-t-[#4A589A]
-          md:mr-16  items-center md:hidden transition-all duration-500 ease-in-out  
+          className={`w-full  bg-[#000000] absolute top-[24px] mt-[24px] flex-col border-t-2 border-t-[#f7f7f7]
+          md:mr-16  items-center md:hidden transition-all duration-500 ease-in-out  rounded-b-3xl
           ${menuOpen ? "max-h-96  opacity-100  visible" : "max-h-0  opacity-0  invisible"}`}
         >
-          <ul className="w-full h-full flex flex-col items-center justify-around text-white">
-            <div className="md:w-full md:block flex flex-col">
-              <Link
-                to="#"
-                className="px-4 py-2 order-3 md:px-4 md:py-1 md:uppercase md:flex md:font-semibold active:text-[#5F5AA2]"
-              >
-                Donate
-              </Link>
-              <button
-                type="text"
-                className="h-auto px-4 py-2 border-none bg-transparent focus:ring-0 order-2
-                md:border-2 md:border-[#5F5AA2] md:uppercase md:flex md:rounded-full md:font-semibold active:text-[#5F5AA2]"
-              >
-                <u>Login</u>
-              </button>
-              <Link to="#" className="w-14 ml-3.5">
-                <img src={profile} alt="profile" />
-              </Link>
+          <ul className="w-full h-full flex flex-col items-center  text-white">
+            {/* Primeira linha com 3 colunas */}
+            <div className="w-full flex justify-between items-center px-16 mt-4">
+              <div className="w-1/3 flex justify-start items-center relative">
+                <Language />
+              </div>
+              <div className="w-1/3 flex justify-center ">
+                <a className="text-center underline hover:text-[#DC1867]" href="#">Login/Sair</a>
+              </div>
+              <div className="w-1/3 flex justify-end hover:text-[#DC1867]">
+                <a className="" href="#">Donate</a>
+              </div>
             </div>
+            <hr className="border text-white w-[20rem] mt-2 " />
 
             <div className="flex flex-col items-center  md:text-black md:border md:border-black">
-              <Link to="#" className="px-4 py-2 order-4 active:text-[#5F5AA2] ">
+              <Link to="#" className="px-4 py-2 order-4 active:text-[#DC1867] ">
                 Equipes
               </Link>
-              <Link to="#" className="px-4 py-2 order-5 active:text-[#5F5AA2]">
+              <Link to="#" className="px-4 py-2 order-5 active:text-[#DC1867]">
                 Tier List
               </Link>
+
 
               <button
                 id="dropdownDefaultButton"
                 data-dropdown-toggle="dropdown2"
                 className={`w-full px-4 py-2 ml-3 text-center inline-flex justify-center items-center order-6
-                active:text-[#5F5AA2] ${!menuOpen ? "text-white" : "text-[#5F5AA2]"
-                  } ${isOpen ? "text-[#5F5AA2]" : "text-white"} `}
+                active:text-[#dc1866ce] ${!menuOpen ? "" : "text-[#DC1867]"
+                  } `}
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
               >
@@ -152,7 +155,7 @@ export default function NavbarHeader() {
                 <li className="flex justify-center">
                   <Link
                     to="#"
-                    className="block px-4 py-2 active:text-[#5F5AA2]"
+                    className="block px-4 py-2 active:text-[#DC1867]"
                   >
                     Cones de Luz
                   </Link>
@@ -160,7 +163,7 @@ export default function NavbarHeader() {
                 <li className="flex justify-center">
                   <Link
                     to="#"
-                    className="block px-4 py-2 active:text-[#5F5AA2]"
+                    className="block px-4 py-2 active:text-[#DC1867]"
                   >
                     Ornamentos
                   </Link>
@@ -168,7 +171,7 @@ export default function NavbarHeader() {
                 <li className="flex justify-center">
                   <Link
                     to="#"
-                    className="block px-4 py-2 active:text-[#5F5AA2]"
+                    className="block px-4 py-2 active:text-[#DC1867]"
                   >
                     Relíquias
                   </Link>

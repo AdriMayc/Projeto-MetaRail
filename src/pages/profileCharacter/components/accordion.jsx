@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-import StarRating from './starRating';
+import { StarRating, StarRatingMore } from './starRating';
 
-const Accordion = ({ isOpenDefault = false, title, title2, content, imageUrl, secondImageUrl = null, description, rating }) => {
+const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImageUrl = null, description, coneDescription, rating, starPlus }) => {
     const [isOpen, setIsOpen] = useState(isOpenDefault);
     const contentRef = useRef(null); // Usado para calcular a altura do conteúdo
 
@@ -9,37 +9,47 @@ const Accordion = ({ isOpenDefault = false, title, title2, content, imageUrl, se
         setIsOpen(!isOpen);
     };
 
+    //Light Cone Description
+    
     return (
-        <div className="accordion-container border rounded-lg overflow-hidden">
+        <div className="accordion-container border border-[#26292B] rounded-lg overflow-hidden">
             <button
                 className="w-full flex items-center bg-transparent relative"
                 onClick={toggleAccordion}
             >
                 {/* Container que segura a imagem e o conteúdo central */}
-                <div className="w-full h-20 flex items-center justify-between px-4">
+                <div className="w-full h-16 flex items-center justify-between px-4">
                     {/* Imagem no canto esquerdo */}
                     <img
                         src={imageUrl}
                         alt="Placeholder"
-                        className={`w-16 bg-[#413F54] rounded-lg border transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
+                        className={`w-12 bg-[#26292b5b] rounded-lg border border-[#26292B] transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
                     />
                     {secondImageUrl && (
                         <img
                             src={secondImageUrl}
                             alt="Placeholder"
-                            className={`w-16 ml-[4.2rem] bg-[#413F54] rounded-lg absolute border transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
+                            className={`w-12 ml-[3.15rem] bg-[#26292b5b] border-[#26292B] rounded-lg border absolute  transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
                         />
                     )}
 
                     {/* Estrelas no centro */}
-                    <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
-                        <StarRating rating={rating} />
-                    </span>
+                    {!starPlus && (
+                        <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
+                            <StarRating rating={rating} />
+                        </span>
+                    )}
+                    {starPlus && (
+                        <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
+                            <StarRatingMore rating={rating} />
+                        </span>
+                    )}
+
                 </div>
 
                 {/* SVG (botão) na direita */}
                 <svg
-                    className={`absolute right-2 h-6 w-6 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    className={`absolute right-2 h-6 w-6 text-[#DC1867] transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -64,7 +74,7 @@ const Accordion = ({ isOpenDefault = false, title, title2, content, imageUrl, se
                                 <img
                                     src={imageUrl}
                                     alt="Imagem 1"
-                                    className="w-24 rounded-lg border"
+                                    className="w-16 rounded-lg border border-[#26292B]"
                                 />
                                 <h2 className="px-2 underline">{title}</h2>
                             </div>
@@ -75,7 +85,7 @@ const Accordion = ({ isOpenDefault = false, title, title2, content, imageUrl, se
                                     <img
                                         src={secondImageUrl}
                                         alt="Imagem 2"
-                                        className="w-24 rounded-lg border"
+                                        className="w-16 rounded-lg border border-[#26292B]"
                                     />
                                     <h2 className="px-2 underline">{title2}</h2>
                                 </div>
@@ -86,6 +96,7 @@ const Accordion = ({ isOpenDefault = false, title, title2, content, imageUrl, se
                     <div className="w-full p-4 flex flex-wrap text-zinc-400 text-sm leading-relaxed gap-2">
                         <p>{description[0]}</p>
                         <p>{description[1]}</p>
+                        <p>{coneDescription}</p>
                     </div>
                 </div>
             </div>
