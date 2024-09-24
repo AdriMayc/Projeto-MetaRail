@@ -1,4 +1,4 @@
-import { welcome } from "../../../../public/index.js";
+// import { welcome } from "../../../../public/index.js";
 
 export default function Banner() {
 	return (
@@ -7,7 +7,8 @@ export default function Banner() {
                 w-full h-60 mt-[25px] bg-cover border-b-2 border-[#DC1867]
                 md:w-full md:h-[30rem] 
             `}
-            style={{backgroundImage:`url(${welcome})`}}>
+            // style={{backgroundImage:`url(${welcome})`}}
+            >
 			<div 
             className="w-full h-full bg-black/[0.5] flex flex-col justify-center items-center text-white">
 				<h1 className="text-5xl font-semibold">

@@ -24,7 +24,7 @@ function App() {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
         .then(() => {
-          alert(`Texto copiado: ${text}`);
+          
         })
         .catch(err => {
           console.error("Erro ao copiar texto: ", err);
@@ -45,7 +45,7 @@ function App() {
         // Usa o comando 'copy' para copiar o texto selecionado
         const successful = document.execCommand('copy');
         if (successful) {
-          alert(`Texto copiado: ${text}`);
+          
         } else {
           alert("Não foi possível copiar o texto.");
         }

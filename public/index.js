@@ -21,9 +21,8 @@ import updateGirl from "../public/update-girl.svg"
 import refresh from "../public/refresh-icon.svg"
 import star from "../public/icon-star-outline.svg"
 import starGold from "../public/icon-star-outline-gold.svg"
-import welcome from "../public/welcome.jpg"
 
 export { 
     Lupa, MetaRailLogo, profile , hearthIcon, shieldIcon, atkIcon, spdIcon, Br, En, SS, S, A, B, C,
-    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh, welcome
+    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh
  }
