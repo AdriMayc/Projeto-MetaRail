@@ -100,18 +100,19 @@ export default function personagens() {;
 					{/* Estrelas e reload */}
 					<div className="w-auto flex justify-center bg-[#26292B] gap-0.5 p-0.5"> 
 						<div className="w-12 h-7 flex justify-center items-center bg-[#111213] text-purple-500">
-							4 
-							<img className="w-5 px-0.5" src={star} alt="" />
+							<span className="">4</span>
+							<img className=" w-4 px-0.5" src={star} alt="" />
 						</div>
 						<div
 							className="w-12 h-7 flex justify-center items-center bg-[#111213] text-yellow-500 "
 						>
-							5 <img className="w-5 px-0.5" src={starGold} alt="" />
+							<span className="">5</span>
+							<img className="w-4 px-0.5" src={starGold} alt="" />
 						</div>
 						<div
 							className="w-12 h-7 flex justify-center items-center bg-[#111213]"
 						>
-							<img className="w-6 h-6 " src={refresh} alt="" />
+							<img className="w-5 h-5 " src={refresh} alt="" />
 						</div>
 					</div>
 					

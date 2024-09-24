@@ -25,5 +25,5 @@ import welcome from "../public/welcome.jpg"
 
 export { 
     Lupa, MetaRailLogo, profile , hearthIcon, shieldIcon, atkIcon, spdIcon, Br, En, SS, S, A, B, C,
-    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh
+    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh, welcome
  }
