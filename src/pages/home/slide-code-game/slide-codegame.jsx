@@ -81,7 +81,7 @@ function App() {
                   {card.title}
                 </h2>
                 <img 
-                  className='w-1/4 h-4 flex cursor-pointer' 
+                  className='w-1/4 h-4 flex cursor-pointer hover:opacity-50' 
                   src={copyIcon} 
                   alt="Copiar Título" 
                   onClick={() => copyToClipboard(card.title)}
