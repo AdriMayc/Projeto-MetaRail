@@ -59,29 +59,39 @@ function App() {
   };
 
   return (
-    <div className=" w-full min-h-20 px-2 pt-4 pb-1 bg-[#111213] font-sans">
+    <div className="
+      w-full min-h-20 px-2 pt-4 pb-1 bg-[#111213] font-sans
+      md:flex md:justify-center
+    ">
       <div
-        className="w-full h-auto py-1 px-0 rounded-xl flex flex-wrap justify-around items-center shrink-0 bg-[#111213] border border-[#26292B]"
-      >
-        <div className='w-5/6 h-auto flex justify-center items-center font-bold text-white'>
+        className="
+          w-full h-auto py-1 px-0 rounded-xl flex flex-wrap justify-around items-center shrink-0 bg-[#111213] border border-[#26292B]
+          md:w-4/6
+      ">
+        <div className='w-5/6 h-auto flex justify-center items-center font-bold text-white md:text-xl'>
           Códigos
         </div>
         <hr className='w-10/12 py-0.5 opacity-70'/>
-        <div className='w-5/6 h-auto mt-0.5 mb-3 flex flex-wrap'> 
+        <div className='
+          w-5/6 h-auto mt-0.5 mb-3 flex flex-wrap
+          
+        '> 
           {cards.map((card, index) => (
             <div
               key={card.id}
               className={`w-1/3 h-4 flex items-center py-2.5  ${
-                index % 3 === 1 ? 'border-x border-white' : ''
-              }`}
+                index % 3 === 1 ? 'border-x border-white' : ''}
+                md:py-5
+                `}
             >
                 <h2 className="
                   w-3/4 h-4 ml-2 flex items-center text-sm text-[#f5f5f5] opacity-70 border-b border-white
+                  md:text-xl
                 ">
                   {card.title}
                 </h2>
                 <img 
-                  className='w-1/4 h-4 flex cursor-pointer hover:opacity-50' 
+                  className='w-1/4 h-4 flex cursor-pointer hover:opacity-50 md:h-8' 
                   src={copyIcon} 
                   alt="Copiar Título" 
                   onClick={() => copyToClipboard(card.title)}

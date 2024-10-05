@@ -37,17 +37,21 @@ const CharList = ({ selectedPath, selectedElem, selectedStar }) => {
 
 
   return !isLoading ? (
-    <div className="flex justify-center items-center min-h-96 text-white
-    md:h-auto md:w-full
+    <div className="
+      flex justify-center items-center min-h-96 text-white
+      md:w-full md:h-auto
     ">
-      <div className="w-full min-h-96 flex flex-wrap justify-center">
+      <div className="
+        w-full min-h-96 flex flex-wrap justify-center
+        md:w-full md:flex
+      ">
       {filteredCards?.map((char, index) => (
         <div
         key={index}
         className={`
           w-24 h-32 m-1 relative flex-shrink-0 rounded-md border-2 
           ${char.stars == 4 ? "border-purple-500" : "border-yellow-500"}
-          md:w-full
+          md:w-48 md:h-52
         `}
         >
           <span className='w-6 h-6 absolute'>
@@ -59,14 +63,14 @@ const CharList = ({ selectedPath, selectedElem, selectedStar }) => {
           <span 
             className='
               w-full h-auto absolute bottom-0 flex justify-center text-sm bg-black opacity-50
-              md:h-1/2 md:text-2xl
+              md:h-8 md:text-2xl
             '>
               <span className='invisible'> . </span>
           </span>
           <span 
             className='
-              w-full h-auto absolute bottom-0 flex justify-center text-sm text-white font-semibold font-sans bg-transparent opacity-100
-              md:h-1/2 md:text-2xl
+              w-full h-auto absolute z-20 bottom-0 flex justify-center text-sm text-white font-semibold font-sans bg-transparent opacity-100
+              md:h-8 md:text-2xl md:bottom-0
             '>
               <span className='text-white opacity-100'>{char.nameEnglish}</span>
           </span>

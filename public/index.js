@@ -22,8 +22,21 @@ import refresh from "../public/refresh-icon.svg"
 import star from "../public/icon-star-outline.svg"
 import starGold from "../public/icon-star-outline-gold.svg"
 import welcome from "../public/banner.svg"
+import exampleprofile from "../public/example-profile.svg"
+import ep1 from "../public/example-profile-2.svg"
+import ep2 from "../public/example-profile-3.svg"
+import ep3 from "../public/example-profile-4.svg"
+import ep4 from "../public/example-profile-5.svg"
+import ep5 from "../public/example-profile-6.svg"
+import ep6 from "../public/example-profile-7.svg"
+import ep7 from "../public/example-profile-8.svg"
+import ep8 from "../public/example-profile-9.svg"
+import ep9 from "../public/example-profile-10.svg"
+import ep10 from "../public/example-profile-11.svg"
+import ep11 from "../public/example-profile-12.svg"
 
 export { 
     Lupa, MetaRailLogo, profile , hearthIcon, shieldIcon, atkIcon, spdIcon, Br, En, SS, S, A, B, C,
-    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh, welcome
+    body, feet, rope, sphere, copyIcon, updateGirl, star, starGold, refresh, welcome, exampleprofile, 
+    ep1, ep2, ep3, ep4, ep5, ep6, ep7, ep8, ep9, ep10, ep11
  }

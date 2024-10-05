@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { StarRating, StarRatingMore } from './starRating';
 
-const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImageUrl = null, description, coneDescription, rating, starPlus }) => {
+const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, secondImageUrl = null, description, coneDescription, rating, starPlus }) => {
     const [isOpen, setIsOpen] = useState(isOpenDefault);
     const contentRef = useRef(null); // Usado para calcular a altura do conteúdo
 
@@ -20,11 +20,13 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImage
                 {/* Container que segura a imagem e o conteúdo central */}
                 <div className="w-full h-16 flex items-center justify-between px-4">
                     {/* Imagem no canto esquerdo */}
+                    {secondImageUrl && (
                     <img
                         src={imageUrl}
                         alt="Placeholder"
                         className={`w-12 bg-[#26292b5b] rounded-lg border border-[#26292B] transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
                     />
+                    )}
                     {secondImageUrl && (
                         <img
                             src={secondImageUrl}
@@ -34,14 +36,19 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImage
                     )}
 
                     {/* Estrelas no centro */}
-                    {!starPlus && (
+                    {(!starPlus && rating != 0) && (
                         <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
                             <StarRating rating={rating} />
                         </span>
                     )}
-                    {starPlus && (
+                    {(starPlus && rating != 0) && (
                         <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
                             <StarRatingMore rating={rating} />
+                        </span>
+                    )}
+                    {rating == 0 && (
+                        <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
+                            <span>{title}</span>
                         </span>
                     )}
 
@@ -70,7 +77,8 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImage
                         {/* Container para as imagens e títulos à esquerda */}
                         <div className="flex flex-col items-start gap-4">
                             {/* Primeiro par de imagem e título */}
-                            <div className="flex items-center gap-2">
+                            {imageUrl && (
+                                <div className="flex items-center gap-2">
                                 <img
                                     src={imageUrl}
                                     alt="Imagem 1"
@@ -78,6 +86,7 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl, secondImage
                                 />
                                 <h2 className="px-2 underline">{title}</h2>
                             </div>
+                            )}
 
                             {/* Segundo par de imagem e título (se houver) */}
                             {secondImageUrl && (
