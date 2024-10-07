@@ -1,7 +1,44 @@
-import { useState } from "react";
-import { hearthIcon, shieldIcon, atkIcon, spdIcon, SS, S, A, B, C, body, feet, rope, sphere } from "../../../../public"
+import * as React from "react"
+import {useState} from "react"
+import { hearthIcon, shieldIcon, atkIcon, spdIcon, SS, S, A, B, C, body, feet, rope, sphere, exampleprofile, ep1, ep2, ep3, ep4, ep5, ep6, ep7, ep8, ep9, ep10 } from "../../../../public"
 import AccordionItem from './accordion'
+import DiscreteSlider from "./discreet-slider"
 
+
+const valores = [
+    {
+        title:'ATK Básico',
+        nvlMax: 9,
+        A:[25, 30, 35, 40, 45, 50, 55, 60, 65]
+    },
+    {
+        title:'Skill',
+        nvlMax:15,
+        A: [65], 
+        B: [0], 
+        C: [3], 
+        D: [3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.88, 5.25, 5.63, 6, 6.3, 6.6, 6.9, 7.2, 7.5], 
+        E: [6, 6.6, 7.2, 7.8, 8.4, 9, 9.75, 10.5, 11.25, 12, 12.6, 13.2, 13.8, 14.4, 15]
+    },
+    {
+        title:'Ultimate',
+        nvlMax:15,
+        A: [60, 64, 68, 72, 76, 80, 85, 90, 95, 100, 104, 108, 112, 116, 120]
+    },
+    {
+        title:'Talent',
+        nvlMax:15,
+        A: [10, 10.8, 11.6, 12.5, 13.2, 14, 15, 16, 17, 18, 18.8, 19.6, 20.4, 21.2, 22], 
+        B: [50], 
+        C: [80, 81, 82, 83, 84, 85, 86.25, 87.5, 88.75, 90, 91, 92, 93, 94, 95],
+    },
+    {
+        title:'Technique',
+        nvlMax:1,
+        C: 2
+    },
+    
+]
 
 // Introdução
 export const Introdution = () => {
@@ -614,8 +651,406 @@ export const Equipments = () => {
                             </tr>
                         </thead>
                     </table>
+                    <h2 className="mt-4 mb-2 font-medium ">Rastros Menores</h2>
+                    <table className="w-[90%]">
+                        <thead className="">
+                            <tr className="border-b border-[#DC1867] mx-auto" >
+                                <th className="font-thin text-sm opacity-80 py-">
+                                    Efeito 1
+                                </th>
+                                <th className="font-thin text-sm opacity-80">
+                                    Efeito 2
+                                </th>
+                                <th className="font-thin text-sm opacity-80">
+                                    Efeito 3
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-[#DC1867] mx-auto">
+                                <th className="font-extralight text-sm py-1"> +10% </th>
+                                <th className="font-extralight text-sm">+18.7%</th>
+                                <th className="font-extralight text-sm">+18%</th>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div className="w-full py-4 px-[5%] flex flex-col items-center gap-2 ">
+                        <h2 className="mt-4 mb-2 font-medium">Rastros Maiores</h2>
+                        <AccordionItem
+                        starPlus="false"
+                        isOpenDefault={false} // começa fechado
+                        title="Liuren, o Sexagenário" // Define o titulo
+                        imageUrl="https://starrail.honeyhunterworld.com/img/trace/liuren-the-sexagenary-trace_icon.webp?x10871"
+                        description={[
+                            "Se um inimigo-alvo aplicar penalidades de Controle Negativo a aliados enquanto a Matriz de Presciência estiver ativa, todos os aliados resistirão a todas as penalidades de Controle Negativo aplicadas pelo alvo inimigo durante a ação atual. Este efeito só pode ser acionado uma vez. Quando a Matriz de Presciência é reativada, o número de vezes que este efeito pode ser ativado será redefinido."
+                        ]} // Descrição Gerals
+                        rating={0}
+                        />
+                        <AccordionItem
+                            starPlus="false"
+                            isOpenDefault={false} // começa fechado
+                            title="Taiyi, o Macrocósmico" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/trace/taiyi-the-macrocosmic-trace_icon.webp?x10871"
+                            description={[
+                                "Quando a Matriz de Presciência está ativa, Fu Xuan recuperará 20 de Energia extra ao usar sua Perícia"
+                            ]} // Descrição Gerals
+                            rating={0}
+                        />
+                        <AccordionItem
+                            starPlus="false"
+                            isOpenDefault={false} // começa fechado
+                            title="Dunjia, o Metamístico" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/trace/dunjia-the-metamystic-trace_icon.webp?x10871"
+                            description={[
+                                "Quando a Perícia Suprema de Fu Xuan é utilizada, cura todos os aliados em uma quantidade igual a 5% dos PV máximos de Fu Xuan + 133."
+                            ]} // Descrição Gerals
+                            rating={0}
+                        />
+                    </div>
                 </div>
             </section>
         </>
+    )
+}
+
+// Eidolons
+export const Eidolons = () => {
+
+    return(
+        <>
+            <div className="w-full py-4 px-[5%] flex flex-col items-center gap-2 ">
+                <h2 className="mt-4 mb-2 font-medium">Eidolons</h2>
+                <AccordionItem
+                starPlus="false"
+                isOpenDefault={false} // começa fechado
+                title="Dominus Pacis" // Define o titulo
+                imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/dominus-pacis-eidolon_icon.webp?x10871"
+                description={[
+                    "O efeito Conhecimento aumenta o DMG CRIT em 30%."
+                ]} // Descrição Gerals
+                rating={0}
+                />
+                <AccordionItem
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Optimus Felix" // Define o titulo
+                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/optimus-felix-eidolon_icon.webp?x10871"
+                    description={[
+                        "Se qualquer membro da equipe for atingido por um golpe mortal enquanto Matrix of Prescience estiver ativo, todos os aliados que foram atingidos por um golpe mortal durante esta ação não serão derrubados, e 70% de seu HP Máx. será imediatamente restaurado. Este efeito pode ser ativado 1 vez por batalha."
+                    ]} // Descrição Gerals
+                    rating={0}
+                />
+                <AccordionItem
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Apex Nexus" // Define o titulo
+                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/apex-nexus-eidolon_icon.webp?x10871"
+                    description={[
+                        "Skill Lv. +2, up to a maximum of Lv. 15.<br>Talent Lv. +2, up to a maximum of Lv. 15."
+                    ]} // Descrição Gerals
+                    rating={0}
+                />
+                <AccordionItem
+                starPlus="false"
+                isOpenDefault={false} // começa fechado
+                title="Fortuna Stellaris" // Define o titulo
+                imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/fortuna-stellaris-eidolon_icon.webp?x10871"
+                description={[
+                    "Quando outros aliados sob a Matriz da Presciência são atacados, Fu Xuan regenera 5 de Energia."
+                ]} // Descrição Gerals
+                rating={0}
+                />
+                <AccordionItem
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Arbiter Primus" // Define o titulo
+                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/arbiter-primus-eidolon_icon.webp?x10871"
+                    description={[
+                        "Ultimate Lv. +2, até um máximo de Lv. 15.<br>ATK básico Lv. +1, até um máximo de Lv. 10."
+                    ]} // Descrição Gerals
+                    rating={0}
+                />
+                <AccordionItem
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Omnia Vita" // Define o titulo
+                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/omnia-vita-eidolon_icon.webp?x10871"
+                    description={[
+                        "Uma vez que Matrix of Prescience é ativada, ela manterá uma contagem do total de HP perdido por todos os membros da equipe na batalha atual. O DMG causado pelo Ultimate de Fu Xuan aumentará em 200% dessa contagem de perda de HP.<br>Essa contagem também é limitada a 120% do HP Máximo de Fu Xuan e o valor da contagem será zerado e reacumulado após o Ultimate de Fu Xuan ser usado."
+                    ]} // Descrição Gerals
+                    rating={0}
+                />
+            </div>
+        </>
+    )
+
+}
+
+// Habilidades
+export const Skills = () => {
+
+    // Estado no componente pai para armazenar o valor do slider
+    const [sliderValues, setSliderValues] = useState({
+        atkLevel: 1,
+        skillLevel: 1,
+        ultimateLevel: 1,
+        talentLevel:1,
+        techniqueLevel:1,
+    });
+
+    // Função que será passada para o componente filho para atualizar o valor
+    const handleSliderChange = (key, newValue) => {
+        setSliderValues((prevValues) => ({
+            ...prevValues,
+            [key]: newValue,
+        }))
+    };
+
+    return(
+        <>
+            <div className="w-full min-h-32 py-4 px-[5%] flex flex-col items-center gap-3">
+                <h2 className="mt-2 font-semibold "> Habilidades </h2>
+                {/* ATK BASIC */}
+                <div className="w-full">
+                    <h2 className="w-full h-auto my-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
+                        ATK Básico 
+                    </h2>
+                    <div className="w-full flex justify-around items-center bg-black">
+                        <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.atkLevel}</span>
+                        <div className="h-8 flex justify-center items-center ">
+                            <DiscreteSlider valueMax={valores[0].nvlMax} onSliderChange={(newValue) => handleSliderChange("atkLevel", newValue)} />
+                        </div>
+                    </div>
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                        <div className="flex justify-between items-center px-2 bg-[#111213]">
+                            <span> Ganho de Energia: 20 </span>
+                            <span> Quebra: 10</span>
+                        </div>
+                        <p className="px-1.5 py-0.5">
+                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[0].A[sliderValues.atkLevel - 1]}%</span> do HP Máximo de FU Xuan a um único inimigo.
+                        </p>
+
+
+                    </div>
+                </div>
+                {/* SKILL */}
+                <div className="w-full">
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
+                        Habilidade 
+                    </h2>
+                    <div className="w-full flex justify-around items-center bg-black">
+                        <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.skillLevel}</span>
+                        <div className="h-8 flex justify-center items-center ">
+                            <DiscreteSlider valueMax={valores[1].nvlMax} onSliderChange={(newValue) => handleSliderChange("skillLevel", newValue)} />
+                        </div>
+                    </div>
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                        <div className="flex justify-between items-center px-2 bg-[#111213]">
+                            <span> Ganho de Energia: 30 </span>
+                            <span> Quebra: 0</span>
+                        </div>
+                        <p className="px-1.5 py-0.5">
+                            Activates Matrix of Prescience, via which other team members will Distribute <span className="text-pink-600">{valores[1].A}%</span> of the DMG they receive (before this DMG is mitigated by any Shields) to Fu Xuan for <span className="text-pink-600">{valores[1].C}%</span> turn(s).
+                            While affected by Matrix of Prescience, all team members gain the Knowledge effect, which increases their respective Max HP by <span className="text-pink-600">{valores[1].D[sliderValues.skillLevel - 1]}% </span>of Fu Xuan's Max HP, and increases CRIT Rate by <span className="text-pink-600">{valores[1].E[sliderValues.skillLevel - 1]}%</span>.
+                            When Fu Xuan is knocked down, the Matrix of Prescience will be dispelled.
+                        </p>
+
+
+                    </div>
+                </div>
+                {/* ULTIMATE */}
+                <div className="w-full">
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
+                        Ultimamte 
+                    </h2>
+                    <div className="w-full flex justify-around items-center bg-black">
+                        <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.ultimateLevel}</span>
+                        <div className="h-8 flex justify-center items-center ">
+                            <DiscreteSlider valueMax={valores[2].nvlMax} onSliderChange={(newValue) => handleSliderChange("ultimateLevel", newValue)} />
+                        </div>
+                    </div>
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                        <div className="flex justify-between items-center px-2 bg-[#111213]">
+                            <span> Ganho de Energia: 05 </span>
+                            <span> Quebra: 20</span>
+                        </div>
+                        <p className="px-1.5 py-0.5">
+                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[2].A[sliderValues.ultimateLevel - 1]}%</span> do HP Máximo de FU Xuan a todos os inimigos e 
+                            obtém 1 contagem de ativação para o efeito Restauração de HP concedido pelo Talento de Fu Xuan.
+                        </p>
+                    </div>
+                </div>
+                {/* TALENT */}
+                <div className="w-full">
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
+                        Talento 
+                    </h2>
+                    <div className="w-full flex justify-around items-center bg-black">
+                        <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.talentLevel}</span>
+                        <div className="h-8 flex justify-center items-center ">
+                            <DiscreteSlider valueMax={valores[3].nvlMax} onSliderChange={(newValue) => handleSliderChange("talentLevel", newValue)} />
+                        </div>
+                    </div>
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                        <div className="flex justify-between items-center px-2 bg-[#111213]">
+                            <span> Ganho de Energia: 0 </span>
+                            <span> Quebra: 0</span>
+                        </div>
+                        <p className="px-1.5 py-0.5">
+                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[3].A[sliderValues.talentLevel - 1]}%</span> do HP Máximo de FU Xuan a todos os inimigos e 
+                            obtém 1 contagem de ativação para o efeito Restauração de HP concedido pelo Talento de Fu Xuan.
+                        </p>
+                    </div>
+                </div>
+                {/* TECHNIQUE */}
+                <div className="w-full">
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
+                        Técnica 
+                    </h2>
+                    <div className="w-full flex justify-around items-center bg-black">
+                        <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.techniqueLevel}</span>
+                        <div className="h-8 flex justify-center items-center ">
+                            <DiscreteSlider valueMax={valores[4].nvlMax} onSliderChange={(newValue) => handleSliderChange("techniqueLevel", newValue)} />
+                        </div>
+                    </div>
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                        <div className="flex justify-between items-center px-2 bg-[#111213]">
+                            <span> Ganho de Energia: 0 </span>
+                            <span> Quebra: 0</span>
+                        </div>
+                        <p className="px-1.5 py-0.5">
+                            Após a Técnica ser usada, todos os membros da equipe recebem uma Barreira, com duração de <span className="text-pink-600">20</span> segundos. Esta Barreira pode bloquear todos os ataques inimigos, 
+                            e a equipe não entrará em batalha quando atacada. Entrar em batalha enquanto a Barreira estiver ativa fará com que Fu Xuan ative automaticamente a 
+                            Matriz da Preciência no início da batalha, com duração de <span className="text-pink-600">{valores[4].C}</span> turnos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+
+}
+
+//Times
+export const Teams = () => {
+    return(
+        <div className="w-full min-h-32 py-4 px-[5%] flex flex-col items-center font-semibold">
+            <div className="w-full min-h-40 flex justify-center items-center flex-wrap">
+                <h2 className="w-full flex justify-center">Equipes Recomendadas</h2>
+                <img 
+                    className="w-28 h-28 my-5"
+                    src={exampleprofile} 
+                    alt="Character"
+                />
+
+            </div>
+            <div className="w-full my-2.5 flex ">
+                {/* F2P */}
+                <div className="w-1/2 min-h-40 flex flex-col items-center">
+                    <h2> F2P </h2>
+                    <hr className="w-full border-[#26292B] mb-5"/>
+                    <div className="flex flex-col items-center font-light">
+                        <img 
+                            className="w-20 h-20"
+                            src={ep1} 
+                            alt="Character 1"
+                        />
+                        <span>Buffer</span>
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <img 
+                            className="w-20 h-20"
+                            src={ep2} 
+                            alt="Character 2"
+                        />
+                        <span>Escudo</span>
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <img 
+                            className="w-20 h-20"
+                            src={ep3} 
+                            alt="Character 3"
+                        />
+                        <span>Cura</span>
+                    </div>
+                </div>
+                {/* MELHOR TIME */}
+                <div className="w-1/2 min-h-40 flex flex-col items-center">
+                    <h2> Melhor Time </h2>
+                    <hr className="w-full border-[#26292B] mb-5"/>
+                    <div className="flex flex-col items-center font-light">
+                        <img 
+                            className="w-20 h-20"
+                            src={ep4} 
+                            alt="Character 4"
+                        />
+                        <span>Debuffer</span>
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <img 
+                            className="w-20 h-20"
+                            src={ep5} 
+                            alt="Character 5"
+                        />
+                        <span>Debuffer</span>
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <img 
+                            className="w-20 h-20"
+                            src={ep6} 
+                            alt="Character 6"
+                        />
+                        <span>Escudo</span>
+                    </div>
+
+                </div>
+            </div>
+            <hr className="w-[95%] border-[#26292B] mb-5" />
+            <div className="flex flex-col  gap-5">
+                <h2 className="w-full flex justify-center">Outras Opções</h2>
+                <AccordionItem
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Escudo / Cura" // Define o titulo
+                    imageUrl=""
+                    description={
+                        [
+                            <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
+                                <img className="w-16 h-16" src={ep9} alt=""/>
+                                <h3 className="text-[1rem] font-semibold"> Feixiao </h3>
+                            </div>  
+                        ,
+                            <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
+                                <img className="w-16 h-16" src={ep10} alt=""/>
+                                <h3 className="text-[1rem] font-semibold"> Seele </h3>
+                            </div>  
+                        ]
+                    } // Descrição Gerals
+                    rating={0}
+                />
+                <AccordionItem
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Buff / Debuff" // Define o titulo
+                    imageUrl=""
+                    description={
+                        [
+                            <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
+                                <img className="w-16 h-16" src={ep7} alt=""/>
+                                <h3 className="text-[1rem] font-semibold"> Gepard </h3>
+                            </div>
+                        ,
+                            <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
+                                <img className="w-16 h-16" src={ep8} alt=""/>
+                                <h3 className="text-[1rem] font-semibold"> Arlan </h3>
+                            </div>  
+                        ]
+                    } // Descrição Gerals
+                    rating={0}
+                />
+            </div>
+
+        </div>
     )
 }

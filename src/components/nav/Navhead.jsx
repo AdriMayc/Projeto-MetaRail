@@ -24,7 +24,7 @@ export default function NavbarHeader() {
             onClick={() => setMenuOpen(!menuOpen)}
             className={`w-7 h-7 ml-5 text-[#ffffff] duration-500 ${menuOpen ? "rotate-90 !text-[#DC1867] " : "rotate-0"
               }`}
-            aria-hidden="true"
+            aria-hidden='true'
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 17 14"
