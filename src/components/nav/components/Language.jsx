@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Br, En } from "../../../../public"
+import { br, en } from "../../../../public"
 
 export const Language = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,13 +18,14 @@ export const Language = () => {
   return (
     <>
       <div className="absolute -left-7 ">
-        <img className="w-5 mr-1 " src={`${selectedLanguage === 'Pt-Br' ? Br : En}`} alt="Linguagem" />
+        <img className="w-5 mr-1 " src={`${selectedLanguage === 'Pt-Br' ? br : en}`} alt="Linguagem" />
+        
       </div>
       <div className=" relative ">
         <button
           type='button'
           onClick={toggleDropdown}
-          className="w-auto text-[#DC1867] flex items-center text-sm whitespace-nowrap"
+          className="w-auto text-[#DC1867] md:text-[#f5f5f5] flex items-center text-sm whitespace-nowrap"
         >
           {selectedLanguage}
           <svg

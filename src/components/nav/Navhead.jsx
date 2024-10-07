@@ -1,8 +1,10 @@
-import { profile } from "../../../public";
+import { profile, siteLogo, coffe } from "../../../public";
 import Logo from "../../../public/Logo.svg"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Language } from "./components/Language"
+
+
 
 export default function NavbarHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +13,11 @@ export default function NavbarHeader() {
 
 
   return (
-    <nav className="w-full z-20 md:h-24 h-[50px] font-sans  fixed">
+    <nav className="w-full  z-20 md:h-[6rem] h-[50px] font-sans  fixed">
       {/* Navbar Top */}
       <div
         id="navbarMain"
-        className="w-full h-full md:h-[65%] bg-[#000000] flex justify-between items-center border-b-2 border-b-[#DC1867]"
+        className="w-full h-full md:px-8 md:h-[65%] bg-[#000000] flex justify-between items-center border-b border-[#DC1867]"
       >
         <div className="md:hidden" data-dropdown-toggle="dropdown">
           <svg
@@ -37,14 +39,17 @@ export default function NavbarHeader() {
           </svg>
         </div>
 
-        <Link className="md:w-1/6 md:ml-16" to="#">
+        <Link className="md:w-[30rem]" to="#">
           <Link to="/">
             <img
               className={`${logoOff ? "hidden" : "block"
-                } mt-[3px]  relative  duration-500  md:h-16 md:mt-[2px] md:block`}
+                }  mt-[3px]  relative  duration-500 md:hidden`}
               src={Logo}
               alt="Logo"
             />
+            <img
+              className="hidden md:block md:w-[65%]"
+              src={siteLogo} alt="logo desktop" />
           </Link>
         </Link>
 
@@ -54,8 +59,8 @@ export default function NavbarHeader() {
             placeholder="Pesquise Aqui..."
             className={`w-40 h-10 z-10 pt-2.5 absolute md:relative -translate-y-10 md:-translate-y-0 duration-700 ${logoOff ? "top-[2.85rem]" : "top-[-8%]"
               }
-            md:w-1/3 md:h-10 md:z-0 searchBar md:left-0 md:pt-2.5 md:bg-[#ffffff] rounded-full  placeholder-[#810E3C] focus:placeholder-[#DC1867] border-none
-            font-semibold text-xl text-[#810E3C]  focus:outline-none focus:ring-[#DC1867] focus:ring-4 md:focus:ring-[#DC1867]`}
+            md:w-[40%] md:h-10 md:z-0 searchBar md:left-0 md:pt-2.5 md:bg-[#ffffff] rounded-full  placeholder-[#810E3C] focus:placeholder-[#DC1867] border-none
+            font-semibold text-xl text-[#DC1867]  focus:outline-none focus:ring-[#DC1867] focus:ring-4 md:focus:ring-[#DC1867]`}
             type="text"
           />
           <button type="submit" className="md:hidden">
@@ -72,18 +77,20 @@ export default function NavbarHeader() {
           </button>
         </div>
 
-        <div className="w-96  md:mr-14 tracking-wider md:text-[#ffffff] font-semibold  md:flex hidden md:justify-between items-center">
-          <Link className="underline-animation  inline-block" to="#">
-            DONATE
-          </Link>
-          <Link
-            className="border md:border-4  border-[#5F5AA2] md:rounded-full md:py-2 md:px-3 hover:text-[#5d5991]"
-            to="#"
-          >
-            LOGIN
+        <div className="w-[30rem]  tracking-wider md:text-[#ffffff] font-semibold  md:flex hidden md:justify-around items-center ">
+          <div className="z-40">
+            <Language />
+          </div>
+
+
+          <Link className="flex items-center justify-center border-[2px] border-[#DC1867] rounded-xl px-2 py-0.5 hover:opacity-60" to="#">
+            <img className="w-7 mb-2 mr-1" src={coffe} alt="donate" />
+            <span >
+              DONATE
+            </span>
           </Link>
           <Link to="#">
-            <img className="md:w-14" src={profile} alt="profile" />
+            <img className="md:w-14 hover:opacity-70" src={profile} alt="profile" />
           </Link>
         </div>
 
@@ -182,8 +189,8 @@ export default function NavbarHeader() {
         </div>
       </div>
       {/* Navbar Bottom */}
-      <div className=" md:h-[35%] md:flex md:justify-center">
-        <ul className="hidden md:uppercase md:items-center md:w-5/6 md:flex md:justify-evenly md:text-white md:font-semibold md:text-2xl;">
+      <div className=" md:h-[35%] md:flex md:justify-center md:bg-black border-b border-[#DC1867]">
+        <ul className="hidden md:uppercase md:items-center md:w-5/6 md:flex md:justify-between md:text-white md:font-semibold md:text-2xl;">
           <li className="underline-animation">
             <Link to="/">home</Link>
           </li>
