@@ -1,5 +1,5 @@
 import * as React from "react"
-import {useState} from "react"
+import { useState } from "react"
 import { hearthIcon, shieldIcon, atkIcon, spdIcon, SS, S, A, B, C, body, feet, rope, sphere, exampleprofile, ep1, ep2, ep3, ep4, ep5, ep6, ep7, ep8, ep9, ep10 } from "../../../../public"
 import AccordionItem from './accordion'
 import DiscreteSlider from "./discreet-slider"
@@ -7,84 +7,117 @@ import DiscreteSlider from "./discreet-slider"
 
 const valores = [
     {
-        title:'ATK Básico',
+        title: 'ATK Básico',
         nvlMax: 9,
-        A:[25, 30, 35, 40, 45, 50, 55, 60, 65]
+        A: [25, 30, 35, 40, 45, 50, 55, 60, 65]
     },
     {
-        title:'Skill',
-        nvlMax:15,
-        A: [65], 
-        B: [0], 
-        C: [3], 
-        D: [3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.88, 5.25, 5.63, 6, 6.3, 6.6, 6.9, 7.2, 7.5], 
+        title: 'Skill',
+        nvlMax: 15,
+        A: [65],
+        B: [0],
+        C: [3],
+        D: [3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.88, 5.25, 5.63, 6, 6.3, 6.6, 6.9, 7.2, 7.5],
         E: [6, 6.6, 7.2, 7.8, 8.4, 9, 9.75, 10.5, 11.25, 12, 12.6, 13.2, 13.8, 14.4, 15]
     },
     {
-        title:'Ultimate',
-        nvlMax:15,
+        title: 'Ultimate',
+        nvlMax: 15,
         A: [60, 64, 68, 72, 76, 80, 85, 90, 95, 100, 104, 108, 112, 116, 120]
     },
     {
-        title:'Talent',
-        nvlMax:15,
-        A: [10, 10.8, 11.6, 12.5, 13.2, 14, 15, 16, 17, 18, 18.8, 19.6, 20.4, 21.2, 22], 
-        B: [50], 
+        title: 'Talent',
+        nvlMax: 15,
+        A: [10, 10.8, 11.6, 12.5, 13.2, 14, 15, 16, 17, 18, 18.8, 19.6, 20.4, 21.2, 22],
+        B: [50],
         C: [80, 81, 82, 83, 84, 85, 86.25, 87.5, 88.75, 90, 91, 92, 93, 94, 95],
     },
     {
-        title:'Technique',
-        nvlMax:1,
+        title: 'Technique',
+        nvlMax: 1,
         C: 2
     },
-    
+
 ]
 
 // Introdução
 export const Introdution = () => {
     return (
         <>
-            <div className=" w-full h-[14.5rem] my-6 justify-between flex  items-center  ">
+            <div className=" 
+            w-full  my-6 justify-start flex items-center md:gap-3 md:border-r md:border-[#26292B]
+            
+            ">
+
                 {/* Foto do Personagem */}
-                <div className="w-[50%]  flex justify-center relative border-r-2 border-[#26292B]">
+                <div className="
+                w-1/2  flex justify-center relative border-r-2 border-[#26292B] pr-2
+                md:border-none  md:h-auto  md:w-1/2  lg:justify-end md:p-0
+                ">
                     <img
-                        className="w-[150px] rounded-[10px] border-[1px] border-[#CCAD00]"
+                        className="w-[150px] rounded-[10px] border-[1px] border-[#CCAD00]
+                        md:w-[18rem]
+                        "
                         src="https://rerollcdn.com/STARRAIL/Characters/Full/3017.png" alt="Nome do Personagem" />
                 </div>
                 {/* Descrição do Personagem */}
-                <div className="w-[50%] h-full flex flex-col items-start justify-center">
-                    <ul className="w-full ml-4">
-                        <li className="opacity-30 text-sm">Nome</li>
-                        <li className="font-semibold text-xl">Acheron</li>
-                        <li className="opacity-30 text-sm">Caminho</li>
-                        <li className="font-semibold text-">Inexistência</li>
-                        <li className="opacity-30 text-sm mb-1">Rank</li>
+                <div className="w-1/2  flex flex-col items-start justify-center 
+                 
+                ">
+                    <ul className="w-full ml-4 md:w-3/4">
+                        <li className="opacity-30 text-sm 
+                        md:text-2xl md:mb-2
+                        ">
+                            Nome
+                        </li>
+                        <li className="font-semibold 
+                        md:text-4xl  md:mb-2
+                        ">
+                            Acheron
+                        </li>
+                        <li className="opacity-30 text-sm
+                        md:text-2xl md:mb-2
+                        ">
+                            Caminho
+                        </li>
+                        <li className="font-semibold text-xl
+                        md:text-4xl  md:mb-2
+                        ">
+                            Inexistência
+                        </li>
+                        <li className="opacity-30 text-sm mb-1
+                        md:text-2xl md:mb-3
+                        ">
+                            Rank
+                        </li>
                     </ul>
                     {/* Rank Table */}
-                    <table className="w-[9rem]  ml-4">
+                    <table className="w-[9.7rem]  ml-4
+                        md:w-3/4 
+                        ">
                         {/* Dano em Alvo Único */}
-                        <tr className="border-b border-dashed border-[#f5f5f581]">
-                            <td className=""><img className="w-6 " src={SS} alt="Single Target" /></td>
-                            <td className="text-xs font-medium">Dano em Alvo Único</td>
+                        <tr className="md:mx-2 border-b border-dashed border-[#f5f5f581] ">
+                            <td className=""><img className="w-6  md:w-10" src={SS} alt="Single Target" /></td>
+                            <td className="text-xs  font-medium  md:text-xl">Dano em Alvo Único</td>
                         </tr>
                         {/* Dano em Área  */}
                         <tr className="border-b border-dashed border-[#f5f5f581]">
-                            <td className=""><img className="w-6 mr-1" src={SS} alt="Area Dmg" /></td>
-                            <td className="text-xs font-medium">Dano em Área</td>
+                            <td className=""><img className="w-6 mr-1 md:w-10" src={SS} alt="Area Dmg" /></td>
+                            <td className="text-xs  font-medium  md:text-xl">Dano em Área</td>
                         </tr>
                         {/* Geral */}
                         <tr className="border-b border-dashed border-[#f5f5f581]">
-                            <td className=""><img className="w-6" src={SS} alt="Geral" /></td>
-                            <td className="text-xs font-medium">Geral</td>
+                            <td className=""><img className="w-6 md:w-10" src={SS} alt="Geral" /></td>
+                            <td className="text-xs  font-medium  md:text-xl">Geral</td>
                         </tr>
                         {/* Suporte */}
                         <tr className="border-b border-dashed border-[#f5f5f581]">
-                            <td className=""><img className="w-6" src={C} alt="Suport" /></td>
-                            <td className="text-xs font-medium">Suporte</td>
+                            <td className=""><img className="w-6 md:w-10" src={C} alt="Suport" /></td>
+                            <td className="text-xs  font-medium  md:text-xl">Suporte</td>
                         </tr>
                     </table>
-
                 </div>
+
             </div>
 
         </>
@@ -145,12 +178,15 @@ export const TierList = () => {
     ];
 
     return (
-        <>
+        <div className="w-full flex flex-col items-center md:mb-5 ">
 
-            <h2 className="mt-6 font-semibold ">Avaliação de Personagem</h2>
-            <h3 className="opacity-40 mt-2 text-xs">Vote aqui</h3>
+            <h2 className="  mt-6 font-semibold md:text-xl">Avaliação de Personagem</h2>
+            <h3 className=" opacity-40 mt-2 text-xs  md:text-sm">Vote aqui</h3>
 
-            <div className="w-full h-16 my-6 flex justify-center gap-2">
+            <div className=" w-full h-[4.5rem] my-6 flex justify-center gap-2 
+            md:h-[6rem] 
+            ">
+
                 {options.map((option) => {
                     const isDisabled = votedItem && votedItem !== option.id;
 
@@ -160,6 +196,7 @@ export const TierList = () => {
                             id={option.id}
                             onClick={() => !isDisabled && thisVote(option.id)}
                             className={`
+                                md:w-[10%]
                                 w-1/6 border border-[#26292B] bg-transparent font-mono text-2xl flex flex-wrap 
                                 items-center justify-center relative rounded-md cursor-pointer 
                                 transition-opacity duration-300 ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
@@ -172,16 +209,17 @@ export const TierList = () => {
                                 }}
                             ></div>
                             <span className="absolute inset-0 flex items-center justify-center">
-                                <img className="w-8" src={option.imgSrc} alt="Tier" />
+                                <img className="w-8  md:w-12" src={option.imgSrc} alt="Tier" />
                             </span>
-                            <span className="absolute inset-x-0 bottom-0 text-xs text-center">
+                            <span className="absolute inset-x-0 bottom-0 text-xs text-center  md:text-sm  ">
                                 {voted[option.id]} {/* Exibe o número de votos */}
                             </span>
                         </div>
                     );
                 })}
             </div>
-        </>
+
+        </div>
     );
 };
 
@@ -221,73 +259,79 @@ export const Status = () => {
 
     return (
         <>
-            <section className="w-full h-96 my-6 flex flex-wrap">
-                <h2 className="w-full flex justify-center font-semibold text-lg">Status</h2>
+            <section className="w-full h-96 my-6 flex flex-wrap
+            
+            ">
+                <h2 className="w-full flex justify-center font-semibold text-lg  md:text-xl">Status</h2>
 
                 {/* Start Toggle */}
-                <div className="w-full  flex justify-center ">
+                <div className="w-full  flex justify-center
+                
+                ">
                     <label className="inline-flex items-center cursor-pointer ">
-                        <span className={`mr-4 ${!isClicked ? "text-[#DC1867]" : "text-[#F5F5F5]"}`}>Lvl. 1</span>
+                        <span className={`mr-4 ${!isClicked ? "text-[#DC1867] md:text-xl" : "text-[#F5F5F5] md:text-xl"}`}>Lvl. 1</span>
                         <input type="checkbox" value="" className="sr-only peer" onClick={() => setIsClicked(!isClicked)} />
                         <div className="relative w-32 h-1 bg-gray-200 peer-focus:outline-none 
                                  rounded-full  peer-checked:after:translate-x-[7.2rem] 
                                  after:content-['']  after:absolute after:top-[-8px]  after:start-[-3px]  after:bg-white  
                                  after:rounded-full  after:h-5  after:w-5  after:transition-all
                                  peer-checked:bg-gradient-to-r from-[#760D37] to-[#DC1867] peer-checked:after:bg-[#DC1867]" ></div>
-                        <span className={`ml-4 ${!isClicked ? "text-[#F5F5F5]" : "text-[#DC1867]"}`}>Lvl. 80</span>
+                        <span className={`ml-4 ${!isClicked ? "text-[#F5F5F5] md:text-xl" : "text-[#DC1867] md:text-xl"}`}>Lvl. 80</span>
                     </label>
                 </div>
 
                 {/* Animated Bar Status */}
-                <ul className="w-full">
+                <ul className="w-full
+                
+                ">
 
-                    <li className="w-full  flex  justify-between  items-center">
+                    <li className="w-full  flex justify-center  items-center">
                         <span className="w-1/5  flex  justify-center" >
-                            <img src={hearthIcon} alt="Vida" className="w-7  my-2 " />
+                            <img src={hearthIcon} alt="Vida" className="w-7  my-2   md:my-1  md:w-10" />
                         </span>
-                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className=" h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? lifeReturnMax : lifeValue}%` }} ></div>
+                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full md:h-3.5  md:w-[45%]">
+                            <div className="md:h-3.5 h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? lifeReturnMax : lifeValue}%` }} ></div>
                         </div>
-                        <span className={`w-1/5  flex  justify-center`}>
+                        <span className={`w-1/5  flex  justify-center md:text-xl`}>
                             {isClicked ? lifeVApiMaxLevel : lifeVApi}
                         </span>
                     </li>
                     {/*End Life Status*/}
 
-                    <li className="w-full  flex  justify-between  items-center">
+                    <li className="w-full  flex  justify-center  items-center">
                         <span className="w-1/5  flex  justify-center" >
-                            <img src={shieldIcon} alt="Escudo" className="w-7 my-1" />
+                            <img src={shieldIcon} alt="Escudo" className="w-7 my-1 md:w-10" />
                         </span>
-                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className=" h-2.5  bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? defReturnMax : defValue}%` }} ></div>
+                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full md:h-3.5  md:w-[45%]">
+                            <div className="md:h-3.5 h-2.5  bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? defReturnMax : defValue}%` }} ></div>
                         </div>
-                        <span className={`w-1/5  flex  justify-center`}>
+                        <span className={`w-1/5  flex  justify-center md:text-xl`}>
                             {isClicked ? defVApiMaxLevel : defVApi}
                         </span>
                     </li>
                     {/*End Def Status*/}
 
-                    <li className="w-full  flex  justify-between  items-center">
+                    <li className="w-full  flex  justify-center  items-center">
                         <span className="w-1/5  flex  justify-center" >
-                            <img src={atkIcon} alt="Ataque" className="w-7 my-1" />
+                            <img src={atkIcon} alt="Ataque" className="w-7 my-1  md:w-10" />
                         </span>
-                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className=" h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? atkReturnMax : atkValue}%` }} ></div>
+                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full  md:h-3.5  md:w-[45%]">
+                            <div className="md:h-3.5 h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? atkReturnMax : atkValue}%` }} ></div>
                         </div>
-                        <span className={`w-1/5  flex  justify-center`}>
+                        <span className={`w-1/5  flex  justify-center md:text-xl`}>
                             {isClicked ? atkVApiMaxLevel : atkVApi}
                         </span>
                     </li>
                     {/*End Attak Status*/}
 
-                    <li className="w-full  flex  justify-between  items-center">
+                    <li className="w-full  flex  justify-center  items-center">
                         <span className="w-1/5  flex  justify-center" >
-                            <img src={spdIcon} alt="Velocidade" className="w-7 my-1" />
+                            <img src={spdIcon} alt="Velocidade" className="w-7 my-1  md:w-10" />
                         </span>
-                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full">
-                            <div className="h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? speedReturnMax : speedValue}%` }} ></div>
+                        <div className="w-3/5  h-2.5 bg-[#ddddddee] rounded-full md:h-3.5  md:w-[45%]">
+                            <div className="md:h-3.5 h-2.5 bg-gradient-to-r from-[#760D37] to-[#DC1867]  rounded-full  duration-500" style={{ width: `${isClicked ? speedReturnMax : speedValue}%` }} ></div>
                         </div>
-                        <span className={`w-1/5  flex  justify-center`} >
+                        <span className={`w-1/5  flex  justify-center md:text-2xl`} >
                             {isClicked ? spdVApiMaxLevel : spdVApi}
                         </span>
                     </li>
@@ -297,22 +341,22 @@ export const Status = () => {
 
                 {/* Build Recomendada */}
                 <div className="w-full flex flex-col justify-center items-center">
-                    <h2 className="font-semibold">Build Recomendada</h2>
+                    <h2 className="font-semibold md:text-lg">Build Recomendada</h2>
                     <table className="w-[90%] mt-4">
                         <thead className="">
                             <tr className="border-b border-[#DC1867]" >
-                                <th className="font-thin text-sm opacity-50">Ataque</th>
-                                <th className="font-thin text-sm opacity-50">Velocidade</th>
-                                <th className="font-thin text-sm opacity-50">Taxa Crítica</th>
-                                <th className="font-thin text-sm opacity-50">Dano Crítico</th>
+                                <th className="font-thin text-sm opacity-80  md:text-lg">Ataque</th>
+                                <th className="font-thin text-sm opacity-80  md:text-lg">Velocidade</th>
+                                <th className="font-thin text-sm opacity-80  md:text-lg">Taxa Crítica</th>
+                                <th className="font-thin text-sm opacity-80  md:text-lg">Dano Crítico</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr className="border-b border-[#DC1867]">
-                                <th className="font-light text-sm py-1">3000+</th>
-                                <th className="font-light text-sm">101+</th>
-                                <th className="font-light text-sm">70+</th>
-                                <th className="font-light text-sm ">160+</th>
+                                <th className="font-light text-sm py-1  md:text-base md:font-bold">3000+</th>
+                                <th className="font-light text-sm       md:text-base md:font-bold">101+</th>
+                                <th className="font-light text-sm       md:text-base md:font-bold">70+</th>
+                                <th className="font-light text-sm       md:text-base md:font-bold">160+</th>
                             </tr>
                         </tbody>
                     </table>
@@ -327,11 +371,11 @@ export const Status = () => {
 export const Materials = () => {
     return (
         <>
-            <section className="w-full my-6">
+            <section className="w-full my-12  md:mb-10">
                 <div className="w-full  flex flex-col justify-center items-center font-semibold ">
 
-                    <h2>Material de Ascensão</h2>
-                    <h3 className="font-thin text-sm mt-3 text-slate-300">Ascensão de Personagem</h3>
+                    <h2 className="md:text-xl">Material de Ascensão</h2>
+                    <h3 className="font-thin text-sm my-2 text-slate-300 ">Ascensão de Personagem</h3>
 
                     {/* Ascensão de Personagem */}
                     <ul className="w-auto  mt-2  text-sm  text-gray-200  flex flex-wrap gap-2 justify-center">
@@ -388,7 +432,7 @@ export const Materials = () => {
                     </ul>
                     {/* End Ascensão de Personagem */}
 
-                    <h3 className="font-thin text-sm mt-5 text-slate-300">Ascensão de Rastros</h3>
+                    <h3 className="font-thin text-sm my-5 text-slate-300">Ascensão de Rastros</h3>
 
                     {/* Ascensão/Rastros */}
                     <ul className="w-full   mt-2  gap-2  text-sm  text-gray-200  flex flex-wrap justify-center ">
@@ -489,124 +533,147 @@ export const Materials = () => {
 // Equipamentos
 export const Equipments = () => {
 
+    const [openAccordion, setOpenAccordion] = useState(null);
+    const closeAccordion = (id) => {
+        setOpenAccordion(prev => prev === id ? null : id)
+    }
+
     const text = ["24%", "34%"]
 
     return (
         <>
-            <section className="w-full my-6 flex flex-col justify-center items-center">
+            <section className="w-full my-6 flex flex-col justify-center items-center   md:flex-row  md:flex-wrap md:items-start md:gap-2">
 
-                <h2 className="mt-2 font-semibold ">Equipamentos</h2>
-
+                <h2 className="my-1 font-semibold  md:flex md:justify-center  md:w-full">Equipamentos</h2>
 
                 {/* Reliquias */}
-                <div className="w-[95%] flex flex-col gap-2 ">
+                <div className="w-[95%] flex flex-col gap-2   md:w-[30%]  md:items-center  md:justify-start md:border-t md:border-[#DC1867] ">
                     <h3 className="font-thin text-sm mt-2 text-slate-300 flex justify-center ">
                         Melhores Relíquias
                     </h3>
-                    <AccordionItem
-                        isOpenDefault={true} // começa aberto
-                        title="Mergulhadora Pioneira de Águas Mortas" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/pioneer-diver-of-dead-waters-relic_set_icon.webp?x34722"
-                        description={[
-                            "(2) Aumenta em 12% o Dano causado a inimigos com penalidades.",
-                            "(4) Aumenta a Chance de CRIT em 4%. O usuário causa 8%/12% de Dano CRIT aumentado em inimigos com pelo menos 2/3 penalidades. Após o usuário infligir uma penalidade nos inimigos-alvo, os efeitos mencionados anteriormente aumentam em 100%, durando por 1 rodada(s)."
-                        ]} // Descrição Geral
-                        rating={5} // Rank de Estrelas
-                    />
-                    <AccordionItem
-                        isOpenDefault={false} // começa fechado
-                        title="	Banda Trovão Crepitante"   // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/band-of-sizzling-thunder-relic_set_icon.webp?x34722"
-                        description={[
-                            "(2) Aumenta o Dano de Raio em 10%.",
-                            "(4) Quando o usuário usa a Perícia, aumenta o ATQ em 20% por 1 rodada(s)."
-                        ]}
-                        rating={4}
-                    />
-                    <AccordionItem
-                        isOpenDefault={false} // começa fechado
-                        title="Mergulhadora Pioneira de Águas Mortas" // Define o titulo
-                        title2="Mosqueteira do Trigo Selvagem" // Define o titulo 2
-                        imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/pioneer-diver-of-dead-waters-relic_set_icon.webp?x34722"
-                        secondImageUrl="https://starrail.honeyhunterworld.com/img/relic_set/musketeer-of-wild-wheat-relic_set_icon.webp?x34722"
-                        description={[
-                            "(2) Aumenta em 12% o Dano causado a inimigos com penalidades.",
-                            "(2) Aumenta em 12% o ATQ."
-                        ]} // Descrição Geral
-                        rating={3} // Rank de Estrelas
-                    />
+                    <div className="md:w-[80%] md:min-h-52 flex flex-col gap-2">
+                        <AccordionItem
+                            isOpen={openAccordion === 'relic1'}
+                            onToggle={() => closeAccordion('relic1')}
+                            isOpenDefault={true} // começa aberto
+                            title="Mergulhadora Pioneira de Águas Mortas" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/pioneer-diver-of-dead-waters-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta em 12% o Dano causado a inimigos com penalidades.",
+                                "(4) Aumenta a Chance de CRIT em 4%. O usuário causa 8%/12% de Dano CRIT aumentado em inimigos com pelo menos 2/3 penalidades. Após o usuário infligir uma penalidade nos inimigos-alvo, os efeitos mencionados anteriormente aumentam em 100%, durando por 1 rodada(s)."
+                            ]} // Descrição Geral
+                            rating={5} // Rank de Estrelas
+                        />
+                        <AccordionItem
+                            isOpen={openAccordion === 'relic2'}
+                            onToggle={() => closeAccordion('relic2')}
+                            isOpenDefault={false} // começa fechado
+                            title="	Banda Trovão Crepitante"   // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/band-of-sizzling-thunder-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta o Dano de Raio em 10%.",
+                                "(4) Quando o usuário usa a Perícia, aumenta o ATQ em 20% por 1 rodada(s)."
+                            ]}
+                            rating={4}
+                        />
+                        <AccordionItem
+                            isOpen={openAccordion === 'relic3'}
+                            onToggle={() => closeAccordion('relic3')}
+                            isOpenDefault={false} // começa fechado
+                            title="Mergulhadora Pioneira de Águas Mortas" // Define o titulo
+                            title2="Mosqueteira do Trigo Selvagem" // Define o titulo 2
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/pioneer-diver-of-dead-waters-relic_set_icon.webp?x34722"
+                            secondImageUrl="https://starrail.honeyhunterworld.com/img/relic_set/musketeer-of-wild-wheat-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta em 12% o Dano causado a inimigos com penalidades.",
+                                "(2) Aumenta em 12% o ATQ."
+                            ]} // Descrição Geral
+                            rating={3} // Rank de Estrelas
+                        />
+                    </div>
                 </div>
 
                 {/* Ornamentos */}
-                <div className="w-[95%] mt-4 flex flex-col gap-2 ">
+                <div className="w-[95%] mt-4 flex flex-col gap-2   md:w-[30%]  md:items-center  md:m-0  md:border-t   md:border-[#DC1867]">
                     <h3 className="font-thin text-sm mt-2 text-slate-300 flex justify-center">
                         Melhores Ornamentos</h3>
-
-                    <AccordionItem
-                        isOpenDefault={false} // começa fechado
-                        title="	Izumo Gensei e Reino Divino de Takama" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/izumo-gensei-and-takama-divine-realm-relic_set_icon.webp?x34722"
-                        description={[
-                            "(2) Aumenta o ATQ do usuário em 12%. Ao entrar em batalha, se ao menos um outro aliado seguir o mesmo Caminho que o usuário, a Chance de CRIT do usuário aumenta em 12%."
-                        ]} // Descrição Geral
-                        rating={5} // Rank de Estrelas
-                    />
-                    <AccordionItem
-                        isOpenDefault={false} // começa fechado
-                        title="Estação de Vedação Espacial" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/space-sealing-station-relic_set_icon.webp?x34722"
-                        description={[
-                            "(2) Aumenta em 12% o ATQ do usuário. Quando a VEL do usuário chegar a 120 ou mais, aumenta em um extra de 12% o ATQ do usuário."
-                        ]} // Descrição Geral
-                        rating={4} // Rank de Estrelas
-                    />
-                    <AccordionItem
-                        isOpenDefault={false} // começa fechado
-                        title="Salsotto Inerte" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/inert-salsotto-relic_set_icon.webp?x34722"
-                        description={[
-                            "(2) Aumenta em 8% a Chance de CRIT do usuário. Quando a Chance de CRIT atual chegar a 50% ou mais, aumenta em 15% o Dano causado pelo Ataque Extra e pela Perícia Suprema do usuário."
-                        ]} // Descrição Geral
-                        rating={4} // Rank de Estrelas
-                    />
-
+                    <div className="md:w-[80%] md:min-h-52  flex flex-col gap-2">
+                        <AccordionItem
+                            isOpen={openAccordion === 'ornament1'}
+                            onToggle={() => closeAccordion('ornament1')}
+                            title="	Izumo Gensei e Reino Divino de Takama" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/izumo-gensei-and-takama-divine-realm-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta o ATQ do usuário em 12%. Ao entrar em batalha, se ao menos um outro aliado seguir o mesmo Caminho que o usuário, a Chance de CRIT do usuário aumenta em 12%."
+                            ]} // Descrição Geral
+                            rating={5} // Rank de Estrelas
+                        />
+                        <AccordionItem
+                            isOpen={openAccordion === 'ornament2'}
+                            onToggle={() => closeAccordion('ornament2')}
+                            isOpenDefault={false} // começa fechado
+                            title="Estação de Vedação Espacial" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/space-sealing-station-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta em 12% o ATQ do usuário. Quando a VEL do usuário chegar a 120 ou mais, aumenta em um extra de 12% o ATQ do usuário."
+                            ]} // Descrição Geral
+                            rating={4} // Rank de Estrelas
+                        />
+                        <AccordionItem
+                            isOpen={openAccordion === 'ornament3'}
+                            onToggle={() => closeAccordion('ornament3')}
+                            isOpenDefault={false} // começa fechado
+                            title="Salsotto Inerte" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/relic_set/inert-salsotto-relic_set_icon.webp?x34722"
+                            description={[
+                                "(2) Aumenta em 8% a Chance de CRIT do usuário. Quando a Chance de CRIT atual chegar a 50% ou mais, aumenta em 15% o Dano causado pelo Ataque Extra e pela Perícia Suprema do usuário."
+                            ]} // Descrição Geral
+                            rating={4} // Rank de Estrelas
+                        />
+                    </div>
                 </div>
 
                 {/* Cones de Luz */}
-                <div className="w-[95%] mt-4 flex flex-col gap-2 ">
+                <div className="w-[95%] mt-4 flex flex-col gap-2   md:w-[30%]  md:items-center   md:m-0   md:border-t  md:border-[#DC1867]">
                     <h3 className="font-thin text-sm mt-2 text-slate-300 flex justify-center">
                         Melhores Cones de Luz</h3>
+                    <div className="md:w-[80%] md:min-h-52 flex flex-col gap-2">
+                        {/* 1 */}
+                        <AccordionItem
+                            isOpen={openAccordion === 'cone1'}
+                            onToggle={() => closeAccordion('cone1')}
+                            starPlus="true"
+                            isOpenDefault={false} // começa fechado
+                            title="Ao Longo da Margem Transitória" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/item/along-the-passing-shore-item_icon.webp?x34722"
+                            description={[
+                                "Aumenta o Dano CRIT do usuário em 36%. Quando o usuário atinge um inimigo-alvo, inflige Miragem Fracassada ao inimigo, durando por 1 rodada. Cada vez que o usuário ataca, este efeito pode ser acionado 1 vez contra cada alvo. O usuário causa 24% a mais de Dano aos alvos afligidos por Miragem Fracassada, e o Dano causado pela Perícia Suprema é aumentado adicionalmente em 24%."
+                            ]} // Descrição Geral
+                            rating={5} // Rank de Estrelas
+                        />
+                        {/* 2 */}
+                        <AccordionItem
+                            isOpen={openAccordion === 'cone2'}
+                            onToggle={() => closeAccordion('cone2')}
+                            starPlus="true"
+                            isOpenDefault={false} // começa fechado
+                            title="Salsotto Inerte" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/item/incessant-rain-item_icon.webp?x34722"
+                            description={[`Aumenta a Taxa de Acerto de Efeito do usuário em ${text[0]}. Quando o usuário causa Dano a um inimigo com 3 ou mais penalidades no momento, aumenta a Chance de CRIT do usuário em 12%. Depois que o usuário usar o seu ATQ Básico, Perícia ou Perícia Suprema, existe uma chance-base de 100% de implantar Código do Éter em um alvo aleatório que ainda não esteja com Código do Éter. Alvos com Código do Éter recebem 12% a mais de Dano por 1 rodada.`]}
+                            // Descrição Geral
+                            rating={6} // Rank de Estrelas
+                        />
 
-                    {/* 1 */}
-                    <AccordionItem
-                        starPlus="true"
-                        isOpenDefault={false} // começa fechado
-                        title="Ao Longo da Margem Transitória" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/item/along-the-passing-shore-item_icon.webp?x34722"
-                        description={[
-                            "Aumenta o Dano CRIT do usuário em 36%. Quando o usuário atinge um inimigo-alvo, inflige Miragem Fracassada ao inimigo, durando por 1 rodada. Cada vez que o usuário ataca, este efeito pode ser acionado 1 vez contra cada alvo. O usuário causa 24% a mais de Dano aos alvos afligidos por Miragem Fracassada, e o Dano causado pela Perícia Suprema é aumentado adicionalmente em 24%."
-                        ]} // Descrição Geral
-                        rating={5} // Rank de Estrelas
-                    />
-                    {/* 2 */}
-                    <AccordionItem
-                        starPlus="true"
-                        isOpenDefault={false} // começa fechado
-                        title="Salsotto Inerte" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/item/incessant-rain-item_icon.webp?x34722"
-                        description={[`Aumenta a Taxa de Acerto de Efeito do usuário em ${text[0]}. Quando o usuário causa Dano a um inimigo com 3 ou mais penalidades no momento, aumenta a Chance de CRIT do usuário em 12%. Depois que o usuário usar o seu ATQ Básico, Perícia ou Perícia Suprema, existe uma chance-base de 100% de implantar Código do Éter em um alvo aleatório que ainda não esteja com Código do Éter. Alvos com Código do Éter recebem 12% a mais de Dano por 1 rodada.`]}
-                        // Descrição Geral
-                        rating={6} // Rank de Estrelas
-                    />
+                    </div>
                 </div>
 
                 {/* Substatus recomendados */}
-                <div className="w-full flex flex-col justify-center items-center mt-4">
-                    <h2 className="mt-2 font-semibold ">Status Recomendados</h2>
+                <div className="w-full flex flex-col justify-center items-center mt-4  md:w-3/4">
+                    <h2 className="my-6 font-semibold ">Status Recomendados</h2>
                     <table className="w-[90%] mt-4">
                         <thead className="">
                             <tr className="border-b border-[#DC1867] " >
-                                <th className="font-thin text-sm opacity-80 py-">
+                                <th className="font-thin text-sm opacity-80 py-2">
                                     <img className="w-8  mx-auto" src={body} alt="corpo" />
                                 </th>
                                 <th className="font-thin text-sm opacity-80">
@@ -636,7 +703,7 @@ export const Equipments = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <h2 className="mt-4 mb-2 font-medium ">Substatus</h2>
+                    <h2 className="my-6  font-medium md:opacity-50">Substatus</h2>
                     <table className="w-[90%]">
                         <thead className="">
                             <tr className="border-y border-[#DC1867] " >
@@ -647,11 +714,12 @@ export const Equipments = () => {
                                 <th className="font-light text-[13px]">Velocidade</th>
                                 <th className="text-[#DC1867]">{'>'}</th>
                                 <th className="font-light text-[13px]">Ataque</th>
-                               
+
                             </tr>
                         </thead>
                     </table>
-                    <h2 className="mt-4 mb-2 font-medium ">Rastros Menores</h2>
+
+                    <h2 className="my-6 font-medium md:opacity-50">Rastros Menores</h2>
                     <table className="w-[90%]">
                         <thead className="">
                             <tr className="border-b border-[#DC1867] mx-auto" >
@@ -678,16 +746,20 @@ export const Equipments = () => {
                     <div className="w-full py-4 px-[5%] flex flex-col items-center gap-2 ">
                         <h2 className="mt-4 mb-2 font-medium">Rastros Maiores</h2>
                         <AccordionItem
-                        starPlus="false"
-                        isOpenDefault={false} // começa fechado
-                        title="Liuren, o Sexagenário" // Define o titulo
-                        imageUrl="https://starrail.honeyhunterworld.com/img/trace/liuren-the-sexagenary-trace_icon.webp?x10871"
-                        description={[
-                            "Se um inimigo-alvo aplicar penalidades de Controle Negativo a aliados enquanto a Matriz de Presciência estiver ativa, todos os aliados resistirão a todas as penalidades de Controle Negativo aplicadas pelo alvo inimigo durante a ação atual. Este efeito só pode ser acionado uma vez. Quando a Matriz de Presciência é reativada, o número de vezes que este efeito pode ser ativado será redefinido."
-                        ]} // Descrição Gerals
-                        rating={0}
+                            isOpen={openAccordion === 'r1'}
+                            onToggle={() => closeAccordion('r1')}
+                            starPlus="false"
+                            isOpenDefault={false} // começa fechado
+                            title="Liuren, o Sexagenário" // Define o titulo
+                            imageUrl="https://starrail.honeyhunterworld.com/img/trace/liuren-the-sexagenary-trace_icon.webp?x10871"
+                            description={[
+                                "Se um inimigo-alvo aplicar penalidades de Controle Negativo a aliados enquanto a Matriz de Presciência estiver ativa, todos os aliados resistirão a todas as penalidades de Controle Negativo aplicadas pelo alvo inimigo durante a ação atual. Este efeito só pode ser acionado uma vez. Quando a Matriz de Presciência é reativada, o número de vezes que este efeito pode ser ativado será redefinido."
+                            ]} // Descrição Gerals
+                            rating={0}
                         />
                         <AccordionItem
+                            isOpen={openAccordion === 'r2'}
+                            onToggle={() => closeAccordion('r2')}
                             starPlus="false"
                             isOpenDefault={false} // começa fechado
                             title="Taiyi, o Macrocósmico" // Define o titulo
@@ -698,6 +770,8 @@ export const Equipments = () => {
                             rating={0}
                         />
                         <AccordionItem
+                            isOpen={openAccordion === 'r3'}
+                            onToggle={() => closeAccordion('r3')}
                             starPlus="false"
                             isOpenDefault={false} // começa fechado
                             title="Dunjia, o Metamístico" // Define o titulo
@@ -708,6 +782,7 @@ export const Equipments = () => {
                             rating={0}
                         />
                     </div>
+
                 </div>
             </section>
         </>
@@ -716,22 +791,29 @@ export const Equipments = () => {
 
 // Eidolons
 export const Eidolons = () => {
-
-    return(
+    const [openAccordion, setOpenAccordion] = useState(null);
+    const closeAccordion = (id) => {
+        setOpenAccordion(prev => prev === id ? null : id)
+    }
+    return (
         <>
             <div className="w-full py-4 px-[5%] flex flex-col items-center gap-2 ">
                 <h2 className="mt-4 mb-2 font-medium">Eidolons</h2>
                 <AccordionItem
-                starPlus="false"
-                isOpenDefault={false} // começa fechado
-                title="Dominus Pacis" // Define o titulo
-                imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/dominus-pacis-eidolon_icon.webp?x10871"
-                description={[
-                    "O efeito Conhecimento aumenta o DMG CRIT em 30%."
-                ]} // Descrição Gerals
-                rating={0}
+                    isOpen={openAccordion === 'e1'}
+                    onToggle={() => closeAccordion('e1')}
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Dominus Pacis" // Define o titulo
+                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/dominus-pacis-eidolon_icon.webp?x10871"
+                    description={[
+                        "O efeito Conhecimento aumenta o DMG CRIT em 30%."
+                    ]} // Descrição Gerals
+                    rating={0}
                 />
                 <AccordionItem
+                    isOpen={openAccordion === 'e2'}
+                    onToggle={() => closeAccordion('e2')}
                     starPlus="false"
                     isOpenDefault={false} // começa fechado
                     title="Optimus Felix" // Define o titulo
@@ -742,6 +824,8 @@ export const Eidolons = () => {
                     rating={0}
                 />
                 <AccordionItem
+                    isOpen={openAccordion === 'e3'}
+                    onToggle={() => closeAccordion('e3')}
                     starPlus="false"
                     isOpenDefault={false} // começa fechado
                     title="Apex Nexus" // Define o titulo
@@ -752,16 +836,20 @@ export const Eidolons = () => {
                     rating={0}
                 />
                 <AccordionItem
-                starPlus="false"
-                isOpenDefault={false} // começa fechado
-                title="Fortuna Stellaris" // Define o titulo
-                imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/fortuna-stellaris-eidolon_icon.webp?x10871"
-                description={[
-                    "Quando outros aliados sob a Matriz da Presciência são atacados, Fu Xuan regenera 5 de Energia."
-                ]} // Descrição Gerals
-                rating={0}
+                    isOpen={openAccordion === 'e4'}
+                    onToggle={() => closeAccordion('e4')}
+                    starPlus="false"
+                    isOpenDefault={false} // começa fechado
+                    title="Fortuna Stellaris" // Define o titulo
+                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/fortuna-stellaris-eidolon_icon.webp?x10871"
+                    description={[
+                        "Quando outros aliados sob a Matriz da Presciência são atacados, Fu Xuan regenera 5 de Energia."
+                    ]} // Descrição Gerals
+                    rating={0}
                 />
                 <AccordionItem
+                    isOpen={openAccordion === 'e5'}
+                    onToggle={() => closeAccordion('e5')}
                     starPlus="false"
                     isOpenDefault={false} // começa fechado
                     title="Arbiter Primus" // Define o titulo
@@ -772,6 +860,8 @@ export const Eidolons = () => {
                     rating={0}
                 />
                 <AccordionItem
+                    isOpen={openAccordion === 'e6'}
+                    onToggle={() => closeAccordion('e6')}
                     starPlus="false"
                     isOpenDefault={false} // começa fechado
                     title="Omnia Vita" // Define o titulo
@@ -795,8 +885,8 @@ export const Skills = () => {
         atkLevel: 1,
         skillLevel: 1,
         ultimateLevel: 1,
-        talentLevel:1,
-        techniqueLevel:1,
+        talentLevel: 1,
+        techniqueLevel: 1,
     });
 
     // Função que será passada para o componente filho para atualizar o valor
@@ -807,14 +897,14 @@ export const Skills = () => {
         }))
     };
 
-    return(
+    return (
         <>
             <div className="w-full min-h-32 py-4 px-[5%] flex flex-col items-center gap-3">
                 <h2 className="mt-2 font-semibold "> Habilidades </h2>
                 {/* ATK BASIC */}
                 <div className="w-full">
-                    <h2 className="w-full h-auto my-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
-                        ATK Básico 
+                    <h2 className="w-full h-auto my-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                        ATK Básico
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
                         <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.atkLevel}</span>
@@ -822,7 +912,7 @@ export const Skills = () => {
                             <DiscreteSlider valueMax={valores[0].nvlMax} onSliderChange={(newValue) => handleSliderChange("atkLevel", newValue)} />
                         </div>
                     </div>
-                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}>
                         <div className="flex justify-between items-center px-2 bg-[#111213]">
                             <span> Ganho de Energia: 20 </span>
                             <span> Quebra: 10</span>
@@ -836,8 +926,8 @@ export const Skills = () => {
                 </div>
                 {/* SKILL */}
                 <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
-                        Habilidade 
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                        Habilidade
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
                         <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.skillLevel}</span>
@@ -845,7 +935,7 @@ export const Skills = () => {
                             <DiscreteSlider valueMax={valores[1].nvlMax} onSliderChange={(newValue) => handleSliderChange("skillLevel", newValue)} />
                         </div>
                     </div>
-                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}>
                         <div className="flex justify-between items-center px-2 bg-[#111213]">
                             <span> Ganho de Energia: 30 </span>
                             <span> Quebra: 0</span>
@@ -861,8 +951,8 @@ export const Skills = () => {
                 </div>
                 {/* ULTIMATE */}
                 <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
-                        Ultimamte 
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                        Ultimamte
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
                         <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.ultimateLevel}</span>
@@ -870,21 +960,21 @@ export const Skills = () => {
                             <DiscreteSlider valueMax={valores[2].nvlMax} onSliderChange={(newValue) => handleSliderChange("ultimateLevel", newValue)} />
                         </div>
                     </div>
-                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}>
                         <div className="flex justify-between items-center px-2 bg-[#111213]">
                             <span> Ganho de Energia: 05 </span>
                             <span> Quebra: 20</span>
                         </div>
                         <p className="px-1.5 py-0.5">
-                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[2].A[sliderValues.ultimateLevel - 1]}%</span> do HP Máximo de FU Xuan a todos os inimigos e 
+                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[2].A[sliderValues.ultimateLevel - 1]}%</span> do HP Máximo de FU Xuan a todos os inimigos e
                             obtém 1 contagem de ativação para o efeito Restauração de HP concedido pelo Talento de Fu Xuan.
                         </p>
                     </div>
                 </div>
                 {/* TALENT */}
                 <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
-                        Talento 
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                        Talento
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
                         <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.talentLevel}</span>
@@ -892,21 +982,21 @@ export const Skills = () => {
                             <DiscreteSlider valueMax={valores[3].nvlMax} onSliderChange={(newValue) => handleSliderChange("talentLevel", newValue)} />
                         </div>
                     </div>
-                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}>
                         <div className="flex justify-between items-center px-2 bg-[#111213]">
                             <span> Ganho de Energia: 0 </span>
                             <span> Quebra: 0</span>
                         </div>
                         <p className="px-1.5 py-0.5">
-                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[3].A[sliderValues.talentLevel - 1]}%</span> do HP Máximo de FU Xuan a todos os inimigos e 
+                            Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[3].A[sliderValues.talentLevel - 1]}%</span> do HP Máximo de FU Xuan a todos os inimigos e
                             obtém 1 contagem de ativação para o efeito Restauração de HP concedido pelo Talento de Fu Xuan.
                         </p>
                     </div>
                 </div>
                 {/* TECHNIQUE */}
                 <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg"> 
-                        Técnica 
+                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                        Técnica
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
                         <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.techniqueLevel}</span>
@@ -914,14 +1004,14 @@ export const Skills = () => {
                             <DiscreteSlider valueMax={valores[4].nvlMax} onSliderChange={(newValue) => handleSliderChange("techniqueLevel", newValue)} />
                         </div>
                     </div>
-                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}> 
+                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}>
                         <div className="flex justify-between items-center px-2 bg-[#111213]">
                             <span> Ganho de Energia: 0 </span>
                             <span> Quebra: 0</span>
                         </div>
                         <p className="px-1.5 py-0.5">
-                            Após a Técnica ser usada, todos os membros da equipe recebem uma Barreira, com duração de <span className="text-pink-600">20</span> segundos. Esta Barreira pode bloquear todos os ataques inimigos, 
-                            e a equipe não entrará em batalha quando atacada. Entrar em batalha enquanto a Barreira estiver ativa fará com que Fu Xuan ative automaticamente a 
+                            Após a Técnica ser usada, todos os membros da equipe recebem uma Barreira, com duração de <span className="text-pink-600">20</span> segundos. Esta Barreira pode bloquear todos os ataques inimigos,
+                            e a equipe não entrará em batalha quando atacada. Entrar em batalha enquanto a Barreira estiver ativa fará com que Fu Xuan ative automaticamente a
                             Matriz da Preciência no início da batalha, com duração de <span className="text-pink-600">{valores[4].C}</span> turnos.
                         </p>
                     </div>
@@ -934,13 +1024,18 @@ export const Skills = () => {
 
 //Times
 export const Teams = () => {
-    return(
+    const [openAccordion, setOpenAccordion] = useState(null);
+    const closeAccordion = (id) => {
+        setOpenAccordion(prev => prev === id ? null : id)
+    }
+
+    return (
         <div className="w-full min-h-32 py-4 px-[5%] flex flex-col items-center font-semibold">
             <div className="w-full min-h-40 flex justify-center items-center flex-wrap">
                 <h2 className="w-full flex justify-center">Equipes Recomendadas</h2>
-                <img 
+                <img
                     className="w-28 h-28 my-5"
-                    src={exampleprofile} 
+                    src={exampleprofile}
                     alt="Character"
                 />
 
@@ -949,27 +1044,27 @@ export const Teams = () => {
                 {/* F2P */}
                 <div className="w-1/2 min-h-40 flex flex-col items-center">
                     <h2> F2P </h2>
-                    <hr className="w-full border-[#26292B] mb-5"/>
+                    <hr className="w-full border-[#26292B] mb-5" />
                     <div className="flex flex-col items-center font-light">
-                        <img 
+                        <img
                             className="w-20 h-20"
-                            src={ep1} 
+                            src={ep1}
                             alt="Character 1"
                         />
                         <span>Buffer</span>
                     </div>
                     <div className="flex flex-col items-center font-light">
-                        <img 
+                        <img
                             className="w-20 h-20"
-                            src={ep2} 
+                            src={ep2}
                             alt="Character 2"
                         />
                         <span>Escudo</span>
                     </div>
                     <div className="flex flex-col items-center font-light">
-                        <img 
+                        <img
                             className="w-20 h-20"
-                            src={ep3} 
+                            src={ep3}
                             alt="Character 3"
                         />
                         <span>Cura</span>
@@ -978,27 +1073,27 @@ export const Teams = () => {
                 {/* MELHOR TIME */}
                 <div className="w-1/2 min-h-40 flex flex-col items-center">
                     <h2> Melhor Time </h2>
-                    <hr className="w-full border-[#26292B] mb-5"/>
+                    <hr className="w-full border-[#26292B] mb-5" />
                     <div className="flex flex-col items-center font-light">
-                        <img 
+                        <img
                             className="w-20 h-20"
-                            src={ep4} 
+                            src={ep4}
                             alt="Character 4"
                         />
                         <span>Debuffer</span>
                     </div>
                     <div className="flex flex-col items-center font-light">
-                        <img 
+                        <img
                             className="w-20 h-20"
-                            src={ep5} 
+                            src={ep5}
                             alt="Character 5"
                         />
                         <span>Debuffer</span>
                     </div>
                     <div className="flex flex-col items-center font-light">
-                        <img 
+                        <img
                             className="w-20 h-20"
-                            src={ep6} 
+                            src={ep6}
                             alt="Character 6"
                         />
                         <span>Escudo</span>
@@ -1010,6 +1105,8 @@ export const Teams = () => {
             <div className="flex flex-col  gap-5">
                 <h2 className="w-full flex justify-center">Outras Opções</h2>
                 <AccordionItem
+                    isOpen={openAccordion === 't1'}
+                    onToggle={() => closeAccordion('t1')}
                     starPlus="false"
                     isOpenDefault={false} // começa fechado
                     title="Escudo / Cura" // Define o titulo
@@ -1017,19 +1114,21 @@ export const Teams = () => {
                     description={
                         [
                             <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
-                                <img className="w-16 h-16" src={ep9} alt=""/>
+                                <img className="w-16 h-16" src={ep9} alt="" />
                                 <h3 className="text-[1rem] font-semibold"> Feixiao </h3>
-                            </div>  
-                        ,
+                            </div>
+                            ,
                             <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
-                                <img className="w-16 h-16" src={ep10} alt=""/>
+                                <img className="w-16 h-16" src={ep10} alt="" />
                                 <h3 className="text-[1rem] font-semibold"> Seele </h3>
-                            </div>  
+                            </div>
                         ]
                     } // Descrição Gerals
                     rating={0}
                 />
                 <AccordionItem
+                    isOpen={openAccordion === 't2'}
+                    onToggle={() => closeAccordion('t2')}
                     starPlus="false"
                     isOpenDefault={false} // começa fechado
                     title="Buff / Debuff" // Define o titulo
@@ -1037,14 +1136,14 @@ export const Teams = () => {
                     description={
                         [
                             <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
-                                <img className="w-16 h-16" src={ep7} alt=""/>
+                                <img className="w-16 h-16" src={ep7} alt="" />
                                 <h3 className="text-[1rem] font-semibold"> Gepard </h3>
                             </div>
-                        ,
+                            ,
                             <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
-                                <img className="w-16 h-16" src={ep8} alt=""/>
+                                <img className="w-16 h-16" src={ep8} alt="" />
                                 <h3 className="text-[1rem] font-semibold"> Arlan </h3>
-                            </div>  
+                            </div>
                         ]
                     } // Descrição Gerals
                     rating={0}

@@ -3,15 +3,20 @@ import SpeedDial from "./components/speed-dial";
 const profileCharacter = () => {
 
     return (
-        <body className="pt-12  bg-[#111213]  overflow-y-hidden text-white ">
-            <div className="relative h-full w-auto my-5 mx-5  bg-[#111213] border border-[#26292B] flex flex-col  items-center  rounded-[1.7rem]"> 
+        <body className="pt-24  bg-[#111213]  overflow-y-hidden text-white ">
+            <div className="relative h-full w-auto my-5 mx-5  bg-[#111213] border border-[#26292B] flex flex-col  items-center  rounded-[1.7rem]">
 
-                <hr id="perfil" className="w-[95%] border-[#26292B] " />
-                <Introdution />
-                <hr id="tierlist" className="w-[95%] border-[#26292B] " />
-                <TierList/>
+                <div className="flex flex-col md:flex md:flex-row  md:w-full">
+                   <Introdution />
+                    <hr id="tierlist" className="w-[95%] md:hidden border-[#26292B] " />
+                    <div className="md:hidden"><TierList /></div>
+                    <Status />
+                </div>
+                
                 <hr id="status" className="w-[95%] border-[#26292B] " />
-                <Status />
+                <TierList />
+                <hr id="status" className="w-[95%] border-[#26292B] " />
+                
                 <hr id="material" className="w-[95%] border-[#26292B] " />
                 <Materials />
                 <hr id="equip" className="w-[95%] border-[#26292B] " />
@@ -22,7 +27,7 @@ const profileCharacter = () => {
                 <Skills />
                 <hr id="equipes" className="w-[95%] border-[#26292B] " />
                 <Teams />
-                <hr className="w-[95%] border-[#26292B] " />
+
                 <SpeedDial />
             </div>
         </body>

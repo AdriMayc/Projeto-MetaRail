@@ -1,26 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { StarRating, StarRatingMore } from './starRating';
 
-const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, secondImageUrl = null, description, coneDescription, rating, starPlus }) => {
-    const [isOpen, setIsOpen] = useState(isOpenDefault);
+const Accordion = ({ isOpen, onToggle, title, title2, imageUrl = null, secondImageUrl = null, description, coneDescription, rating, starPlus }) => {
     const contentRef = useRef(null); // Usado para calcular a altura do conteúdo
 
-    const toggleAccordion = () => {
-        setIsOpen(!isOpen);
-    };
-
-    //Light Cone Description
-    
     return (
         <div className="accordion-container border border-[#26292B] rounded-lg overflow-hidden">
             <button
                 className="w-full flex items-center bg-transparent relative"
-                onClick={toggleAccordion}
+                onClick={onToggle} // Passa a função de abrir/fechar via prop
             >
-                {/* Container que segura a imagem e o conteúdo central */}
                 <div className="w-full h-16 flex items-center justify-between px-4">
-                    {/* Imagem no canto esquerdo */}
-                    {secondImageUrl && (
+                    {imageUrl && (
                     <img
                         src={imageUrl}
                         alt="Placeholder"
@@ -31,22 +22,21 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, seco
                         <img
                             src={secondImageUrl}
                             alt="Placeholder"
-                            className={`w-12 ml-[3.15rem] bg-[#26292b5b] border-[#26292B] rounded-lg border absolute  transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
+                            className={`w-12 ml-[3.15rem] bg-[#26292b5b] border-[#26292B] rounded-lg border absolute transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-0" : "opacity-100 delay-[400ms]"}`}
                         />
                     )}
 
-                    {/* Estrelas no centro */}
-                    {(!starPlus && rating != 0) && (
+                    {(!starPlus && rating !== 0) && (
                         <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
                             <StarRating rating={rating} />
                         </span>
                     )}
-                    {(starPlus && rating != 0) && (
+                    {(starPlus && rating !== 0) && (
                         <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
                             <StarRatingMore rating={rating} />
                         </span>
                     )}
-                    {rating == 0 && (
+                    {rating === 0 && (
                         <span className="w-[90%] font-semibold flex absolute justify-center ml-[1rem]">
                             <span>{title}</span>
                         </span>
@@ -54,7 +44,6 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, seco
 
                 </div>
 
-                {/* SVG (botão) na direita */}
                 <svg
                     className={`absolute right-2 h-6 w-6 text-[#DC1867] transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
@@ -66,7 +55,6 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, seco
                 </svg>
             </button>
 
-            {/* Content with transition */}
             <div
                 ref={contentRef}
                 className={`accordion-content overflow-hidden transition-[max-height] duration-500 ease-in-out ${isOpen ? 'max-h-96' : 'max-h-0'}`}
@@ -74,9 +62,7 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, seco
             >
                 <div className="flex flex-col justify-center">
                     <div className="flex h-full w-full pt-2 px-4 gap-4">
-                        {/* Container para as imagens e títulos à esquerda */}
                         <div className="flex flex-col items-start gap-4">
-                            {/* Primeiro par de imagem e título */}
                             {imageUrl && (
                                 <div className="flex items-center gap-2">
                                 <img
@@ -88,7 +74,6 @@ const Accordion = ({ isOpenDefault = false, title, title2, imageUrl = null, seco
                             </div>
                             )}
 
-                            {/* Segundo par de imagem e título (se houver) */}
                             {secondImageUrl && (
                                 <div className="flex items-center gap-2">
                                     <img
