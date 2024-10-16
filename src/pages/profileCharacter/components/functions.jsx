@@ -1176,7 +1176,7 @@ export const Teams = () => {
                 </div>
             </div>
             <hr className="w-[95%] border-[#26292B] mb-5 md:w-full md:my-5" />
-            <div className="flex flex-col  gap-5 border md:hidden">
+            <div className="flex flex-col  gap-5 md:hidden">
                 <h2 className="w-full flex justify-center">Outras Opções</h2>
                 <AccordionItem
                     isOpen={openAccordion === 't1'}
