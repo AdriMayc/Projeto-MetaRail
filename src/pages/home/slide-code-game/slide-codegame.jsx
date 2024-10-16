@@ -81,12 +81,12 @@ function App() {
               key={card.id}
               className={`w-1/3 h-4 flex items-center py-2.5  ${
                 index % 3 === 1 ? 'border-x border-white' : ''}
-                md:py-5
+                md:py-5 
                 `}
             >
                 <h2 className="
                   w-3/4 h-4 ml-2 flex items-center text-sm text-[#f5f5f5] opacity-70 border-b border-white
-                  md:text-xl
+                  md:text-xl md:justify-center md:pb-1.5
                 ">
                   {card.title}
                 </h2>

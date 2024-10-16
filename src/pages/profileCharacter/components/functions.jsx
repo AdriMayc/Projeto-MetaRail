@@ -743,8 +743,16 @@ export const Equipments = () => {
                         </tbody>
                     </table>
 
-                    <div className="w-full py-4 px-[5%] flex flex-col items-center gap-2 ">
-                        <h2 className="mt-4 mb-2 font-medium">Rastros Maiores</h2>
+
+                </div>
+
+                {/* Rastros */}
+                <div className="
+                    w-full py-4 px-[5%] flex flex-col items-center gap-2
+                    md:flex-row md:flex-wrap md:gap-2 md:items-start md:justify-center
+                ">
+                    <h2 className="mt-4 mb-2 font-medium md:w-full md:flex md:justify-center">Rastros Maiores</h2>
+                    <div className="md:w-[30%]">
                         <AccordionItem
                             isOpen={openAccordion === 'r1'}
                             onToggle={() => closeAccordion('r1')}
@@ -757,6 +765,8 @@ export const Equipments = () => {
                             ]} // Descrição Gerals
                             rating={0}
                         />
+                    </div>
+                    <div className="md:w-[30%]">
                         <AccordionItem
                             isOpen={openAccordion === 'r2'}
                             onToggle={() => closeAccordion('r2')}
@@ -769,6 +779,8 @@ export const Equipments = () => {
                             ]} // Descrição Gerals
                             rating={0}
                         />
+                    </div>
+                    <div className="md:w-[30%]">
                         <AccordionItem
                             isOpen={openAccordion === 'r3'}
                             onToggle={() => closeAccordion('r3')}
@@ -782,7 +794,6 @@ export const Equipments = () => {
                             rating={0}
                         />
                     </div>
-
                 </div>
             </section>
         </>
@@ -797,9 +808,13 @@ export const Eidolons = () => {
     }
     return (
         <>
-            <div className="w-full py-4 px-[5%] flex flex-col items-center gap-2 ">
-                <h2 className="mt-4 mb-2 font-medium">Eidolons</h2>
-                <AccordionItem
+            <div className="
+                w-full py-4 px-[5%] flex flex-col items-center gap-2
+                md:w-full md:flex-row md:flex-wrap md:justify-center md:items-start md:gap-2
+            ">
+                <h2 className="mt-4 mb-2 font-medium md:flex md:justify-center  md:w-full">Eidolons</h2>
+                <div className="md:w-[30%] ">
+                    <AccordionItem
                     isOpen={openAccordion === 'e1'}
                     onToggle={() => closeAccordion('e1')}
                     starPlus="false"
@@ -811,66 +826,77 @@ export const Eidolons = () => {
                     ]} // Descrição Gerals
                     rating={0}
                 />
-                <AccordionItem
-                    isOpen={openAccordion === 'e2'}
-                    onToggle={() => closeAccordion('e2')}
-                    starPlus="false"
-                    isOpenDefault={false} // começa fechado
-                    title="Optimus Felix" // Define o titulo
-                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/optimus-felix-eidolon_icon.webp?x10871"
-                    description={[
-                        "Se qualquer membro da equipe for atingido por um golpe mortal enquanto Matrix of Prescience estiver ativo, todos os aliados que foram atingidos por um golpe mortal durante esta ação não serão derrubados, e 70% de seu HP Máx. será imediatamente restaurado. Este efeito pode ser ativado 1 vez por batalha."
-                    ]} // Descrição Gerals
-                    rating={0}
-                />
-                <AccordionItem
-                    isOpen={openAccordion === 'e3'}
-                    onToggle={() => closeAccordion('e3')}
-                    starPlus="false"
-                    isOpenDefault={false} // começa fechado
-                    title="Apex Nexus" // Define o titulo
-                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/apex-nexus-eidolon_icon.webp?x10871"
-                    description={[
-                        "Skill Lv. +2, up to a maximum of Lv. 15.<br>Talent Lv. +2, up to a maximum of Lv. 15."
-                    ]} // Descrição Gerals
-                    rating={0}
-                />
-                <AccordionItem
-                    isOpen={openAccordion === 'e4'}
-                    onToggle={() => closeAccordion('e4')}
-                    starPlus="false"
-                    isOpenDefault={false} // começa fechado
-                    title="Fortuna Stellaris" // Define o titulo
-                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/fortuna-stellaris-eidolon_icon.webp?x10871"
-                    description={[
-                        "Quando outros aliados sob a Matriz da Presciência são atacados, Fu Xuan regenera 5 de Energia."
-                    ]} // Descrição Gerals
-                    rating={0}
-                />
-                <AccordionItem
-                    isOpen={openAccordion === 'e5'}
-                    onToggle={() => closeAccordion('e5')}
-                    starPlus="false"
-                    isOpenDefault={false} // começa fechado
-                    title="Arbiter Primus" // Define o titulo
-                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/arbiter-primus-eidolon_icon.webp?x10871"
-                    description={[
-                        "Ultimate Lv. +2, até um máximo de Lv. 15.<br>ATK básico Lv. +1, até um máximo de Lv. 10."
-                    ]} // Descrição Gerals
-                    rating={0}
-                />
-                <AccordionItem
-                    isOpen={openAccordion === 'e6'}
-                    onToggle={() => closeAccordion('e6')}
-                    starPlus="false"
-                    isOpenDefault={false} // começa fechado
-                    title="Omnia Vita" // Define o titulo
-                    imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/omnia-vita-eidolon_icon.webp?x10871"
-                    description={[
-                        "Uma vez que Matrix of Prescience é ativada, ela manterá uma contagem do total de HP perdido por todos os membros da equipe na batalha atual. O DMG causado pelo Ultimate de Fu Xuan aumentará em 200% dessa contagem de perda de HP.<br>Essa contagem também é limitada a 120% do HP Máximo de Fu Xuan e o valor da contagem será zerado e reacumulado após o Ultimate de Fu Xuan ser usado."
-                    ]} // Descrição Gerals
-                    rating={0}
-                />
+                </div>
+                <div className="md:w-[30%]">
+                    <AccordionItem
+                        isOpen={openAccordion === 'e2'}
+                        onToggle={() => closeAccordion('e2')}
+                        starPlus="false"
+                        isOpenDefault={false} // começa fechado
+                        title="Optimus Felix" // Define o titulo
+                        imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/optimus-felix-eidolon_icon.webp?x10871"
+                        description={[
+                            "Se qualquer membro da equipe for atingido por um golpe mortal enquanto Matrix of Prescience estiver ativo, todos os aliados que foram atingidos por um golpe mortal durante esta ação não serão derrubados, e 70% de seu HP Máx. será imediatamente restaurado. Este efeito pode ser ativado 1 vez por batalha."
+                        ]} // Descrição Gerals
+                        rating={0}
+                    />
+                </div>
+                <div className="md:w-[30%]">
+                    <AccordionItem
+                        isOpen={openAccordion === 'e3'}
+                        onToggle={() => closeAccordion('e3')}
+                        starPlus="false"
+                        isOpenDefault={false} // começa fechado
+                        title="Apex Nexus" // Define o titulo
+                        imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/apex-nexus-eidolon_icon.webp?x10871"
+                        description={[
+                            "Skill Lv. +2, up to a maximum of Lv. 15.<br>Talent Lv. +2, up to a maximum of Lv. 15."
+                        ]} // Descrição Gerals
+                        rating={0}
+                    />
+                </div>
+                <div className="md:w-[30%]">
+                    <AccordionItem
+                        isOpen={openAccordion === 'e4'}
+                        onToggle={() => closeAccordion('e4')}
+                        starPlus="false"
+                        isOpenDefault={false} // começa fechado
+                        title="Fortuna Stellaris" // Define o titulo
+                        imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/fortuna-stellaris-eidolon_icon.webp?x10871"
+                        description={[
+                            "Quando outros aliados sob a Matriz da Presciência são atacados, Fu Xuan regenera 5 de Energia."
+                        ]} // Descrição Gerals
+                        rating={0}
+                    />
+                </div>
+                <div className="md:w-[30%]">
+                    <AccordionItem
+                        isOpen={openAccordion === 'e5'}
+                        onToggle={() => closeAccordion('e5')}
+                        starPlus="false"
+                        isOpenDefault={false} // começa fechado
+                        title="Arbiter Primus" // Define o titulo
+                        imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/arbiter-primus-eidolon_icon.webp?x10871"
+                        description={[
+                            "Ultimate Lv. +2, até um máximo de Lv. 15.<br>ATK básico Lv. +1, até um máximo de Lv. 10."
+                        ]} // Descrição Gerals
+                        rating={0}
+                    /> 
+                </div>
+                <div className="md:w-[30%]">
+                    <AccordionItem
+                        isOpen={openAccordion === 'e6'}
+                        onToggle={() => closeAccordion('e6')}
+                        starPlus="false"
+                        isOpenDefault={false} // começa fechado
+                        title="Omnia Vita" // Define o titulo
+                        imageUrl="https://starrail.honeyhunterworld.com/img/eidolon/omnia-vita-eidolon_icon.webp?x10871"
+                        description={[
+                            "Uma vez que Matrix of Prescience é ativada, ela manterá uma contagem do total de HP perdido por todos os membros da equipe na batalha atual. O DMG causado pelo Ultimate de Fu Xuan aumentará em 200% dessa contagem de perda de HP.<br>Essa contagem também é limitada a 120% do HP Máximo de Fu Xuan e o valor da contagem será zerado e reacumulado após o Ultimate de Fu Xuan ser usado."
+                        ]} // Descrição Gerals
+                        rating={0}
+                    />
+                </div>
             </div>
         </>
     )
@@ -899,20 +925,25 @@ export const Skills = () => {
 
     return (
         <>
-            <div className="w-full min-h-32 py-4 px-[5%] flex flex-col items-center gap-3">
-                <h2 className="mt-2 font-semibold "> Habilidades </h2>
+            <div className="
+                w-full min-h-32 py-4 px-[5%] flex flex-col items-center gap-3
+                md:flex-row md:flex-wrap md:justify-center
+            ">
+                <h2 className="mt-2 font-semibold md:w-full md:flex md:justify-center"> Habilidades </h2>
                 {/* ATK BASIC */}
-                <div className="w-full">
-                    <h2 className="w-full h-auto my-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                <div className="w-full md:w-[45%] md:h-60 md:bg-[#26292B] md:rounded-b-xl ">
+                    <h2 className="w-full h-auto mt-2 md:m-0 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
                         ATK Básico
                     </h2>
-                    <div className="w-full flex justify-around items-center bg-black">
+                    <div className="w-full flex justify-around bg-black">
                         <span className="text-lg h-8 flex justify-center items-center ">Nivel {sliderValues.atkLevel}</span>
-                        <div className="h-8 flex justify-center items-center ">
+                        <div className="h-8 flex justify-center">
                             <DiscreteSlider valueMax={valores[0].nvlMax} onSliderChange={(newValue) => handleSliderChange("atkLevel", newValue)} />
                         </div>
                     </div>
-                    <div className={`w-full min-h-10 flex flex-col bg-[#26292B] rounded-b-xl`}>
+                    <div className={`w-full flex flex-col bg-[#26292B] rounded-b-xl
+                        md:h-40    
+                    `}>
                         <div className="flex justify-between items-center px-2 bg-[#111213]">
                             <span> Ganho de Energia: 20 </span>
                             <span> Quebra: 10</span>
@@ -920,13 +951,11 @@ export const Skills = () => {
                         <p className="px-1.5 py-0.5">
                             Causa Dano Quântico equivalente a <span className="text-pink-600">{valores[0].A[sliderValues.atkLevel - 1]}%</span> do HP Máximo de FU Xuan a um único inimigo.
                         </p>
-
-
                     </div>
                 </div>
                 {/* SKILL */}
-                <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                <div className="w-full md:w-[45%] md:h-60 md:bg-[#26292B] md:rounded-b-xl">
+                    <h2 className="w-full h-auto mt-2 md:m-0 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
                         Habilidade
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
@@ -950,8 +979,8 @@ export const Skills = () => {
                     </div>
                 </div>
                 {/* ULTIMATE */}
-                <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                <div className="w-full md:w-[45%] md:h-60 md:bg-[#26292B] md:rounded-b-xl">
+                    <h2 className="w-full h-auto mt-2 md:m-0 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
                         Ultimamte
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
@@ -972,8 +1001,8 @@ export const Skills = () => {
                     </div>
                 </div>
                 {/* TALENT */}
-                <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                <div className="w-full md:w-[45%] md:h-60 md:bg-[#26292B] md:rounded-b-xl">
+                    <h2 className="w-full h-auto mt-2 md:m-0 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
                         Talento
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
@@ -994,8 +1023,8 @@ export const Skills = () => {
                     </div>
                 </div>
                 {/* TECHNIQUE */}
-                <div className="w-full">
-                    <h2 className="w-full h-auto mt-2 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
+                <div className="w-full md:w-[90%] md:h-60 md:bg-[#26292B] md:rounded-b-xl">
+                    <h2 className="w-full h-auto mt-2 md:m-0 flex justify-center bg-[#DC1867] font-semibold rounded-t-lg">
                         Técnica
                     </h2>
                     <div className="w-full flex justify-around items-center bg-black">
@@ -1029,54 +1058,92 @@ export const Teams = () => {
         setOpenAccordion(prev => prev === id ? null : id)
     }
 
+    const Width = window.innerWidth
+
     return (
-        <div className="w-full min-h-32 py-4 px-[5%] flex flex-col items-center font-semibold">
-            <div className="w-full min-h-40 flex justify-center items-center flex-wrap">
-                <h2 className="w-full flex justify-center">Equipes Recomendadas</h2>
-                <img
-                    className="w-28 h-28 my-5"
+        <div className="
+            w-full min-h-32 py-4 px-[5%] flex flex-col items-center font-semibold
+            md:flex-row md:flex-wrap md:p-[2.5%]
+        ">
+            <h2 className="w-full flex justify-center">Equipes Recomendadas</h2>
+            <div className="
+                w-full min-h-40 flex justify-center items-center flex-wrap
+                md:w-1/3 md:h-80 md:border-r md:border-[#26292B]
+            ">
+                <img className="
+                    w-28 h-28 my-5
+                    md:w-44 md:h-44
+                "
                     src={exampleprofile}
                     alt="Character"
                 />
 
             </div>
-            <div className="w-full my-2.5 flex ">
+            <div className="
+                w-full my-2.5 flex
+                md:w-2/3 md:flex-row md:flex-wrap
+            ">
                 {/* F2P */}
-                <div className="w-1/2 min-h-40 flex flex-col items-center">
-                    <h2> F2P </h2>
-                    <hr className="w-full border-[#26292B] mb-5" />
-                    <div className="flex flex-col items-center font-light">
+                <div className="
+                    w-full min-h-40 flex flex-col items-center
+                    md:w-full md:h-1/2 md:flex-row md:justify-around md:flex-wrap
+                ">
+                    <h2 className="md:w-full md:flex md:justify-center"> F2P </h2>
+                    <hr className="w-full border-[#26292B] mb-5 md:hidden" />
+                    <div className="flex flex-col items-center font-light
+                        md:1/4 
+                    ">
                         <img
-                            className="w-20 h-20"
+                            className="
+                                w-20 h-20
+                                md:w-28 md:h-28    
+                            "
                             src={ep1}
                             alt="Character 1"
                         />
                         <span>Buffer</span>
                     </div>
-                    <div className="flex flex-col items-center font-light">
+                    <div className="flex flex-col items-center font-light
+                        md:1/4 
+                    ">
                         <img
-                            className="w-20 h-20"
+                            className="
+                                w-20 h-20
+                                md:w-28 md:h-28    
+                            "
                             src={ep2}
                             alt="Character 2"
                         />
                         <span>Escudo</span>
                     </div>
-                    <div className="flex flex-col items-center font-light">
+                    <div className="flex flex-col items-center font-light
+                        md:1/4 
+                    ">
                         <img
-                            className="w-20 h-20"
+                            className="
+                                w-20 h-20
+                                md:w-28 md:h-28    
+                            "
                             src={ep3}
                             alt="Character 3"
                         />
                         <span>Cura</span>
                     </div>
                 </div>
+                <hr className="md:w-[90%] md:border-[#26292B] md:my-3" />
                 {/* MELHOR TIME */}
-                <div className="w-1/2 min-h-40 flex flex-col items-center">
-                    <h2> Melhor Time </h2>
-                    <hr className="w-full border-[#26292B] mb-5" />
+                <div className="
+                    w-full min-h-40 flex flex-col items-center
+                    md:w-full md:h-1/2 md:flex-row md:justify-around md:flex-wrap
+                ">
+                    <h2 className="md:hidden"> Melhor Time </h2>
+                    <hr className="w-full border-[#26292B] mb-5 md:hidden" />
                     <div className="flex flex-col items-center font-light">
                         <img
-                            className="w-20 h-20"
+                            className="
+                                w-20 h-20
+                                md:w-28 md:h-28
+                            "
                             src={ep4}
                             alt="Character 4"
                         />
@@ -1084,7 +1151,10 @@ export const Teams = () => {
                     </div>
                     <div className="flex flex-col items-center font-light">
                         <img
-                            className="w-20 h-20"
+                            className="
+                                w-20 h-20
+                                md:w-28 md:h-28
+                            "
                             src={ep5}
                             alt="Character 5"
                         />
@@ -1092,17 +1162,21 @@ export const Teams = () => {
                     </div>
                     <div className="flex flex-col items-center font-light">
                         <img
-                            className="w-20 h-20"
+                            className="
+                                w-20 h-20
+                                md:w-28 md:h-28
+                            "
                             src={ep6}
                             alt="Character 6"
                         />
                         <span>Escudo</span>
                     </div>
+                    <h2 className="md:w-full md:flex md:justify-center"> Melhor Time </h2>
 
                 </div>
             </div>
-            <hr className="w-[95%] border-[#26292B] mb-5" />
-            <div className="flex flex-col  gap-5">
+            <hr className="w-[95%] border-[#26292B] mb-5 md:w-full md:my-5" />
+            <div className="flex flex-col  gap-5 border md:hidden">
                 <h2 className="w-full flex justify-center">Outras Opções</h2>
                 <AccordionItem
                     isOpen={openAccordion === 't1'}
@@ -1135,7 +1209,7 @@ export const Teams = () => {
                     imageUrl=""
                     description={
                         [
-                            <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white">
+                            <div key="image-description" className="w-72 flex justify-start items-center flex-wrap gap-16 text-white md:hidden">
                                 <img className="w-16 h-16" src={ep7} alt="" />
                                 <h3 className="text-[1rem] font-semibold"> Gepard </h3>
                             </div>
@@ -1149,7 +1223,153 @@ export const Teams = () => {
                     rating={0}
                 />
             </div>
-
+            <div className={`md:w-full md:flex md:flex-wrap md:justify-center md:gap-5 ${Width < 768 ? 'hidden':''}`}>
+                <h2 className="md:w-full md:flex md:justify-center">Outras Opções</h2>
+                {/* 1ª Coluna - Debuffer */}
+                <div className="md:w-[30%] md:flex md:justify-around md:py-2 border-t border-[#DC1867]">
+                    <div className="flex flex-col items-center font-light">
+                        <span>Debuffer</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep4}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Debuffer</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep4}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Debuffer</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep4}
+                            alt="Character 4"
+                        />
+                    </div>
+                </div>  
+                {/* 2ª Coluna - Cura */}
+                <div className="md:w-[30%] md:flex md:justify-around md:py-2 border-t border-[#DC1867]">
+                    <div className="flex flex-col items-center font-light">
+                        <span>Cura</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep3}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Cura</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep3}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Cura</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep3}
+                            alt="Character 4"
+                        />
+                    </div>
+                </div>
+                  {/* 3ª Coluna - Buffer */}
+                <div className="md:w-[30%] md:flex md:justify-around md:py-2 border-t border-[#DC1867]">
+                    <div className="flex flex-col items-center font-light">
+                        <span>DPS</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep7}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>DPS</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep7}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>DPS</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep7}
+                            alt="Character 4"
+                        />
+                    </div>
+                </div>  
+                {/* 4ª Coluna - Debuffer */}
+                <div className="md:w-[30%] md:flex md:justify-around md:py-2 border-t border-[#DC1867]">
+                    <div className="flex flex-col items-center font-light">
+                        <span>Buffer</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep1}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Buffer</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep1}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Buffer</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep1}
+                            alt="Character 4"
+                        />
+                    </div>
+                </div>  
+                {/* 5ª Coluna - Cura */}
+                <div className="md:w-[30%] md:flex md:justify-around md:py-2 border-t border-[#DC1867]">
+                    <div className="flex flex-col items-center font-light">
+                        <span>Escudo</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep2}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Escudo</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep2}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Escudo</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep2}
+                            alt="Character 4"
+                        />
+                    </div>
+                </div>
+                  {/* 6ª Coluna - Buffer */}
+                <div className="md:w-[30%] md:flex md:justify-around md:py-2 border-t border-[#DC1867]">
+                    <div className="flex flex-col items-center font-light">
+                        <span>Sub DPS</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep6}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Sub DPS</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep6}
+                            alt="Character 4"
+                        />
+                    </div>
+                    <div className="flex flex-col items-center font-light">
+                        <span>Sub DPS</span>
+                        <img className=" w-20 h-20 md:w-20 md:h-20"
+                            src={ep6}
+                            alt="Character 4"
+                        />
+                    </div>
+                </div>  
+            </div>
         </div>
     )
 }

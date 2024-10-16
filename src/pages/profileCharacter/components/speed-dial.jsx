@@ -16,10 +16,10 @@ export default function SpeedDial() {
 
     return (
 
-        <div data-dial-init class="fixed end-0.5 bottom-28 group z-20">
+        <div data-dial-init class="fixed end-0.5 bottom-2 group z-20 md:-end-0.5">
             <div 
                 id="speed-dial-menu-default" 
-                class={`${isClicked ? "" : "invisible translate-y-60 opacity-0 scale-0"} transition duration-150 bg-[#111213]/[0.8] flex flex-col items-center mb-4 p-2 space-y-2 rounded-lg border`}
+                class={`${isClicked ? "" : "translate-y-96 opacity-0 scale-0"} transition duration-150 bg-[#111213]/[0.8] flex flex-col items-center mb-4 p-2 space-y-2 rounded-lg border md:mr-6`}
             >
                 <button  type="button" data-tooltip-target="tooltip-share" data-tooltip-placement="left" class="w-auto h-auto flex justify-center items-center text-[#F5F5F5] hover:text-[#DC1867] "
                     onClick={() => scrollToSection("perfil")}

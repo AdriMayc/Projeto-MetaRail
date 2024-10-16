@@ -54,8 +54,11 @@ const CharList = ({ selectedPath, selectedElem, selectedStar }) => {
           md:w-48 md:h-52
         `}
         >
-          <span className='w-6 h-6 absolute'>
+          <span className='w-6 h-6 absolute md:w-8 md:h-8 md:bg-black/10 md:rounded-xl'>
             <img src={char.combatTypeIcon} alt="" />
+          </span>
+          <span className='w-6 h-6 absolute md:w-8 md:h-8 md:bg-white/5 md:rounded-xl right-0'>
+            <img src={char.pathIcon} alt="" />
           </span>
           <img src={char.charIcon} alt={char.nameEnglish} className={`w-full h-full object-cover bg-gradient-to-t ${char.stars == 4 ? "from-purple-500" : "from-yellow-500"}`} />
           
@@ -69,7 +72,7 @@ const CharList = ({ selectedPath, selectedElem, selectedStar }) => {
           </span>
           <span 
             className='
-              w-full h-auto absolute z-20 bottom-0 flex justify-center text-sm text-white font-semibold font-sans bg-transparent opacity-100
+              w-full h-auto absolute z-10 bottom-0 flex justify-center text-sm text-white font-semibold font-sans bg-transparent opacity-100
               md:h-8 md:text-2xl md:bottom-0
             '>
               <span className='text-white opacity-100'>{char.nameEnglish}</span>

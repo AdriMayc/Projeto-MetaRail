@@ -4,7 +4,7 @@ const profileCharacter = () => {
 
     return (
         <body className="pt-24  bg-[#111213]  overflow-y-hidden text-white ">
-            <div className="relative h-full w-auto my-5 mx-5  bg-[#111213] border border-[#26292B] flex flex-col  items-center  rounded-[1.7rem]">
+            <div className="relative h-full w-auto my-5  bg-[#111213] border border-[#26292B] flex flex-col  items-center  rounded-[1.7rem]">
 
                 <div className="flex flex-col md:flex md:flex-row  md:w-full">
                    <Introdution />

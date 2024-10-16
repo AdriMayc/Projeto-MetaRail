@@ -73,21 +73,23 @@ export default function personagens() {
 				<div
 					className="
                     w-full h-48 my-2 flex items-center border-b border-[#26292B]
-                    md-w-full md:h-[10rem] md:flex md:my-2 md:items-center
+                    md:w-full md:h-60 md:m-0 md:flex md:my-2 md:items-center
                 ">
-				<div className="w-full h-full flex md:flex md:justify-center md:items-center">
-					<div className="w-64 flex justify-center items-center">
-						<img 
-							className="w-32 h-32"
-							src={updateGirl} 
-							alt="Imagem de uma personagem"
-						/>
+					<div className="w-full h-full flex 
+						md:flex md:justify-center md:items-center
+					">
+						<div className="w-64 flex justify-center items-center md:w-72 md-auto">
+							<img 
+								className="w-32 h-32 md:w-48 md:h-48"
+								src={updateGirl} 
+								alt="Imagem de uma personagem"
+							/>
+						</div>
+						<div className=" w-full flex flex-col justify-center items-start md:w-96 md:text-xl">
+							<span className="w-full text-[20px] font-semibold font-sans md:text-[40px]">Honkai: Star Rail</span>
+							<span className="w-full flex md:my-2">Atualizado: <i className="mx-1 text-[#DC1867]">00/00/2024</i></span>
+						</div>
 					</div>
-					<div className=" w-full flex flex-col justify-center items-start md:w-80 md:border">
-						<span className="w-full text-[20px] font-semibold font-sans">Honkai: Star Rail</span>
-						<span className="w-full flex">Atualizado: <i className="mx-1 text-[#DC1867]">00/00/2024</i></span>
-					</div>
-				</div>
 				</div>
 				{/* Filtros */}
 				<div
